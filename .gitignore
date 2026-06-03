@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# macOS Finder duplicate files (Cmd-D)
+* 2.md
+* 2.txt
+* 2.json
+* 2.png
+
+# Local editor / tooling cache
+.vscode/
+.idea/
+.gstack/
