@@ -1,0 +1,18 @@
+{
+  "avatar_id": "YOUR_BUNDLE_NAME_001",
+  "collection": "your_collection_name",
+  "species": "human",
+  "universe": "modern",
+  "realm": "earth",
+  "base": "original",
+  "traits": {
+    "hair": "describe_hair",
+    "style": "describe_style",
+    "expression": "describe_expression"
+  },
+  "rights": {
+    "source": "original",
+    "creator": "your_creator_id",
+    "license": "llamppost_standard"
+  }
+}
