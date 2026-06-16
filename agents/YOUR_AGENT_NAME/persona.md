@@ -1,17 +1,17 @@
 <!--
-  說明（套裝模板）：
-  1. 複製整個 bundles/YOUR_BUNDLE_NAME/ 資料夾，改成你自己的 bundle 名稱
+  說明（Agent 模板）：
+  1. 複製整個 agents/YOUR_AGENT_NAME/ 資料夾，改成你自己的 agent 名稱
   2. 同步改三份檔案內的 ID（persona_id / skill_id / avatar_id）
-  3. 雙向綁定欄位（bundled_skills / compatible_personas）已預填好，改 ID 時兩邊要對稱
+  3. 雙向綁定欄位（agent_skills / compatible_personas）已預填好，改 ID 時兩邊要對稱
   4. 填寫下方各區塊，刪掉所有開頭為 # 與此說明區塊
   5. 透過 Creator Portal 送出
 
   重要：
-  - YOUR_BUNDLE_NAME 是保留前綴，Portal 會拒絕
+  - YOUR_AGENT_NAME 是保留前綴，Portal 會拒絕
   - 完整欄位說明請見 docs/persona-template.md
 -->
 ---
-persona_id: YOUR_BUNDLE_NAME              # 改成你的 persona ID（英文小寫 + 底線）
+persona_id: YOUR_AGENT_NAME              # 改成你的 persona ID（英文小寫 + 底線）
 name: 你的 Persona 顯示名稱
 profession: ops                            # 見 docs/persona-template.md 的 profession 清單
 one_liner: 一句話描述這個角色的個性或定位（40 字以內）
@@ -26,10 +26,10 @@ languages:
 # ≥100  = 付費上架（自訂價格，無上限）
 base_price: 0
 
-# ── 雙向綁定（套裝必填，已預填）──────────────────
+# ── 雙向綁定（Agent 必填，已預填）──────────────────
 # 改 ID 時，這裡的值要跟 SKILL.md 的 skill_id 對齊
-bundled_skills:
-  - YOUR_BUNDLE_NAME_skill                 # ← 對到 SKILL.md 的 skill_id
+agent_skills:
+  - YOUR_AGENT_NAME_skill                 # ← 對到 SKILL.md 的 skill_id
 
 allowed_skill_categories:
   - ops

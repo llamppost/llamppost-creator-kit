@@ -26,7 +26,7 @@
    - Avatar → `docs/avatar-creation-spec.md`
    - Skill → `docs/skill-template.md` + `skills/YOUR_SKILL_NAME/SKILL.md` + `skills/EXAMPLE_social_marketing_post_ideas/SKILL.md`
    - Persona → `docs/persona-template.md` + `personas/YOUR_AGENT_NAME/persona.md` + `personas/EXAMPLE_pi_lang/persona.md`
-   - 套裝（全套）→ `bundles/YOUR_BUNDLE_NAME/` 整包（README.md + persona.md + SKILL.md + avatar/metadata.json）+ 上面三組
+   - Agent（全套）→ `agents/YOUR_AGENT_NAME/` 整包（README.md + persona.md + SKILL.md + avatar/metadata.json）+ 上面三組
 2. 再複製對應的 Prompt 貼到對話
 3. AI 會根據你貼的檔案內容與規則對你發問
 
@@ -187,10 +187,10 @@
 
 請先讀以下檔案了解規則（如果你是本地 AI）：
 - README.md（特別是「重要：資料夾與 ID 必須是英文」區塊）
-- docs/listing-ready-v1.md（上架指南全貌——特別是「發佈套裝」段落）
+- docs/listing-ready-v1.md（上架指南全貌——特別是「發佈 Agent」段落）
 - docs/persona-template.md、docs/skill-template.md、docs/avatar-creation-spec.md
-- bundles/YOUR_BUNDLE_NAME/README.md（套裝模板使用說明 + 雙向綁定範例）
-- bundles/YOUR_BUNDLE_NAME/persona.md + SKILL.md + avatar/metadata.json（空白套裝模板）
+- agents/YOUR_AGENT_NAME/README.md（Agent 模板使用說明 + 雙向綁定範例）
+- agents/YOUR_AGENT_NAME/persona.md + SKILL.md + avatar/metadata.json（空白 Agent 模板）
 - personas/EXAMPLE_pi_lang/persona.md（完整 Persona 範例）
 - skills/EXAMPLE_social_marketing_post_ideas/SKILL.md（完整 Skill 範例）
 
@@ -223,7 +223,7 @@
 
 **重要（雙向綁定）**：
 - 這個 Skill 的 compatible_personas 欄位必須包含剛才定義的 Persona 的 persona_id
-- Persona 的 bundled_skills 欄位也必須包含這個 Skill 的 skill_id
+- Persona 的 agent_skills 欄位也必須包含這個 Skill 的 skill_id
 - 兩邊必須同時更新，Portal 會驗證對稱性
 
 輸出後等我 review，我說 OK 再進階段 4。
@@ -241,9 +241,9 @@
 ===== 最後：總覽 =====
 
 四個階段都完成後，請輸出一份上架前檢查總覽：
-- 完整套裝資料夾結構（bundles/<bundle_name>/persona.md + SKILL.md + avatar/metadata.json）
-- 建議的 bundle 資料夾路徑（例如 `bundles/night_wolf_strategist/`）
-- 雙向綁定確認（Persona.bundled_skills ↔ Skill.compatible_personas）
+- 完整 Agent 資料夾結構（agents/<agent_name>/persona.md + SKILL.md + avatar/metadata.json）
+- 建議的 agent 資料夾路徑（例如 `agents/night_wolf_strategist/`）
+- 雙向綁定確認（Persona.agent_skills ↔ Skill.compatible_personas）
 - 語氣一致性檢查（三份檔案讀起來像同一個角色嗎？）
 - 上架前的最終檢查清單
 
@@ -251,8 +251,8 @@
 - persona_id、skill_id、avatar_id、資料夾名稱都必須**英文小寫 + 數字 + 底線**
 - 不可使用 EXAMPLE_ 或 YOUR_ 前綴
 - 三個 ID 建議用共同前綴讓它們看起來是一組（例如 `night_wolf_strategist` / `night_wolf_strategist_skill` / `night_wolf_strategist_001`）
-- Persona ↔ Skill 的 bundled_skills ↔ compatible_personas 必須雙向綁定
-- 套裝必須三者都齊（Persona + Skill + Avatar）。沒有 Avatar 不能以套裝上架——告訴我要拆成單品還是先生成 Avatar
+- Persona ↔ Skill 的 agent_skills ↔ compatible_personas 必須雙向綁定
+- Agent 必須三者都齊（Persona + Skill + Avatar）。沒有 Avatar 不能以 Agent 上架——告訴我要拆成單品還是先生成 Avatar
 - 三個檔案的語氣、設定、世界觀必須一致
 - 每一階段結束都要等我確認才進下一階段——不要一口氣全部生出來
 - base_price 只允許 `0` 或 `≥100`（1–99 會被 Portal 拒絕）
@@ -281,7 +281,7 @@
 - [ ] 沒有 `EXAMPLE_` 或 `YOUR_` 前綴
 - [ ] 必填欄位沒有任何一個留空或留著模板預設值
 - [ ] `base_price` 是 `0` 或 `≥100`
-- [ ] 如果是 Persona + Skill 綁定組合（套裝），雙向綁定都寫好了
-- [ ] 套裝上架時，`avatar/avatar.png` 已補上（不是只剩 placeholder）
+- [ ] 如果是 Persona + Skill 綁定組合（Agent），雙向綁定都寫好了
+- [ ] Agent 上架時，`avatar/avatar.png` 已補上（不是只剩 placeholder）
 - [ ] 語言切換區塊（multi-language header）沒有打到翻譯的斷層
 - [ ] 沒有 AI 硬塞進去的「希望這有幫助」這類客套話殘留

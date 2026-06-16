@@ -1,19 +1,19 @@
-# 套裝上架（Bundle）
+# Agent 上架
 
-> 「套裝」= Persona + Skill + Avatar 三者打包，使用者一次入手完整角色商品。
+> 「Agent」= Persona + Skill + Avatar 三者打包成一個 Agent，使用者一次入手完整角色商品。
 
-這份資料夾是套裝上架的空白模板。**孵化器產出的格式跟這份結構 1:1 對齊**——孵化器跑完丟出來的就是這個樣子，只是 `avatar/` 預設是空的，你需要補上自己的 `avatar.png` 才能以套裝上架。
+這份資料夾是 Agent 上架的空白模板。**孵化器產出的格式跟這份結構 1:1 對齊**——孵化器跑完丟出來的就是這個樣子，只是 `avatar/` 預設是空的，你需要補上自己的 `avatar.png` 才能以 Agent 上架。
 
 ---
 
-## 套裝 vs 單品
+## Agent vs 單品
 
-| | 套裝（這個資料夾） | 單品 |
+| | Agent（這個資料夾） | 單品 |
 |---|---|---|
 | 內容 | Persona + Skill + Avatar（三者必備） | Persona、Skill、Avatar 任選一 |
 | 雙向綁定 | 預先綁好，使用者一次安裝 | 不適用 |
 | 適合場景 | 你做了一個完整角色（人格 + 招牌技能 + 視覺） | 你只有其中一件想試水溫 |
-| 模板位置 | `bundles/YOUR_BUNDLE_NAME/` | `personas/YOUR_AGENT_NAME/`、`skills/YOUR_SKILL_NAME/` |
+| 模板位置 | `agents/YOUR_AGENT_NAME/` | `personas/YOUR_AGENT_NAME/`、`skills/YOUR_SKILL_NAME/` |
 
 ---
 
@@ -22,11 +22,11 @@
 ### 1. 複製這整個資料夾並改名
 
 ```
-複製：   bundles/YOUR_BUNDLE_NAME/
-改名：   bundles/your_bundle_name/    ← 英文小寫 + 底線
+複製：   agents/YOUR_AGENT_NAME/
+改名：   agents/your_agent_name/    ← 英文小寫 + 底線
 ```
 
-例如：`bundles/night_wolf_strategist/`
+例如：`agents/night_wolf_strategist/`
 
 ### 2. 改三份檔案內的 ID（必須對應）
 
@@ -44,12 +44,12 @@
 
 ### 3. 雙向綁定 — 已預填，改 ID 時兩邊要同步
 
-`persona.md` 的 `bundled_skills:` 與 `SKILL.md` 的 `compatible_personas:` 必須對稱。Portal 會驗證——錯一邊就拒絕。
+`persona.md` 的 `agent_skills:` 與 `SKILL.md` 的 `compatible_personas:` 必須對稱。Portal 會驗證——錯一邊就拒絕。
 
 ```yaml
 # persona.md
 persona_id: night_wolf_strategist
-bundled_skills:
+agent_skills:
   - night_wolf_strategist_skill   ← 對到 SKILL.md 的 skill_id
 
 # SKILL.md
@@ -74,11 +74,11 @@ compatible_personas:
 
 ---
 
-## 孵化器產出的套裝
+## 孵化器產出的 Agent
 
-如果你是從孵化器拿到套裝雛形：
+如果你是從孵化器拿到 Agent 雛形：
 
-1. 解壓到 `bundles/<你的_bundle_name>/`
+1. 解壓到 `agents/<你的_agent_name>/`
 2. 主要欄位（行為描述、句子範例、對話、workflow）已預填——你只需要調語氣讓它更像「你的」角色
 3. `avatar/` 是空的，你必須補上 `avatar.png`
 4. 雙向綁定已預先寫好，你只需要把 ID 改成自己的英文小寫名稱

@@ -5,7 +5,7 @@
 這份文件說明如何填寫 Persona 模板。實際要編輯的檔案視你上架方式而定：
 
 - **單品上架**：複製 `personas/YOUR_AGENT_NAME/` → 改名 → 填裡面的 `persona.md`
-- **套裝上架**（Persona + Skill + Avatar 三合一）：複製 `bundles/YOUR_BUNDLE_NAME/` → 裡面 `persona.md` 已預填好雙向綁定
+- **Agent 上架**（Persona + Skill + Avatar 三合一）：複製 `agents/YOUR_AGENT_NAME/` → 裡面 `persona.md` 已預填好雙向綁定
 
 完整填寫範例請見 `personas/EXAMPLE_pi_lang/persona.md`。
 
@@ -31,7 +31,7 @@
 **保留前綴**：這份 kit 內有兩種保留前綴，你的真實上架**都不可以**使用——Portal 會拒絕：
 
 - **`EXAMPLE_`**：參考範例檔案，只供閱讀（例如 `EXAMPLE_pi_lang`）——不要複製這種資料夾。
-- **`YOUR_`**：空白模板（`YOUR_AGENT_NAME/`、`YOUR_BUNDLE_NAME/`），設計來給你複製改名的——複製後**務必**把資料夾與 `persona_id` 改成你自己的英文小寫 ID。
+- **`YOUR_`**：空白模板（`YOUR_AGENT_NAME/`），設計來給你複製改名的——複製後**務必**把資料夾與 `persona_id` 改成你自己的英文小寫 ID。
 
 ---
 
@@ -73,22 +73,22 @@ base_price: 980     # NT$ 980
 
 ---
 
-### `bundled_skills`（套裝必填、單品選填）
+### `agent_skills`（Agent 必填、單品選填）
 
-如果這個 persona 要跟特定 skill 一起 bundle 賣，把它們的 `skill_id` 列在這裡。每一個列出的 skill 必須：
+如果這個 persona 要跟特定 skill 一起打包成 Agent 賣，把它們的 `skill_id` 列在這裡。每一個列出的 skill 必須：
 
 1. 存在於你的創作者帳號
 2. 在該 skill 的 `compatible_personas` 欄位裡也列出這個 persona 的 `persona_id`（Portal 會驗證兩邊對稱）
 
 ```yaml
-bundled_skills:
+agent_skills:
   - weekly_report_writer
   - quarterly_planning_kit
 ```
 
 如果 persona 是獨立銷售，留 `[]`（空陣列）即可。
 
-> **套裝模板：** 如果你要上架完整套裝（Persona + Skill + Avatar），用 `bundles/YOUR_BUNDLE_NAME/` 模板——雙向綁定已預填好，比兩個單品資料夾來回對齊容易得多。
+> **Agent 模板：** 如果你要上架完整 Agent（Persona + Skill + Avatar），用 `agents/YOUR_AGENT_NAME/` 模板——雙向綁定已預填好，比兩個單品資料夾來回對齊容易得多。
 
 ---
 
@@ -262,7 +262,7 @@ languages:
 
 base_price: 0
 
-bundled_skills:
+agent_skills:
   - weekly_report_writer
 
 allowed_skill_categories:

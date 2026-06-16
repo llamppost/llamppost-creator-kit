@@ -5,7 +5,7 @@
 這份文件說明如何填寫 Skill 模板。實際要編輯的檔案視你上架方式而定：
 
 - **單品上架**：複製 `skills/YOUR_SKILL_NAME/` → 改名 → 填裡面的 `SKILL.md`
-- **套裝上架**（Persona + Skill + Avatar 三合一）：複製 `bundles/YOUR_BUNDLE_NAME/` → 裡面 `SKILL.md` 已預填好雙向綁定
+- **Agent 上架**（Persona + Skill + Avatar 三合一）：複製 `agents/YOUR_AGENT_NAME/` → 裡面 `SKILL.md` 已預填好雙向綁定
 
 完整填寫範例請見 `skills/EXAMPLE_social_marketing_post_ideas/`。
 
@@ -31,7 +31,7 @@
 **保留前綴**：這份 kit 內有兩種保留前綴，你的真實上架**都不可以**使用——Portal 會拒絕：
 
 - **`EXAMPLE_`**：參考範例檔案，只供閱讀（例如 `EXAMPLE_social_marketing_post_ideas`）——不要複製這種資料夾。
-- **`YOUR_`**：空白模板（`YOUR_SKILL_NAME/`、`YOUR_BUNDLE_NAME/`），設計來給你複製改名的——複製後**務必**把資料夾與 `skill_id` 改成你自己的英文小寫 ID。
+- **`YOUR_`**：空白模板（`YOUR_SKILL_NAME/`、`YOUR_AGENT_NAME/`），設計來給你複製改名的——複製後**務必**把資料夾與 `skill_id` 改成你自己的英文小寫 ID。
 
 ---
 
@@ -47,7 +47,7 @@
 | `languages` | YAML | 是 | skill 運作的語言 BCP-47 代碼 |
 | `base_price` | YAML | 是 | NT$，`0`（免費）或 `≥100` |
 | `script_mode` | YAML | 是 | 見下方說明 |
-| `compatible_personas` | YAML | 套裝必填、單品選填 | 綁定的 Persona ID |
+| `compatible_personas` | YAML | Agent 必填、單品選填 | 綁定的 Persona ID |
 | What this skill does | Body | 是 | 3–5 句描述 |
 | Workflow | Body | 是 | 3–7 個步驟 |
 | What User needs to provide | Body | 是 | 條列 |
@@ -177,9 +177,9 @@ base_price: 180     # NT$ 180
 
 ---
 
-### `compatible_personas`（套裝必填、單品選填）
+### `compatible_personas`（Agent 必填、單品選填）
 
-如果這個 skill 是要跟某個 Persona bundle 一起賣的，把它要配對的 `persona_id` 列在這裡。Portal 會驗證每一個 persona 的 `bundled_skills` 欄位也要列出這個 skill——兩邊必須一致。
+如果這個 skill 是要跟某個 Persona 一起打包成 Agent 出貨的，把它要配對的 `persona_id` 列在這裡。Portal 會驗證每一個 persona 的 `agent_skills` 欄位也要列出這個 skill——兩邊必須一致。
 
 ```yaml
 compatible_personas:
@@ -188,7 +188,7 @@ compatible_personas:
 
 如果這個 skill 是獨立銷售，這個欄位可以省略或設為 `[]`。
 
-> **套裝模板：** 如果你要上架完整套裝（Persona + Skill + Avatar），用 `bundles/YOUR_BUNDLE_NAME/` 模板——雙向綁定已預填好，比兩個單品資料夾來回對齊容易得多。
+> **Agent 模板：** 如果你要上架完整 Agent（Persona + Skill + Avatar），用 `agents/YOUR_AGENT_NAME/` 模板——雙向綁定已預填好，比兩個單品資料夾來回對齊容易得多。
 
 ---
 
