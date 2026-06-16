@@ -45,7 +45,7 @@ base_price: 0
 # model_fidelity:
 #   claude-opus-4-6: canon        # canon | compatible | lite | untested
 
-bundled_skills: []                # Skills bundled with this persona — leave [] if standalone
+agent_skills: []                # Skills packaged into an Agent with this persona — leave [] if standalone
 
 allowed_skill_categories:         # Skill categories this persona pairs well with (multi-select)
   - ops

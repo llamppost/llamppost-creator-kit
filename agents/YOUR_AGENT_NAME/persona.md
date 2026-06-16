@@ -1,17 +1,17 @@
 <!--
-  Instructions (bundle template):
-  1. Copy the entire bundles/YOUR_BUNDLE_NAME/ folder and rename to your bundle name
+  Instructions (Agent template):
+  1. Copy the entire agents/YOUR_AGENT_NAME/ folder and rename to your agent name
   2. Sync the IDs across all three files (persona_id / skill_id / avatar_id)
-  3. The bidirectional binding fields (bundled_skills / compatible_personas) are pre-filled — keep them mirrored when you change IDs
+  3. The bidirectional binding fields (agent_skills / compatible_personas) are pre-filled — keep them mirrored when you change IDs
   4. Fill in the sections below, remove all lines starting with # and this instruction block
   5. Submit through Creator Portal
 
   Important:
-  - YOUR_BUNDLE_NAME is a reserved prefix; Portal will reject listings using it
+  - YOUR_AGENT_NAME is a reserved prefix; Portal will reject listings using it
   - For full field reference, see docs/persona-template.md
 -->
 ---
-persona_id: YOUR_BUNDLE_NAME              # Change to your persona ID (lowercase English + underscores)
+persona_id: YOUR_AGENT_NAME              # Change to your persona ID (lowercase English + underscores)
 name: Your Persona Display Name
 profession: ops                            # See profession list in docs/persona-template.md
 one_liner: One sentence describing this character's personality or role (under 40 chars)
@@ -26,10 +26,10 @@ languages:
 # ≥100  = paid listing (set your own price, no cap)
 base_price: 0
 
-# ── Bidirectional binding (required for bundles, pre-filled) ──
+# ── Bidirectional binding (required for Agents, pre-filled) ──
 # When you change the ID, keep this value aligned with SKILL.md's skill_id
-bundled_skills:
-  - YOUR_BUNDLE_NAME_skill                 # ← matches SKILL.md's skill_id
+agent_skills:
+  - YOUR_AGENT_NAME_skill                 # ← matches SKILL.md's skill_id
 
 allowed_skill_categories:
   - ops

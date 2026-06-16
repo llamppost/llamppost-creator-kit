@@ -4,7 +4,7 @@ Language: English | [繁體中文](https://github.com/illushane/llamppost-creato
 
 This guide walks you step by step through publishing your first listing. You don't need everything ready at once — **just pick one and start**.
 
-> **Want AI to help fill out the templates?** Copy a ready-made prompt from [docs/ai-prompts.md](ai-prompts.md) into Claude / ChatGPT / Gemini — Avatar / Skill / Persona / full bundle, all four are there.
+> **Want AI to help fill out the templates?** Copy a ready-made prompt from [docs/ai-prompts.md](ai-prompts.md) into Claude / ChatGPT / Gemini — Avatar / Skill / Persona / full Agent, all four are there.
 
 ---
 
@@ -15,7 +15,7 @@ Read this before you start — there are no exceptions to this rule.
 Our system **only understands English identifiers**. Even if you write your persona and skill content in Traditional Chinese, Japanese, or any other language, the following MUST always be English:
 
 - All `*_id` fields (`skill_id`, `persona_id`, `avatar_id`, `creator`, etc.)
-- All folder names (`personas/<folder>`, `skills/<folder>`, `bundles/<folder>`, `avatars/<folder>`)
+- All folder names (`personas/<folder>`, `skills/<folder>`, `agents/<folder>`, `avatars/<folder>`)
 - Format: **lowercase English letters + digits + underscores (`_`)** — no spaces, no uppercase, no hyphens, no non-English characters
 
 **Examples:**
@@ -24,7 +24,7 @@ Our system **only understands English identifiers**. Even if you write your pers
 |---------|---------|
 | `persona_id: pi_lang` | `persona_id: 派狼` |
 | `skills/weekly_report_writer/` | `skills/週報生成器/` |
-| `bundles/night_wolf_strategist/` | `bundles/夜狼戰略師/` |
+| `agents/night_wolf_strategist/` | `agents/夜狼戰略師/` |
 | `avatar_id: night_wolf_001` | `avatar_id: Night-Wolf-001` |
 
 Your persona's **display name** (the `name` field, e.g., `name: 派狼`), all body content, dialogues, sentence examples — these CAN and SHOULD be in your persona's actual operating language. The system only uses folder names and `*_id` fields for identification and routing, so those must be English.
@@ -32,7 +32,7 @@ Your persona's **display name** (the `name` field, e.g., `name: 派狼`), all bo
 **Reserved prefixes**: This kit has two reserved prefixes. Your real listings MUST NOT use either — Portal will reject them:
 
 - **`EXAMPLE_`**: reference example files, read-only (e.g., `EXAMPLE_pi_lang`, `EXAMPLE_social_marketing_post_ideas`) — do NOT copy folders with this prefix.
-- **`YOUR_`**: blank templates (e.g., `YOUR_AGENT_NAME`, `YOUR_SKILL_NAME`, `YOUR_BUNDLE_NAME`) designed to be copied and renamed — after copying, you MUST rename both the folder and the `*_id` to your own English lowercase ID.
+- **`YOUR_`**: blank templates (e.g., `YOUR_AGENT_NAME`, `YOUR_SKILL_NAME`) designed to be copied and renamed — after copying, you MUST rename both the folder and the `*_id` to your own English lowercase ID.
 
 ---
 
@@ -46,14 +46,14 @@ Your persona's **display name** (the `name` field, e.g., `name: 派狼`), all bo
 | **Template** | `personas/YOUR_AGENT_NAME/` or `skills/YOUR_SKILL_NAME/` |
 | **Notes** | All three can ship independently; users install one at a time |
 
-### Bundle (Persona + Skill + Avatar in one)
+### Agent (Persona + Skill + Avatar in one)
 
 | | |
 |---|---|
 | **For** | You built a complete character (personality + signature skill + visual) and want to package it all together |
-| **Template** | `bundles/YOUR_BUNDLE_NAME/` (contains three files with bidirectional binding pre-filled + an `avatar/` subfolder) |
+| **Template** | `agents/YOUR_AGENT_NAME/` (contains three files with bidirectional binding pre-filled + an `avatar/` subfolder) |
 | **Notes** | Single publish, binding pre-filled, Avatar required (no Avatar = must split into standalones) |
-| **Incubator output** | Aligns 1:1 with the bundle template — drop in an Avatar and it's ready |
+| **Incubator output** | Aligns 1:1 with the Agent template — drop in an Avatar and it's ready |
 
 ---
 
@@ -65,12 +65,12 @@ Before you start, here are the three product types you can publish on llamppost:
 Describes "what kind of person this is" — personality, tone, values, limits, and the kind of work it fits. Users decide whether to interact with your character based on the Persona.
 
 ### Skill
-Describes "what this person can specifically do" — workflow, what the user provides, what they receive. Skills can be sold standalone or bundled with a Persona.
+Describes "what this person can specifically do" — workflow, what the user provides, what they receive. Skills can be sold standalone or packaged into an Agent with a Persona.
 
 ### Avatar
 Describes "what this person looks like" — image spec and `metadata.json`, which decide how the character is visually presented on the platform.
 
-For standalone listings, you can publish **just one** of these. For bundle listings, all three are required.
+For standalone listings, you can publish **just one** of these. For Agent listings, all three are required.
 
 ---
 
@@ -81,8 +81,8 @@ For standalone listings, you can publish **just one** of these. For bundle listi
 | A clear workflow or service | **Standalone Skill** |
 | A distinctive character tone or personality | **Standalone Persona** |
 | A finished character illustration | **Standalone Avatar** |
-| Personality + signature skill + visual, all three | **Bundle (`bundles/`)** |
-| An incubator-generated prototype | **Bundle** (drop in an Avatar and you're done) |
+| Personality + signature skill + visual, all three | **Agent (`agents/`)** |
+| An incubator-generated prototype | **Agent** (drop in an Avatar and you're done) |
 
 ---
 
@@ -173,7 +173,7 @@ languages:
 
 base_price: 0                      ← NT$. 0 = free; ≥100 = paid
 
-bundled_skills: []                 ← standalone? leave as []
+agent_skills: []                 ← standalone? leave as []
 
 allowed_skill_categories:
   - ops
@@ -229,21 +229,21 @@ Full schema and policy in [avatar-creation-spec.md](avatar-creation-spec.md).
 
 ---
 
-## Publishing a bundle (Persona + Skill + Avatar)
+## Publishing an Agent (Persona + Skill + Avatar)
 
-### Step 1: Copy the bundle template folder
+### Step 1: Copy the Agent template folder
 
 ```
-Copy:   bundles/YOUR_BUNDLE_NAME/
-Rename: bundles/your_bundle_name/   ← lowercase English + underscores
+Copy:   agents/YOUR_AGENT_NAME/
+Rename: agents/your_agent_name/   ← lowercase English + underscores
 ```
 
 Inside, you'll find pre-packaged:
 
 ```
-bundles/your_bundle_name/
-├── README.md            ← bundle usage notes
-├── persona.md           ← bundled_skills pre-filled to point at same-folder SKILL.md
+agents/your_agent_name/
+├── README.md            ← Agent usage notes
+├── persona.md           ← agent_skills pre-filled to point at same-folder SKILL.md
 ├── SKILL.md             ← compatible_personas pre-filled to point at same-folder persona.md
 └── avatar/
     ├── README.md        ← Avatar supplementary notes
@@ -262,12 +262,12 @@ bundles/your_bundle_name/
 
 ### Step 3: Keep the bidirectional binding aligned
 
-`persona.md`'s `bundled_skills:` and `SKILL.md`'s `compatible_personas:` must mirror each other. Portal verifies this — one side off, and it rejects. The template is pre-filled, but when you change IDs, update both sides:
+`persona.md`'s `agent_skills:` and `SKILL.md`'s `compatible_personas:` must mirror each other. Portal verifies this — one side off, and it rejects. The template is pre-filled, but when you change IDs, update both sides:
 
 ```yaml
 # persona.md
 persona_id: night_wolf_strategist
-bundled_skills:
+agent_skills:
   - night_wolf_strategist_skill   ← matches SKILL.md's skill_id
 
 # SKILL.md
@@ -284,7 +284,7 @@ The `avatar/` folder ships without an image:
 - Edit `avatar/metadata.json` to fill in `traits`, `universe`, `realm`, `rights`, etc.
 - Full spec and rights policy in [avatar-creation-spec.md](avatar-creation-spec.md)
 
-> **No Avatar yet but want to test the water?** Move `persona.md` and `SKILL.md` into the `personas/` and `skills/` folders separately and publish each as standalone. Re-publish as a bundle once the Avatar is ready.
+> **No Avatar yet but want to test the water?** Move `persona.md` and `SKILL.md` into the `personas/` and `skills/` folders separately and publish each as standalone. Re-publish as an Agent once the Avatar is ready.
 
 ### Step 5: Submit through Creator Portal
 
@@ -292,7 +292,7 @@ Final check:
 
 ```
 - [ ] All three IDs match their folder names
-- [ ] Bidirectional binding aligned on both sides (bundled_skills ↔ compatible_personas)
+- [ ] Bidirectional binding aligned on both sides (agent_skills ↔ compatible_personas)
 - [ ] persona.md / SKILL.md / avatar/metadata.json all complete
 - [ ] avatar/ contains avatar.png (not just placeholder)
 - [ ] All three files read like the same character (tone, setting, voice)
@@ -310,7 +310,7 @@ The platform will run cross-model QA later and produce fidelity labels and test 
 Yes. Each Skill is its own folder and file, they don't interfere with each other.
 
 **Q: Does a Persona need an Avatar?**
-Not for standalone listings; required for bundle listings.
+Not for standalone listings; required for Agent listings.
 
 **Q: Can I update content after publishing?**
 Yes. Re-submit through Creator Portal and bump `version` (e.g., `"1.0"` → `"1.1"`).

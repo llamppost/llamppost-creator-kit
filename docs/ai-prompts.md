@@ -26,7 +26,7 @@ For example, chat.openai.com, claude.ai web, Gemini web, mobile apps.
    - Avatar → `docs/avatar-creation-spec.md`
    - Skill → `docs/skill-template.md` + `skills/YOUR_SKILL_NAME/SKILL.md` + `skills/EXAMPLE_social_marketing_post_ideas/SKILL.md`
    - Persona → `docs/persona-template.md` + `personas/YOUR_AGENT_NAME/persona.md` + `personas/EXAMPLE_pi_lang/persona.md`
-   - Bundle (full set) → the whole `bundles/YOUR_BUNDLE_NAME/` (README.md + persona.md + SKILL.md + avatar/metadata.json) plus the three sets above
+   - Agent (full set) → the whole `agents/YOUR_AGENT_NAME/` (README.md + persona.md + SKILL.md + avatar/metadata.json) plus the three sets above
 2. Then paste the matching prompt
 3. The AI will ask you questions based on the files and rules you pasted
 
@@ -174,7 +174,7 @@ Hard rules:
 
 ---
 
-## Prompt D: Full bundle (Persona + Skill + Avatar)
+## Prompt D: Full Agent (Persona + Skill + Avatar)
 
 When to use: you want to build a complete character product — personality + skill + look, all three, and the three need to resonate.
 
@@ -183,14 +183,14 @@ This prompt is different from the previous three — it first helps you lock in 
 Copy the whole block:
 
 ```
-I want to publish a complete bundle on the llamppost platform (Persona + Skill + Avatar). Help me design and fill out all three files. The three must resonate — not three unrelated things.
+I want to publish a complete Agent on the llamppost platform (Persona + Skill + Avatar). Help me design and fill out all three files. The three must resonate — not three unrelated things.
 
 First read these files for the rules (if you're a local AI):
 - README.md (especially "Important: folder and ID names must be English")
-- docs/listing-ready-v1.md (full listing guide — especially the "Publishing a bundle" section)
+- docs/listing-ready-v1.md (full listing guide — especially the "Publishing an Agent" section)
 - docs/persona-template.md, docs/skill-template.md, docs/avatar-creation-spec.md
-- bundles/YOUR_BUNDLE_NAME/README.md (bundle template usage + bidirectional binding example)
-- bundles/YOUR_BUNDLE_NAME/persona.md + SKILL.md + avatar/metadata.json (blank bundle template)
+- agents/YOUR_AGENT_NAME/README.md (Agent template usage + bidirectional binding example)
+- agents/YOUR_AGENT_NAME/persona.md + SKILL.md + avatar/metadata.json (blank Agent template)
 - personas/EXAMPLE_pi_lang/persona.md (full Persona example)
 - skills/EXAMPLE_social_marketing_post_ideas/SKILL.md (full Skill example)
 
@@ -223,7 +223,7 @@ Write the complete SKILL.md content.
 
 **Important (bidirectional binding)**:
 - This Skill's compatible_personas field must include the persona_id we just defined
-- The Persona's bundled_skills field must include this Skill's skill_id
+- The Persona's agent_skills field must include this Skill's skill_id
 - Both sides must be updated together — Portal verifies the symmetry
 
 After output, wait for my review, then move to Stage 4 once I say OK.
@@ -241,9 +241,9 @@ Write the complete metadata.json content.
 ===== Finally: overview =====
 
 After all four stages, output a pre-launch checklist overview:
-- Complete bundle folder structure (bundles/<bundle_name>/persona.md + SKILL.md + avatar/metadata.json)
-- Suggested bundle folder path (e.g., `bundles/night_wolf_strategist/`)
-- Bidirectional binding confirmation (Persona.bundled_skills ↔ Skill.compatible_personas)
+- Complete Agent folder structure (agents/<agent_name>/persona.md + SKILL.md + avatar/metadata.json)
+- Suggested Agent folder path (e.g., `agents/night_wolf_strategist/`)
+- Bidirectional binding confirmation (Persona.agent_skills ↔ Skill.compatible_personas)
 - Tone consistency check (do all three files read like the same character?)
 - Final pre-launch checklist
 
@@ -251,8 +251,8 @@ Hard rules (combining all three previous prompts):
 - persona_id, skill_id, avatar_id, folder names must all be **lowercase English + digits + underscores**
 - Do not use EXAMPLE_ or YOUR_ prefixes
 - All three IDs should share a common prefix to look like one set (e.g., `night_wolf_strategist` / `night_wolf_strategist_skill` / `night_wolf_strategist_001`)
-- Persona ↔ Skill's bundled_skills ↔ compatible_personas must be bidirectionally bound
-- Bundle requires all three (Persona + Skill + Avatar). Without an Avatar, you can't ship as a bundle — tell me to either split into standalones or generate an Avatar first
+- Persona ↔ Skill's agent_skills ↔ compatible_personas must be bidirectionally bound
+- An Agent requires all three (Persona + Skill + Avatar). Without an Avatar, you can't ship as an Agent — tell me to either split into standalones or generate an Avatar first
 - The three files' tone, setting, worldview must be consistent
 - Wait for my confirmation after each stage — don't generate everything in one shot
 - base_price only allows `0` or `≥100` (1–99 will be rejected by Portal)
@@ -281,7 +281,7 @@ Before submitting, run yourself through this list:
 - [ ] No `EXAMPLE_` or `YOUR_` prefix
 - [ ] No required field left blank or with template defaults
 - [ ] `base_price` is `0` or `≥100`
-- [ ] If it's a Persona + Skill bundle, bidirectional binding is set on both sides
-- [ ] For bundle listings, `avatar/avatar.png` is in place (not just placeholder)
+- [ ] If it's a Persona + Skill Agent, bidirectional binding is set on both sides
+- [ ] For Agent listings, `avatar/avatar.png` is in place (not just placeholder)
 - [ ] Multi-language header section isn't broken by translation drift
 - [ ] No AI-inserted "hope this helps" politeness leftovers

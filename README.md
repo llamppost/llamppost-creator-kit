@@ -48,7 +48,7 @@ This guide explains the three core concepts, which one to start with, and how to
 
 **[→ AI Prompts for writing templates](docs/ai-prompts.md)**
 
-If you want to use Claude, ChatGPT, or another AI assistant to help you fill out templates, this file provides four ready-to-use prompts — Avatar-only / Skill-only / Persona-only / full bundle — copy and paste to use.
+If you want to use Claude, ChatGPT, or another AI assistant to help you fill out templates, this file provides four ready-to-use prompts — Avatar-only / Skill-only / Persona-only / full Agent — copy and paste to use.
 
 ---
 
@@ -60,16 +60,16 @@ If you want to use Claude, ChatGPT, or another AI assistant to help you fill out
 | Create a new Skill (standalone) | Copy `skills/YOUR_SKILL_NAME/`, see [Skill Template Docs](docs/skill-template.md) |
 | Create a new Persona (standalone) | Copy `personas/YOUR_AGENT_NAME/`, see [Persona Template Docs](docs/persona-template.md) |
 | Upload an Avatar image and metadata | See [Avatar Spec & Policy](docs/avatar-creation-spec.md) |
-| Publish a full bundle (Persona + Skill + Avatar) | Copy `bundles/YOUR_BUNDLE_NAME/` — bidirectional binding pre-filled |
+| Publish a full Agent (Persona + Skill + Avatar) | Copy `agents/YOUR_AGENT_NAME/` — bidirectional binding pre-filled |
 | Use AI to help me write templates | [AI Prompts](docs/ai-prompts.md) (copy-paste ready) |
 | Read the platform rules | [Platform Policy](policy/policy.en.md) |
 
 ---
 
-## Standalone vs Bundle
+## Standalone vs Agent
 
 - **Standalone**: publish a Persona, Skill, or Avatar on its own. Best when you want to test the water or only have one piece ready.
-- **Bundle**: publish Persona + Skill + Avatar packaged together. Bidirectional binding is pre-filled so users get the complete character in one install. **The incubator's output aligns 1:1 with the bundle template** — drop in an Avatar and it's ready to ship.
+- **Agent**: publish Persona + Skill + Avatar packaged together. Bidirectional binding is pre-filled so users get the complete character in one install. **The incubator's output aligns 1:1 with the Agent template** — drop in an Avatar and it's ready to ship.
 
 ---
 
@@ -94,9 +94,9 @@ creator-kit/
 │   │   └── examples/
 │   └── EXAMPLE_social_marketing_post_ideas/  # Reference example (do NOT copy this folder name)
 │       └── SKILL.md
-├── bundles/                                 # Bundle (Persona + Skill + Avatar in one)
-│   └── YOUR_BUNDLE_NAME/                   # Bundle template — bidirectional binding pre-filled
-│       ├── README.md                       # Bundle usage notes
+├── agents/                                  # Agent (Persona + Skill + Avatar in one)
+│   └── YOUR_AGENT_NAME/                    # Agent template — bidirectional binding pre-filled
+│       ├── README.md                       # Agent usage notes
 │       ├── persona.md                      # Persona (binding points to same-folder SKILL.md)
 │       ├── SKILL.md                        # Skill (binding points to same-folder persona.md)
 │       └── avatar/                         # Avatar (required)

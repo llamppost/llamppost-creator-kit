@@ -5,7 +5,7 @@ Language: English | [繁體中文](https://github.com/illushane/llamppost-creato
 This doc explains how to fill out the Persona template. Which file you actually edit depends on how you publish:
 
 - **Standalone**: copy `personas/YOUR_AGENT_NAME/` → rename → fill in `persona.md` inside it
-- **Bundle** (Persona + Skill + Avatar packaged): copy `bundles/YOUR_BUNDLE_NAME/` → its `persona.md` already has bidirectional binding pre-filled
+- **Agent** (Persona + Skill + Avatar packaged): copy `agents/YOUR_AGENT_NAME/` → its `persona.md` already has bidirectional binding pre-filled
 
 For a fully filled-in example, see `personas/EXAMPLE_pi_lang/persona.md`.
 
@@ -31,7 +31,7 @@ Your persona's **display name** (the `name` field, e.g., `name: 派狼`), `one_l
 **Reserved prefixes**: This kit has two reserved prefixes. Your real listings MUST NOT use either — Portal will reject them:
 
 - **`EXAMPLE_`**: reference example files, read-only (e.g., `EXAMPLE_pi_lang`) — do NOT copy folders with this prefix.
-- **`YOUR_`**: blank templates (`YOUR_AGENT_NAME/`, `YOUR_BUNDLE_NAME/`) designed to be copied and renamed — after copying, you MUST rename both the folder and the `persona_id` to your own English lowercase ID.
+- **`YOUR_`**: blank templates (`YOUR_AGENT_NAME/`) designed to be copied and renamed — after copying, you MUST rename both the folder and the `persona_id` to your own English lowercase ID.
 
 ---
 
@@ -73,22 +73,22 @@ base_price: 980     # NT$ 980
 
 ---
 
-### `bundled_skills` (required for bundles, optional for standalone)
+### `agent_skills` (required for Agents, optional for standalone)
 
-If this persona is meant to be bundled with specific skills, list their `skill_id` here. Each skill listed must:
+If this persona is meant to be packaged into an Agent with specific skills, list their `skill_id` here. Each skill listed must:
 
 1. Exist under your creator account
 2. List this persona's `persona_id` in its own `compatible_personas` field (Portal verifies the symmetry on both sides)
 
 ```yaml
-bundled_skills:
+agent_skills:
   - weekly_report_writer
   - quarterly_planning_kit
 ```
 
 If the persona is sold standalone, leave it as `[]` (empty array).
 
-> **Bundle template:** If you're publishing a complete bundle (Persona + Skill + Avatar), use the `bundles/YOUR_BUNDLE_NAME/` template — bidirectional binding is pre-filled, which is much easier than keeping two standalone folders in sync.
+> **Agent template:** If you're publishing a complete Agent (Persona + Skill + Avatar), use the `agents/YOUR_AGENT_NAME/` template — bidirectional binding is pre-filled, which is much easier than keeping two standalone folders in sync.
 
 ---
 
@@ -262,7 +262,7 @@ languages:
 
 base_price: 0
 
-bundled_skills:
+agent_skills:
   - weekly_report_writer
 
 allowed_skill_categories:

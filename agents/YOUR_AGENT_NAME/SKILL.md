@@ -1,5 +1,5 @@
 ---
-skill_id: YOUR_BUNDLE_NAME_skill          # Change to your skill ID (suggested: bundle name + _skill suffix)
+skill_id: YOUR_AGENT_NAME_skill          # Change to your skill ID (suggested: agent name + _skill suffix)
 title: Your Skill Display Name
 version: "1.0"
 category:
@@ -16,10 +16,10 @@ languages:
 # ≥100  = paid listing (set your own price, no cap)
 base_price: 0
 
-# ── Bidirectional binding (required for bundles, pre-filled) ──
+# ── Bidirectional binding (required for Agents, pre-filled) ──
 # When you change the ID, keep this value aligned with persona.md's persona_id
 compatible_personas:
-  - YOUR_BUNDLE_NAME                       # ← matches persona.md's persona_id
+  - YOUR_AGENT_NAME                       # ← matches persona.md's persona_id
 
 script_mode: workflow_only
 
@@ -32,9 +32,9 @@ script_mode: workflow_only
 ---
 
 <!--
-  Instructions (bundle template):
+  Instructions (Agent template):
   - This SKILL.md is pre-filled with the bidirectional binding to the same-folder persona.md
-  - When you change skill_id / persona_id, keep bundled_skills and compatible_personas in sync on both sides
+  - When you change skill_id / persona_id, keep agent_skills and compatible_personas in sync on both sides
   - For full field reference, see docs/skill-template.md
 -->
 

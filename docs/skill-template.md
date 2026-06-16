@@ -5,7 +5,7 @@ Language: English | [繁體中文](https://github.com/illushane/llamppost-creato
 This doc explains how to fill out the Skill template. Which file you actually edit depends on how you publish:
 
 - **Standalone**: copy `skills/YOUR_SKILL_NAME/` → rename → fill in `SKILL.md` inside it
-- **Bundle** (Persona + Skill + Avatar packaged): copy `bundles/YOUR_BUNDLE_NAME/` → its `SKILL.md` already has bidirectional binding pre-filled
+- **Agent** (Persona + Skill + Avatar packaged): copy `agents/YOUR_AGENT_NAME/` → its `SKILL.md` already has bidirectional binding pre-filled
 
 For a fully filled-in example, see `skills/EXAMPLE_social_marketing_post_ideas/`.
 
@@ -31,7 +31,7 @@ Your skill's `title` (display name, e.g., `title: 週報自動生成器`), `one_
 **Reserved prefixes**: This kit has two reserved prefixes. Your real listings MUST NOT use either — Portal will reject them:
 
 - **`EXAMPLE_`**: reference example files, read-only (e.g., `EXAMPLE_social_marketing_post_ideas`) — do NOT copy folders with this prefix.
-- **`YOUR_`**: blank templates (`YOUR_SKILL_NAME/`, `YOUR_BUNDLE_NAME/`) designed to be copied and renamed — after copying, you MUST rename both the folder and the `skill_id` to your own English lowercase ID.
+- **`YOUR_`**: blank templates (`YOUR_SKILL_NAME/`, `YOUR_AGENT_NAME/`) designed to be copied and renamed — after copying, you MUST rename both the folder and the `skill_id` to your own English lowercase ID.
 
 ---
 
@@ -47,7 +47,7 @@ Your skill's `title` (display name, e.g., `title: 週報自動生成器`), `one_
 | `languages` | YAML | Yes | BCP-47 codes for the skill's operating language |
 | `base_price` | YAML | Yes | NT$, either `0` (free) or `≥100` |
 | `script_mode` | YAML | Yes | See details below |
-| `compatible_personas` | YAML | Required for bundles, optional for standalone | Bound Persona ID |
+| `compatible_personas` | YAML | Required for Agents, optional for standalone | Bound Persona ID |
 | What this skill does | Body | Yes | 3–5 sentence description |
 | Workflow | Body | Yes | 3–7 steps |
 | What User needs to provide | Body | Yes | Bullet list |
@@ -177,9 +177,9 @@ base_price: 180     # NT$ 180
 
 ---
 
-### `compatible_personas` (required for bundles, optional for standalone)
+### `compatible_personas` (required for Agents, optional for standalone)
 
-If this skill is meant to be bundled with a specific Persona, list the `persona_id` it pairs with here. Portal verifies that each persona's `bundled_skills` field also lists this skill — both sides must match.
+If this skill is meant to be packaged into an Agent with a specific Persona, list the `persona_id` it pairs with here. Portal verifies that each persona's `agent_skills` field also lists this skill — both sides must match.
 
 ```yaml
 compatible_personas:
@@ -188,7 +188,7 @@ compatible_personas:
 
 If this skill is sold standalone, the field can be omitted or set to `[]`.
 
-> **Bundle template:** If you're publishing a complete bundle (Persona + Skill + Avatar), use the `bundles/YOUR_BUNDLE_NAME/` template — bidirectional binding is pre-filled, which is much easier than keeping two standalone folders in sync.
+> **Agent template:** If you're publishing a complete Agent (Persona + Skill + Avatar), use the `agents/YOUR_AGENT_NAME/` template — bidirectional binding is pre-filled, which is much easier than keeping two standalone folders in sync.
 
 ---
 

@@ -1,19 +1,19 @@
-# Bundle Listing
+# Agent Listing
 
-> A "bundle" = Persona + Skill + Avatar packaged together, so users get a complete character product in one install.
+> An "Agent" = Persona + Skill + Avatar packaged together, so users get a complete character product in one install.
 
-This folder is the blank template for bundle listings. **The incubator's output aligns 1:1 with this structure** — what the incubator hands you looks just like this, except `avatar/` defaults to empty and you'll need to drop in your own `avatar.png` to ship as a bundle.
+This folder is the blank template for Agent listings. **The incubator's output aligns 1:1 with this structure** — what the incubator hands you looks just like this, except `avatar/` defaults to empty and you'll need to drop in your own `avatar.png` to ship as an Agent.
 
 ---
 
-## Bundle vs Standalone
+## Agent vs Standalone
 
-| | Bundle (this folder) | Standalone |
+| | Agent (this folder) | Standalone |
 |---|---|---|
 | Content | Persona + Skill + Avatar (all three required) | Persona, Skill, or Avatar — pick one |
 | Bidirectional binding | Pre-bound; users install all at once | Not applicable |
 | Best for | You built a complete character (personality + signature skill + visual) | You only have one piece and want to test the water |
-| Template location | `bundles/YOUR_BUNDLE_NAME/` | `personas/YOUR_AGENT_NAME/`, `skills/YOUR_SKILL_NAME/` |
+| Template location | `agents/YOUR_AGENT_NAME/` | `personas/YOUR_AGENT_NAME/`, `skills/YOUR_SKILL_NAME/` |
 
 ---
 
@@ -22,11 +22,11 @@ This folder is the blank template for bundle listings. **The incubator's output 
 ### 1. Copy the whole folder and rename
 
 ```
-Copy:   bundles/YOUR_BUNDLE_NAME/
-Rename: bundles/your_bundle_name/    ← lowercase English + underscores
+Copy:   agents/YOUR_AGENT_NAME/
+Rename: agents/your_agent_name/    ← lowercase English + underscores
 ```
 
-For example: `bundles/night_wolf_strategist/`
+For example: `agents/night_wolf_strategist/`
 
 ### 2. Update IDs across the three files (must match)
 
@@ -44,12 +44,12 @@ For example: `bundles/night_wolf_strategist/`
 
 ### 3. Bidirectional binding — pre-filled, sync both sides when you change IDs
 
-`persona.md`'s `bundled_skills:` and `SKILL.md`'s `compatible_personas:` must mirror each other. Portal verifies — one side off, and it rejects.
+`persona.md`'s `agent_skills:` and `SKILL.md`'s `compatible_personas:` must mirror each other. Portal verifies — one side off, and it rejects.
 
 ```yaml
 # persona.md
 persona_id: night_wolf_strategist
-bundled_skills:
+agent_skills:
   - night_wolf_strategist_skill   ← matches SKILL.md's skill_id
 
 # SKILL.md
@@ -74,11 +74,11 @@ The `avatar/` folder ships with only a `metadata.json` placeholder, **no image**
 
 ---
 
-## Incubator-generated bundles
+## Incubator-generated Agents
 
-If you got a bundle prototype from the incubator:
+If you got an Agent prototype from the incubator:
 
-1. Unzip into `bundles/<your_bundle_name>/`
+1. Unzip into `agents/<your_agent_name>/`
 2. The main fields (behavior descriptions, sentence examples, dialogues, workflow) are pre-filled — you only need to adjust the tone to make it more like "your" character
 3. `avatar/` is empty; you must drop in `avatar.png`
 4. Bidirectional binding is pre-written; you only need to change the IDs to your own lowercase English names
