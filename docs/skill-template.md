@@ -5,7 +5,7 @@
 このドキュメントは Skill テンプレートの記入方法を説明します。実際に編集するファイルは、上架方法によって変わります：
 
 - **単品上架**：`skills/YOUR_SKILL_NAME/` をコピー → リネーム → 中の `SKILL.md` を記入
-- **フルセット上架**（Persona + Skill + Avatar 三位一体）：`bundles/YOUR_BUNDLE_NAME/` をコピー → 中の `SKILL.md` は双方向バインディング事前記入済み
+- **Agent 上架**（Persona + Skill + Avatar 三位一体）：`agents/YOUR_AGENT_NAME/` をコピー → 中の `SKILL.md` は双方向バインディング事前記入済み
 
 完全な記入例は `skills/EXAMPLE_social_marketing_post_ideas/` を参照してください。
 
@@ -31,7 +31,7 @@ skill の `title`（表示名、例：`title: 週報自動ジェネレーター`
 **予約済みプレフィックス**：このキットには 2 種類の予約プレフィックスがあります。あなたの本番リスティングは**どちらも使用してはいけません**——Portal が拒否します：
 
 - **`EXAMPLE_`**：参照用サンプルファイル、読み取り専用（例：`EXAMPLE_social_marketing_post_ideas`）——このフォルダはコピーしないでください。
-- **`YOUR_`**：空白テンプレート（`YOUR_SKILL_NAME/`、`YOUR_BUNDLE_NAME/`）、コピーしてリネームするためのもの——コピー後、フォルダと `skill_id` の両方を**必ず**あなた自身の英小文字 ID に変更してください。
+- **`YOUR_`**：空白テンプレート（`YOUR_SKILL_NAME/`、`YOUR_AGENT_NAME/`）、コピーしてリネームするためのもの——コピー後、フォルダと `skill_id` の両方を**必ず**あなた自身の英小文字 ID に変更してください。
 
 ---
 
@@ -47,7 +47,7 @@ skill の `title`（表示名、例：`title: 週報自動ジェネレーター`
 | `languages` | YAML | はい | skill が動作する言語の BCP-47 コード |
 | `base_price` | YAML | はい | NT$、`0`（無料）または `≥100` |
 | `script_mode` | YAML | はい | 下の説明を参照 |
-| `compatible_personas` | YAML | フルセット必須、単品は任意 | バインディング対象の Persona ID |
+| `compatible_personas` | YAML | Agent 必須、単品は任意 | バインディング対象の Persona ID |
 | What this skill does | Body | はい | 3–5 文の説明 |
 | Workflow | Body | はい | 3–7 ステップ |
 | What User needs to provide | Body | はい | 箇条書き |
@@ -177,9 +177,9 @@ base_price: 180     # NT$ 180
 
 ---
 
-### `compatible_personas`（フルセット必須、単品は任意）
+### `compatible_personas`（Agent 必須、単品は任意）
 
-この skill をある Persona とバンドル販売したい場合、ペアリングする `persona_id` をここにリストしてください。Portal は各 persona の `bundled_skills` フィールドにもこの skill がリストされているかを検証します——両側が一致している必要があります。
+この skill をある Persona と 1 つの Agent にまとめて販売したい場合、ペアリングする `persona_id` をここにリストしてください。Portal は各 persona の `agent_skills` フィールドにもこの skill がリストされているかを検証します——両側が一致している必要があります。
 
 ```yaml
 compatible_personas:
@@ -188,7 +188,7 @@ compatible_personas:
 
 この skill が単独販売の場合、このフィールドは省略するか `[]` に設定できます。
 
-> **フルセットテンプレート：** 完全なフルセット（Persona + Skill + Avatar）を上架するなら、`bundles/YOUR_BUNDLE_NAME/` テンプレートを使ってください——双方向バインディングが事前に記入済みで、2 つの単品フォルダを行き来して揃えるよりずっと簡単です。
+> **Agent テンプレート：** 完全な Agent（Persona + Skill + Avatar）を上架するなら、`agents/YOUR_AGENT_NAME/` テンプレートを使ってください——双方向バインディングが事前に記入済みで、2 つの単品フォルダを行き来して揃えるよりずっと簡単です。
 
 ---
 

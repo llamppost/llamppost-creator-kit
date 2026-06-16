@@ -1,19 +1,19 @@
-# フルセット上架（Bundle）
+# Agent 上架
 
-> 「フルセット」= Persona + Skill + Avatar の 3 つをパッケージ、ユーザーは一度に完成したキャラクター商品を入手できます。
+> 「Agent」= Persona + Skill + Avatar の 3 つを 1 つの Agent にまとめた製品、ユーザーは一度に完成したキャラクター商品を入手できます。
 
-このフォルダはフルセット上架の空白テンプレートです。**インキュベーターが出力するフォーマットはこの構造と 1:1 で揃っています**——インキュベーターが走り終わって吐き出すのはこの形そのものです、ただし `avatar/` はデフォルトで空、あなた自身の `avatar.png` を補わないとフルセット上架はできません。
+このフォルダは Agent 上架の空白テンプレートです。**インキュベーターが出力するフォーマットはこの構造と 1:1 で揃っています**——インキュベーターが走り終わって吐き出すのはこの形そのものです、ただし `avatar/` はデフォルトで空、あなた自身の `avatar.png` を補わないと Agent 上架はできません。
 
 ---
 
-## フルセット vs 単品
+## Agent vs 単品
 
-| | フルセット（このフォルダ） | 単品 |
+| | Agent（このフォルダ） | 単品 |
 |---|---|---|
 | 内容 | Persona + Skill + Avatar（3 つ必須） | Persona、Skill、Avatar から 1 つ |
 | 双方向バインディング | 事前にバインド済み、ユーザーは一度にインストール | 適用外 |
 | 適したシチュエーション | 完成したキャラクター（人格 + 看板スキル + ビジュアル）ができた | そのうち 1 つだけ作って様子を見たい |
-| テンプレート位置 | `bundles/YOUR_BUNDLE_NAME/` | `personas/YOUR_AGENT_NAME/`、`skills/YOUR_SKILL_NAME/` |
+| テンプレート位置 | `agents/YOUR_AGENT_NAME/` | `personas/YOUR_AGENT_NAME/`、`skills/YOUR_SKILL_NAME/` |
 
 ---
 
@@ -22,11 +22,11 @@
 ### 1. このフォルダ全体をコピーしてリネーム
 
 ```
-コピー：   bundles/YOUR_BUNDLE_NAME/
-リネーム： bundles/your_bundle_name/    ← 英小文字 + アンダースコア
+コピー：   agents/YOUR_AGENT_NAME/
+リネーム： agents/your_agent_name/    ← 英小文字 + アンダースコア
 ```
 
-例：`bundles/night_wolf_strategist/`
+例：`agents/night_wolf_strategist/`
 
 ### 2. 3 ファイル内の ID を変更（必ず対応）
 
@@ -44,12 +44,12 @@
 
 ### 3. 双方向バインディング — 事前記入済み、ID 変更時に両側を同期
 
-`persona.md` の `bundled_skills:` と `SKILL.md` の `compatible_personas:` は対称でなければなりません。Portal が検証します——片方間違えれば拒否されます。
+`persona.md` の `agent_skills:` と `SKILL.md` の `compatible_personas:` は対称でなければなりません。Portal が検証します——片方間違えれば拒否されます。
 
 ```yaml
 # persona.md
 persona_id: night_wolf_strategist
-bundled_skills:
+agent_skills:
   - night_wolf_strategist_skill   ← SKILL.md の skill_id に対応
 
 # SKILL.md
@@ -74,11 +74,11 @@ compatible_personas:
 
 ---
 
-## インキュベーターが出力したフルセット
+## インキュベーターが出力した Agent
 
-インキュベーターからフルセット雛形を受け取った場合：
+インキュベーターから Agent 雛形を受け取った場合：
 
-1. `bundles/<あなたの_bundle_name>/` に展開
+1. `agents/<あなたの_agent_name>/` に展開
 2. 主要フィールド（行動描写、例文、対話、workflow）は事前記入済み——口調を「あなたの」キャラクターらしく調整するだけ
 3. `avatar/` は空、`avatar.png` を補う必要あり
 4. 双方向バインディングは事前に書かれている、ID を自分の英小文字名に変えるだけ

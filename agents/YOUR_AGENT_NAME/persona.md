@@ -1,17 +1,17 @@
 <!--
-  手順（フルセットテンプレート）：
-  1. bundles/YOUR_BUNDLE_NAME/ フォルダ全体をコピー、自分の bundle 名にリネーム
+  手順（Agent テンプレート）：
+  1. agents/YOUR_AGENT_NAME/ フォルダ全体をコピー、自分の agent 名にリネーム
   2. 3 ファイル内の ID（persona_id / skill_id / avatar_id）を同期して変更
-  3. 双方向バインディングフィールド（bundled_skills / compatible_personas）は事前記入済み、ID 変更時に両側を対称に
+  3. 双方向バインディングフィールド（agent_skills / compatible_personas）は事前記入済み、ID 変更時に両側を対称に
   4. 下の各セクションを記入、# で始まる行とこの説明セクションをすべて削除
   5. Creator Portal 経由で送信
 
   重要：
-  - YOUR_BUNDLE_NAME は予約プレフィックス、Portal が拒否
+  - YOUR_AGENT_NAME は予約プレフィックス、Portal が拒否
   - 完全なフィールド説明は docs/persona-template.md を参照
 -->
 ---
-persona_id: YOUR_BUNDLE_NAME              # あなたの persona ID に変更（英小文字 + アンダースコア）
+persona_id: YOUR_AGENT_NAME              # あなたの persona ID に変更（英小文字 + アンダースコア）
 name: あなたの Persona 表示名
 profession: ops                            # docs/persona-template.md の profession リスト参照
 one_liner: このキャラクターの個性や役割を一文で（40 文字以内）
@@ -26,10 +26,10 @@ languages:
 # ≥100  = 有料上架（自由価格、上限なし）
 base_price: 0
 
-# ── 双方向バインディング（フルセット必須、事前記入済み）──────────────────
+# ── 双方向バインディング（Agent 必須、事前記入済み）──────────────────
 # ID を変えるとき、ここの値は SKILL.md の skill_id と揃える
-bundled_skills:
-  - YOUR_BUNDLE_NAME_skill                 # ← SKILL.md の skill_id に対応
+agent_skills:
+  - YOUR_AGENT_NAME_skill                 # ← SKILL.md の skill_id に対応
 
 allowed_skill_categories:
   - ops

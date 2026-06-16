@@ -1,6 +1,6 @@
-# Avatar（フルセット必須）
+# Avatar（Agent 必須）
 
-フルセット上架には Avatar が必要です。このフォルダ内に以下を配置してください：
+Agent 上架には Avatar が必要です。このフォルダ内に以下を配置してください：
 
 - `avatar.png` — 最低 512×512、推奨 1024×1024、PNG フォーマット、1:1 比率
 - `metadata.json` — placeholder 記入済み、編集してください
@@ -9,4 +9,4 @@
 
 ## Avatar の準備がなくて、まず様子を見たい？
 
-同階層の `persona.md` と `SKILL.md` を `personas/` と `skills/` フォルダに移して、単品として上架してください。Avatar を準備してからフルセットとして再上架。
+同階層の `persona.md` と `SKILL.md` を `personas/` と `skills/` フォルダに移して、単品として上架してください。Avatar を準備してから Agent として再上架。

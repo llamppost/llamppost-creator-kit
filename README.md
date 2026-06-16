@@ -48,7 +48,7 @@ llamppost マーケットプレイスで、あなたの Persona、Skill、Avatar
 
 **[→ AI 補助でテンプレートを書くためのプロンプト集](docs/ai-prompts.md)**
 
-Claude、ChatGPT、その他の AI アシスタントにテンプレートを書いてもらいたい場合、このファイルには 4 種類のすぐ使えるプロンプトが用意されています——Avatar のみ / Skill のみ / Persona のみ / フルセット——コピペで即使えます。
+Claude、ChatGPT、その他の AI アシスタントにテンプレートを書いてもらいたい場合、このファイルには 4 種類のすぐ使えるプロンプトが用意されています——Avatar のみ / Skill のみ / Persona のみ / Agent——コピペで即使えます。
 
 ---
 
@@ -60,16 +60,16 @@ Claude、ChatGPT、その他の AI アシスタントにテンプレートを書
 | 新しい Skill を作る（単品） | `skills/YOUR_SKILL_NAME/` をコピーして、[Skill テンプレートドキュメント](docs/skill-template.md)を参照 |
 | 新しい Persona を作る（単品） | `personas/YOUR_AGENT_NAME/` をコピーして、[Persona テンプレートドキュメント](docs/persona-template.md)を参照 |
 | Avatar 画像と metadata をアップロードする | [Avatar 仕様とポリシー](docs/avatar-creation-spec.md)を参照 |
-| フルセット（Persona + Skill + Avatar）を上架する | `bundles/YOUR_BUNDLE_NAME/` をコピー、双方向バインディングは事前に記入済み |
+| Agent（Persona + Skill + Avatar）を上架する | `agents/YOUR_AGENT_NAME/` をコピー、双方向バインディングは事前に記入済み |
 | AI 補助でテンプレートを書く | [AI プロンプト集](docs/ai-prompts.md)（コピペで即使用） |
 | プラットフォームルールを読む | [プラットフォームポリシー](policy/policy.ja.md) |
 
 ---
 
-## 単品 vs フルセット
+## 単品 vs Agent
 
 - **単品上架**：Persona、Skill、Avatar のうちどれか 1 つを公開。お試しで様子を見たいとき、または 1 つだけ完成しているときに向いています。
-- **フルセット上架**：Persona + Skill + Avatar の 3 つを一度にパッケージング。双方向バインディングは事前に記入済み、ユーザーは完成したキャラクター商品を一度に入手できます。**インキュベーターが吐き出すフォーマットはフルセットテンプレートと 1:1 で揃っています**——Avatar を補えばすぐ上架できます。
+- **Agent 上架**：Persona + Skill + Avatar の 3 つを 1 つの Agent にまとめます。双方向バインディングは事前に記入済み、ユーザーは完成したキャラクター商品を一度に入手できます。**インキュベーターが吐き出すフォーマットは Agent テンプレートと 1:1 で揃っています**——Avatar を補えばすぐ上架できます。
 
 ---
 
@@ -94,9 +94,9 @@ creator-kit/
 │   │   └── examples/
 │   └── EXAMPLE_social_marketing_post_ideas/  # 参照用サンプル Skill（このフォルダ名はコピーしないでください）
 │       └── SKILL.md
-├── bundles/                                 # フルセット（Persona + Skill + Avatar 三位一体）
-│   └── YOUR_BUNDLE_NAME/                   # フルセットテンプレート——双方向バインディング事前記入済み
-│       ├── README.md                       # フルセットの使い方
+├── agents/                                  # Agent（Persona + Skill + Avatar 三位一体）
+│   └── YOUR_AGENT_NAME/                    # Agent テンプレート——双方向バインディング事前記入済み
+│       ├── README.md                       # Agent の使い方
 │       ├── persona.md                      # Persona（バインディングは同フォルダの SKILL.md を指す）
 │       ├── SKILL.md                        # Skill（バインディングは同フォルダの persona.md を指す）
 │       └── avatar/                         # Avatar（必須）

@@ -4,7 +4,7 @@
 
 このガイドは最初の商品を公開するまでをステップバイステップで案内します。一度にすべてを準備する必要はありません——**まず 1 つ選んで始めましょう**。
 
-> **AI でテンプレートを書きたい？** [docs/ai-prompts.md](ai-prompts.md) のすぐ使えるプロンプトを Claude / ChatGPT / Gemini にコピペしてください——Avatar / Skill / Persona / フルセットの 4 種類があります。
+> **AI でテンプレートを書きたい？** [docs/ai-prompts.md](ai-prompts.md) のすぐ使えるプロンプトを Claude / ChatGPT / Gemini にコピペしてください——Avatar / Skill / Persona / Agent の 4 種類があります。
 
 ---
 
@@ -15,7 +15,7 @@
 私たちのシステムは**英語の識別子しか認識しません**。ペルソナやスキルの本文を繁体字中国語、日本語、その他どの言語で書いていても、以下の項目は必ず英語でなければなりません：
 
 - すべての `*_id` フィールド（`skill_id`、`persona_id`、`avatar_id`、`creator` など）
-- すべてのフォルダ名（`personas/<folder>`、`skills/<folder>`、`bundles/<folder>`、`avatars/<folder>`）
+- すべてのフォルダ名（`personas/<folder>`、`skills/<folder>`、`agents/<folder>`、`avatars/<folder>`）
 - 形式の制限：**英小文字 + 数字 + アンダースコア（`_`）**——スペース、大文字、ハイフン（`-`）、非英語文字は使用不可
 
 **例：**
@@ -24,7 +24,7 @@
 |---------|---------|
 | `persona_id: pi_lang` | `persona_id: 派狼` |
 | `skills/weekly_report_writer/` | `skills/週報ジェネレーター/` |
-| `bundles/night_wolf_strategist/` | `bundles/夜狼ストラテジスト/` |
+| `agents/night_wolf_strategist/` | `agents/夜狼ストラテジスト/` |
 | `avatar_id: night_wolf_001` | `avatar_id: Night-Wolf-001` |
 
 ペルソナの**表示名**（YAML の `name` フィールド、例：`name: 派狼`）、すべての本文、対話、例文——これらはあなたのペルソナが実際に使う言語で書くことができますし、書くべきです。システムはフォルダ名と `*_id` フィールドのみを識別とルーティングに使うので、これらは必ず英語です。
@@ -32,7 +32,7 @@
 **予約済みプレフィックス**：このキットには 2 種類の予約プレフィックスがあります。あなたの本番リスティングは**どちらも使用してはいけません**——Portal が拒否します：
 
 - **`EXAMPLE_`**：参照用サンプルファイル、読み取り専用（例：`EXAMPLE_pi_lang`、`EXAMPLE_social_marketing_post_ideas`）——このフォルダはコピーしないでください。
-- **`YOUR_`**：空白テンプレート（例：`YOUR_AGENT_NAME`、`YOUR_SKILL_NAME`、`YOUR_BUNDLE_NAME`）、コピーしてリネームするためのもの——コピー後、フォルダと `*_id` の両方を**必ず**あなた自身の英小文字 ID に変更してください。
+- **`YOUR_`**：空白テンプレート（例：`YOUR_AGENT_NAME`、`YOUR_SKILL_NAME`）、コピーしてリネームするためのもの——コピー後、フォルダと `*_id` の両方を**必ず**あなた自身の英小文字 ID に変更してください。
 
 ---
 
@@ -46,14 +46,14 @@
 | **テンプレート** | `personas/YOUR_AGENT_NAME/`、`skills/YOUR_SKILL_NAME/` のどちらか |
 | **特徴** | 3 つは独立して公開可能、ユーザーは個別に入手 |
 
-### フルセット上架（Persona + Skill + Avatar 三位一体）
+### Agent 上架（Persona + Skill + Avatar 三位一体）
 
 | | |
 |---|---|
-| **誰向け** | 完全なキャラクター（人格 + 看板スキル + ビジュアル）を作り、一度にまとめて売りたい人 |
-| **テンプレート** | `bundles/YOUR_BUNDLE_NAME/`（双方向バインディング事前記入済みの 3 ファイル + avatar/ サブフォルダ） |
+| **誰向け** | 完全なキャラクター（人格 + 看板スキル + ビジュアル）を作り、1 つの Agent にまとめて売りたい人 |
+| **テンプレート** | `agents/YOUR_AGENT_NAME/`（双方向バインディング事前記入済みの 3 ファイル + avatar/ サブフォルダ） |
 | **特徴** | 一度に公開、双方向バインディング事前記入、Avatar 必須（なければ単品に分解するしかない） |
-| **インキュベーターの出力** | フルセットテンプレートのフォーマットと 1:1 で揃う、Avatar を補えば即上架可能 |
+| **インキュベーターの出力** | Agent テンプレートのフォーマットと 1:1 で揃う、Avatar を補えば即上架可能 |
 
 ---
 
@@ -65,12 +65,12 @@
 「これはどんな人か」を描写します——個性、口調、価値観、底線、そしてどんなタイプの仕事が得意か。ユーザーは Persona に基づいて、あなたのキャラクターとインタラクトするか決めます。
 
 ### Skill
-「この人が具体的に何ができるか」を描写します——workflow、ユーザーが何を提供すべきか、何を受け取るか。Skill は単独販売も、Persona とバンドル販売も可能です。
+「この人が具体的に何ができるか」を描写します——workflow、ユーザーが何を提供すべきか、何を受け取るか。Skill は単独販売も、Persona と 1 つの Agent にまとめて販売することも可能です。
 
 ### Avatar
 「この人がどんな見た目か」を描写します——画像仕様と `metadata.json`、プラットフォーム上でのキャラクターのビジュアル表現を決定します。
 
-単品上架では**そのうち 1 つだけ公開**できます。フルセット上架では 3 つすべて必須です。
+単品上架では**そのうち 1 つだけ公開**できます。Agent 上架では 3 つすべて必須です。
 
 ---
 
@@ -81,8 +81,8 @@
 | はっきりした workflow やサービス | **単品 Skill** |
 | 識別性のあるキャラクターの口調や個性 | **単品 Persona** |
 | 完成したキャラクターイラスト | **単品 Avatar** |
-| 人格 + 看板スキル + ビジュアル、3 つすべて揃ってる | **フルセット（bundles/）** |
-| インキュベーターから出てきた雛形 | **フルセット**（Avatar を補えば OK） |
+| 人格 + 看板スキル + ビジュアル、3 つすべて揃ってる | **Agent（agents/）** |
+| インキュベーターから出てきた雛形 | **Agent**（Avatar を補えば OK） |
 
 ---
 
@@ -173,7 +173,7 @@ languages:
 
 base_price: 0                      ← NT$。0 = 無料；≥100 = 有料
 
-bundled_skills: []                 ← 単品上架なら []
+agent_skills: []                 ← 単品上架なら []
 
 allowed_skill_categories:
   - ops
@@ -229,21 +229,21 @@ allowed_skill_categories:
 
 ---
 
-## フルセット（Persona + Skill + Avatar）を公開する
+## Agent（Persona + Skill + Avatar）を公開する
 
-### ステップ 1：フルセットテンプレートフォルダをコピー
+### ステップ 1：Agent テンプレートフォルダをコピー
 
 ```
-コピー：   bundles/YOUR_BUNDLE_NAME/
-リネーム： bundles/your_bundle_name/   ← 英小文字 + アンダースコア
+コピー：   agents/YOUR_AGENT_NAME/
+リネーム： agents/your_agent_name/   ← 英小文字 + アンダースコア
 ```
 
 中には事前にパッケージング済み：
 
 ```
-bundles/your_bundle_name/
-├── README.md            ← フルセットの使い方
-├── persona.md           ← bundled_skills が同フォルダ SKILL.md を指す形で事前記入
+agents/your_agent_name/
+├── README.md            ← Agent の使い方
+├── persona.md           ← agent_skills が同フォルダ SKILL.md を指す形で事前記入
 ├── SKILL.md             ← compatible_personas が同フォルダ persona.md を指す形で事前記入
 └── avatar/
     ├── README.md        ← Avatar 補足説明
@@ -262,12 +262,12 @@ bundles/your_bundle_name/
 
 ### ステップ 3：双方向バインディングを揃える
 
-`persona.md` の `bundled_skills:` と `SKILL.md` の `compatible_personas:` は対称でなければなりません。Portal が検証します——片方間違えれば拒否されます。テンプレートは事前記入済み、ID を変更するときは両側を同期：
+`persona.md` の `agent_skills:` と `SKILL.md` の `compatible_personas:` は対称でなければなりません。Portal が検証します——片方間違えれば拒否されます。テンプレートは事前記入済み、ID を変更するときは両側を同期：
 
 ```yaml
 # persona.md
 persona_id: night_wolf_strategist
-bundled_skills:
+agent_skills:
   - night_wolf_strategist_skill   ← SKILL.md の skill_id に対応
 
 # SKILL.md
@@ -284,7 +284,7 @@ compatible_personas:
 - `avatar/metadata.json` を編集して `traits`、`universe`、`realm`、`rights` などのフィールドを記入
 - 完全な仕様と著作権ポリシーは [avatar-creation-spec.md](avatar-creation-spec.md) を参照
 
-> **Avatar の準備がなくて、まず様子を見たい？** `persona.md` と `SKILL.md` をそれぞれ `personas/` と `skills/` フォルダに移して、別々の単品として上架してください。Avatar を準備してからフルセットとして再上架。
+> **Avatar の準備がなくて、まず様子を見たい？** `persona.md` と `SKILL.md` をそれぞれ `personas/` と `skills/` フォルダに移して、別々の単品として上架してください。Avatar を準備してから Agent として再上架。
 
 ### ステップ 5：Creator Portal 経由で送信
 
@@ -292,7 +292,7 @@ compatible_personas:
 
 ```
 - [ ] 3 つの ID すべてがフォルダ名と対応している
-- [ ] 双方向バインディングの両側が揃っている（bundled_skills ↔ compatible_personas）
+- [ ] 双方向バインディングの両側が揃っている（agent_skills ↔ compatible_personas）
 - [ ] persona.md / SKILL.md / avatar/metadata.json すべて記入完了
 - [ ] avatar/ 内に avatar.png がある（placeholder ではない）
 - [ ] 3 ファイルが同じキャラクターのように読める（口調、設定一致）
@@ -310,7 +310,7 @@ compatible_personas:
 できます。各 Skill は独立したフォルダとファイルで、お互いに干渉しません。
 
 **Q：Persona には必ず Avatar が必要？**
-単品上架では不要、フルセット上架では 3 つすべて必須。
+単品上架では不要、Agent 上架では 3 つすべて必須。
 
 **Q：公開後にコンテンツを更新できる？**
 できます。更新後 Creator Portal 経由で再送信、`version` を上げてください（例：`"1.0"` → `"1.1"`）。

@@ -1,5 +1,5 @@
 ---
-skill_id: YOUR_BUNDLE_NAME_skill          # あなたの skill ID に変更（bundle name + _skill をプレフィックスにすることを推奨）
+skill_id: YOUR_AGENT_NAME_skill          # あなたの skill ID に変更（agent name + _skill をプレフィックスにすることを推奨）
 title: あなたの Skill の表示名
 version: "1.0"
 category:
@@ -16,10 +16,10 @@ languages:
 # ≥100  = 有料上架（自由価格、上限なし）
 base_price: 0
 
-# ── 双方向バインディング（フルセット必須、事前記入済み）──────────────────
+# ── 双方向バインディング（Agent 必須、事前記入済み）──────────────────
 # ID を変えるとき、ここの値は persona.md の persona_id と揃える
 compatible_personas:
-  - YOUR_BUNDLE_NAME                       # ← persona.md の persona_id に対応
+  - YOUR_AGENT_NAME                       # ← persona.md の persona_id に対応
 
 script_mode: workflow_only
 
@@ -32,9 +32,9 @@ script_mode: workflow_only
 ---
 
 <!--
-  手順（フルセットテンプレート）：
+  手順（Agent テンプレート）：
   - この SKILL.md は同フォルダ persona.md との双方向バインディング事前記入済み
-  - skill_id / persona_id を変えるとき、bundled_skills と compatible_personas の両側を同期
+  - skill_id / persona_id を変えるとき、agent_skills と compatible_personas の両側を同期
   - 完全なフィールド説明は docs/skill-template.md を参照
 -->
 

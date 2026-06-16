@@ -5,7 +5,7 @@
 このドキュメントは Persona テンプレートの書き方を説明します。実際に編集するファイルは、上架方法によって変わります：
 
 - **単品上架**：`personas/YOUR_AGENT_NAME/` をコピー → リネーム → 中の `persona.md` を記入
-- **フルセット上架**（Persona + Skill + Avatar 三位一体）：`bundles/YOUR_BUNDLE_NAME/` をコピー → 中の `persona.md` は双方向バインディング事前記入済み
+- **Agent 上架**（Persona + Skill + Avatar 三位一体）：`agents/YOUR_AGENT_NAME/` をコピー → 中の `persona.md` は双方向バインディング事前記入済み
 
 完全な記入例は `personas/EXAMPLE_pi_lang/persona.md` を参照してください。
 
@@ -31,7 +31,7 @@
 **予約済みプレフィックス**：このキットには 2 種類の予約プレフィックスがあります。あなたの本番リスティングは**どちらも使用してはいけません**——Portal が拒否します：
 
 - **`EXAMPLE_`**：参照用サンプルファイル、読み取り専用（例：`EXAMPLE_pi_lang`）——このフォルダはコピーしないでください。
-- **`YOUR_`**：空白テンプレート（`YOUR_AGENT_NAME/`、`YOUR_BUNDLE_NAME/`）、コピーしてリネームするためのもの——コピー後、フォルダと `persona_id` の両方を**必ず**あなた自身の英小文字 ID に変更してください。
+- **`YOUR_`**：空白テンプレート（`YOUR_AGENT_NAME/`）、コピーしてリネームするためのもの——コピー後、フォルダと `persona_id` の両方を**必ず**あなた自身の英小文字 ID に変更してください。
 
 ---
 
@@ -73,22 +73,22 @@ base_price: 980     # NT$ 980
 
 ---
 
-### `bundled_skills`（フルセット必須、単品は任意）
+### `agent_skills`（Agent 必須、単品は任意）
 
-このペルソナを特定の skill と一緒にバンドル販売したい場合、それらの `skill_id` をここにリストしてください。リストされた各 skill は次を満たす必要があります：
+このペルソナを特定の skill と一緒に 1 つの Agent にまとめて販売したい場合、それらの `skill_id` をここにリストしてください。リストされた各 skill は次を満たす必要があります：
 
 1. あなたのクリエイターアカウントに存在すること
 2. その skill の `compatible_personas` フィールドにこのペルソナの `persona_id` もリストされていること（Portal が両側の対称性を検証します）
 
 ```yaml
-bundled_skills:
+agent_skills:
   - weekly_report_writer
   - quarterly_planning_kit
 ```
 
 ペルソナが単独販売の場合は `[]`（空配列）で OK。
 
-> **フルセットテンプレート：** 完全なフルセット（Persona + Skill + Avatar）を上架するなら、`bundles/YOUR_BUNDLE_NAME/` テンプレートを使ってください——双方向バインディングが事前に記入済みで、2 つの単品フォルダを行き来して揃えるよりずっと簡単です。
+> **Agent テンプレート：** 完全な Agent（Persona + Skill + Avatar）を上架するなら、`agents/YOUR_AGENT_NAME/` テンプレートを使ってください——双方向バインディングが事前に記入済みで、2 つの単品フォルダを行き来して揃えるよりずっと簡単です。
 
 ---
 
@@ -262,7 +262,7 @@ languages:
 
 base_price: 0
 
-bundled_skills:
+agent_skills:
   - weekly_report_writer
 
 allowed_skill_categories:
