@@ -1,5 +1,5 @@
 ---
-skill_id: YOUR_BUNDLE_NAME_skill          # 改成你的 skill ID（建议用 bundle name + _skill 当前缀）
+skill_id: YOUR_AGENT_NAME_skill          # 改成你的 skill ID（建议用 agent name + _skill 当前缀）
 title: 你的 Skill 显示名称
 version: "1.0"
 category:
@@ -16,10 +16,10 @@ languages:
 # ≥100  = 付费上架（自定价格，无上限）
 base_price: 0
 
-# ── 双向绑定（套装必填，已预填）──────────────────
+# ── 双向绑定（Agent 必填，已预填）──────────────────
 # 改 ID 时，这里的值要跟 persona.md 的 persona_id 对齐
 compatible_personas:
-  - YOUR_BUNDLE_NAME                       # ← 对到 persona.md 的 persona_id
+  - YOUR_AGENT_NAME                       # ← 对到 persona.md 的 persona_id
 
 script_mode: workflow_only
 
@@ -32,9 +32,9 @@ script_mode: workflow_only
 ---
 
 <!--
-  说明（套装模板）：
+  说明（Agent 模板）：
   - 这份 SKILL.md 已预填好跟同文件夹 persona.md 的双向绑定
-  - 改 skill_id / persona_id 时，bundled_skills 与 compatible_personas 两边要同步
+  - 改 skill_id / persona_id 时，agent_skills 与 compatible_personas 两边要同步
   - 完整字段说明请见 docs/skill-template.md
 -->
 

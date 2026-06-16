@@ -43,7 +43,7 @@ base_price: 0
 # model_fidelity:
 #   claude-opus-4-6: canon        # canon | compatible | lite | untested
 
-bundled_skills: []                # 这个 persona 绑定的 skill——standalone 则留 []
+agent_skills: []                # 这个 persona 绑定的 skill——standalone 则留 []
 
 allowed_skill_categories:         # 这个 persona 适合的 skill 分类（可多选）
   - ops

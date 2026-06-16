@@ -15,7 +15,7 @@
 我们的系统**只识别英文标识符**。即使你用简体中文、日语或任何其他语言写 persona 与 skill 的内容，下列字段永远必须是英文：
 
 - 所有 `*_id` 字段（`skill_id`、`persona_id`、`avatar_id`、`creator` 等）
-- 所有文件夹名称（`personas/<folder>`、`skills/<folder>`、`bundles/<folder>`、`avatars/<folder>`）
+- 所有文件夹名称（`personas/<folder>`、`skills/<folder>`、`agents/<folder>`、`avatars/<folder>`）
 - 格式限制：**小写英文字母 + 数字 + 下划线（`_`）**——不能有空格、大写字母、连字符（`-`）或任何非英文字符
 
 **示例：**
@@ -24,7 +24,7 @@
 |---------|---------|
 | `persona_id: pi_lang` | `persona_id: 派狼` |
 | `skills/weekly_report_writer/` | `skills/周报生成器/` |
-| `bundles/night_wolf_strategist/` | `bundles/夜狼战略师/` |
+| `agents/night_wolf_strategist/` | `agents/夜狼战略师/` |
 | `avatar_id: night_wolf_001` | `avatar_id: Night-Wolf-001` |
 
 你 persona 的**显示名称**（YAML 中的 `name` 字段，例如 `name: 派狼`）、所有 body 内容、对话、句子示例——这些都可以而且应该使用你 persona 真正使用的语言。系统只会用文件夹名称与 `*_id` 字段做识别与路由，这些必须是英文。
@@ -32,7 +32,7 @@
 **保留前缀**：这份 kit 内有两种保留前缀，你的真实上架**都不可以**使用——Portal 会拒绝：
 
 - **`EXAMPLE_`**：参考示例文件，只供阅读（例如 `EXAMPLE_pi_lang`、`EXAMPLE_social_marketing_post_ideas`）——不要复制这种文件夹。
-- **`YOUR_`**：空白模板（例如 `YOUR_AGENT_NAME`、`YOUR_SKILL_NAME`、`YOUR_BUNDLE_NAME`），设计来给你复制改名的——复制后**务必**把文件夹与 `*_id` 改成你自己的英文小写 ID。
+- **`YOUR_`**：空白模板（例如 `YOUR_AGENT_NAME`、`YOUR_SKILL_NAME`），设计来给你复制改名的——复制后**务必**把文件夹与 `*_id` 改成你自己的英文小写 ID。
 
 ---
 
@@ -46,14 +46,14 @@
 | **模板** | `personas/YOUR_AGENT_NAME/`、`skills/YOUR_SKILL_NAME/` 任挑 |
 | **特性** | 三者可独立发布，用户个别入手 |
 
-### 套装上架（Persona + Skill + Avatar 三合一）
+### Agent 上架（Persona + Skill + Avatar 三合一）
 
 | | |
 |---|---|
-| **适合谁** | 你做了完整角色（人格 + 招牌技能 + 视觉），想一次包好卖 |
-| **模板** | `bundles/YOUR_BUNDLE_NAME/`（内含三份预填好双向绑定的文件 + avatar/ 子文件夹） |
+| **适合谁** | 你做了完整角色（人格 + 招牌技能 + 视觉），想打包成一个 Agent 卖 |
+| **模板** | `agents/YOUR_AGENT_NAME/`（内含三份预填好双向绑定的文件 + avatar/ 子文件夹） |
 | **特性** | 一次发布、双向绑定预填、Avatar 必备（没有就只能拆成单品） |
-| **孵化器产出** | 1:1 对齐套装模板格式，补上 Avatar 即可上架 |
+| **孵化器产出** | 1:1 对齐 Agent 模板格式，补上 Avatar 即可上架 |
 
 ---
 
@@ -65,12 +65,12 @@
 描述「这是一个什么样的人」——个性、语气、价值观、底线，以及适合做什么类型的工作。用户根据 Persona 决定要不要跟你的角色互动。
 
 ### Skill
-描述「这个人具体能做什么」——workflow、用户需要提供什么，以及会拿到什么。Skill 可以独立销售，也可以跟 Persona 绑在一起卖。
+描述「这个人具体能做什么」——workflow、用户需要提供什么，以及会拿到什么。Skill 可以独立销售，也可以跟 Persona 打包成一个 Agent 卖。
 
 ### Avatar
 描述「这个人长什么样」——图片规格与 `metadata.json`，决定角色在平台上的视觉呈现。
 
-单品上架时你可以**只发布其中一项**；套装上架时三者必备。
+单品上架时你可以**只发布其中一项**；Agent 上架时三者必备。
 
 ---
 
@@ -81,8 +81,8 @@
 | 清楚的 workflow 或服务 | **单品 Skill** |
 | 有辨识度的角色语气或个性 | **单品 Persona** |
 | 完成的角色插画 | **单品 Avatar** |
-| 人格 + 招牌技能 + 视觉三者都齐 | **套装（bundles/）** |
-| 孵化器跑出来的雏形 | **套装**（补上 Avatar 即可） |
+| 人格 + 招牌技能 + 视觉三者都齐 | **Agent（agents/）** |
+| 孵化器跑出来的雏形 | **Agent**（补上 Avatar 即可） |
 
 ---
 
@@ -173,7 +173,7 @@ languages:
 
 base_price: 0                      ← NT$。0 = 免费；≥100 = 付费
 
-bundled_skills: []                 ← 单品上架留 []
+agent_skills: []                 ← 单品上架留 []
 
 allowed_skill_categories:
   - ops
@@ -229,21 +229,21 @@ allowed_skill_categories:
 
 ---
 
-## 发布套装（Persona + Skill + Avatar）
+## 发布 Agent（Persona + Skill + Avatar）
 
-### 步骤 1：复制套装模板文件夹
+### 步骤 1：复制 Agent 模板文件夹
 
 ```
-复制：   bundles/YOUR_BUNDLE_NAME/
-改名：   bundles/your_bundle_name/   ← 英文小写 + 下划线
+复制：   agents/YOUR_AGENT_NAME/
+改名：   agents/your_agent_name/   ← 英文小写 + 下划线
 ```
 
 里面已预先包好：
 
 ```
-bundles/your_bundle_name/
-├── README.md            ← 套装使用说明
-├── persona.md           ← 预填 bundled_skills 指向同文件夹 SKILL.md
+agents/your_agent_name/
+├── README.md            ← Agent 使用说明
+├── persona.md           ← 预填 agent_skills 指向同文件夹 SKILL.md
 ├── SKILL.md             ← 预填 compatible_personas 指向同文件夹 persona.md
 └── avatar/
     ├── README.md        ← Avatar 补充说明
@@ -262,12 +262,12 @@ bundles/your_bundle_name/
 
 ### 步骤 3：对齐双向绑定
 
-`persona.md` 的 `bundled_skills:` 与 `SKILL.md` 的 `compatible_personas:` 必须对称。Portal 会验证——错一边就拒绝。模板已预填好，改 ID 时两边要同步：
+`persona.md` 的 `agent_skills:` 与 `SKILL.md` 的 `compatible_personas:` 必须对称。Portal 会验证——错一边就拒绝。模板已预填好，改 ID 时两边要同步：
 
 ```yaml
 # persona.md
 persona_id: night_wolf_strategist
-bundled_skills:
+agent_skills:
   - night_wolf_strategist_skill   ← 对到 SKILL.md 的 skill_id
 
 # SKILL.md
@@ -284,7 +284,7 @@ compatible_personas:
 - 编辑 `avatar/metadata.json` 填入 `traits`、`universe`、`realm`、`rights` 等字段
 - 完整规格与版权政策见 [avatar-creation-spec.md](avatar-creation-spec.md)
 
-> **没准备 Avatar 想先试水温？** 把 `persona.md` 跟 `SKILL.md` 各自搬到 `personas/` 与 `skills/` 文件夹，分别当单品上架。等补好 Avatar 再重新以套装上架。
+> **没准备 Avatar 想先试水温？** 把 `persona.md` 跟 `SKILL.md` 各自搬到 `personas/` 与 `skills/` 文件夹，分别当单品上架。等补好 Avatar 再重新以 Agent 上架。
 
 ### 步骤 5：通过 Creator Portal 提交
 
@@ -292,7 +292,7 @@ compatible_personas:
 
 ```
 - [ ] 三个 ID 全部对应到文件夹名称
-- [ ] 双向绑定两边都对齐（bundled_skills ↔ compatible_personas）
+- [ ] 双向绑定两边都对齐（agent_skills ↔ compatible_personas）
 - [ ] persona.md / SKILL.md / avatar/metadata.json 都填完
 - [ ] avatar/ 内有 avatar.png（不是 placeholder）
 - [ ] 三份文件读起来像同一个角色（语气、设定一致）
@@ -310,7 +310,7 @@ compatible_personas:
 可以。每个 Skill 是独立的文件夹与文件，彼此不会互相干扰。
 
 **Q：Persona 一定要有 Avatar 吗？**
-单品上架不需要；套装上架三者必备。
+单品上架不需要；Agent 上架三者必备。
 
 **Q：发布后还可以更新内容吗？**
 可以。更新后通过 Creator Portal 重新提交，并把 `version` 往上加（例如 `"1.0"` → `"1.1"`）。

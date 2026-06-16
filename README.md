@@ -60,16 +60,16 @@
 | 创建新的 Skill（单品） | 复制 `skills/YOUR_SKILL_NAME/`，参考 [Skill 模板文档](docs/skill-template.md) |
 | 创建新的 Persona（单品） | 复制 `personas/YOUR_AGENT_NAME/`，参考 [Persona 模板文档](docs/persona-template.md) |
 | 上传 Avatar 图片与 metadata | 参考 [Avatar 规格与政策](docs/avatar-creation-spec.md) |
-| 上架完整套装（Persona + Skill + Avatar） | 复制 `bundles/YOUR_BUNDLE_NAME/`，双向绑定已预填 |
+| 上架完整 Agent（Persona + Skill + Avatar） | 复制 `agents/YOUR_AGENT_NAME/`，双向绑定已预填 |
 | 用 AI 辅助我写模板 | [AI Prompt 集](docs/ai-prompts.md)（复制粘贴即可用） |
 | 阅读平台规则 | [平台政策](policy/policy.zh-CN.md) |
 
 ---
 
-## 单品 vs 套装
+## 单品 vs Agent
 
 - **单品上架**：Persona、Skill、Avatar 任挑一件发布。适合先试水温，或只有其中一件做好。
-- **套装上架**：Persona + Skill + Avatar 三者一次包好。双向绑定已预填，用户一次入手完整角色。**孵化器跑出来的格式跟套装模板 1:1 对齐**——补上 Avatar 即可上架。
+- **Agent 上架**：Persona + Skill + Avatar 三者打包成一个 Agent。双向绑定已预填，用户一次入手完整角色。**孵化器跑出来的格式跟 Agent 模板 1:1 对齐**——补上 Avatar 即可上架。
 
 ---
 
@@ -94,9 +94,9 @@ creator-kit/
 │   │   └── examples/
 │   └── EXAMPLE_social_marketing_post_ideas/  # 参考示例 Skill（不要复制此文件夹名称）
 │       └── SKILL.md
-├── bundles/                                 # 套装（Persona + Skill + Avatar 三合一）
-│   └── YOUR_BUNDLE_NAME/                   # 套装模板——双向绑定已预填
-│       ├── README.md                       # 套装使用说明
+├── agents/                                  # Agent（Persona + Skill + Avatar 三合一）
+│   └── YOUR_AGENT_NAME/                    # Agent 模板——双向绑定已预填
+│       ├── README.md                       # Agent 使用说明
 │       ├── persona.md                      # Persona（绑定指向同文件夹 SKILL.md）
 │       ├── SKILL.md                        # Skill（绑定指向同文件夹 persona.md）
 │       └── avatar/                         # Avatar（必备）

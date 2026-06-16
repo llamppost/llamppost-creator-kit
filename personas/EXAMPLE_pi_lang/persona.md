@@ -20,7 +20,7 @@ languages:
 
 base_price: 250            # NT$。0 = 免费；≥100 = 付费（自定）
 
-bundled_skills: []
+agent_skills: []
 
 allowed_skill_categories:
   - strat
