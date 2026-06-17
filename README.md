@@ -73,6 +73,18 @@ If you want to use Claude, ChatGPT, or another AI assistant to help you fill out
 
 ---
 
+## On the marketplace (Portal, not Kit files)
+
+These happen in the Creator Portal when you publish — no Kit file changes needed:
+
+- **Product thumbnail**: upload an optional thumbnail (PNG, 16:10 recommended) shown on the marketplace card and detail page. No upload = an auto-generated lettered placeholder.
+- **Public content page**: your SKILL.md body sections render as the live content page buyers read on the detail page. Write them well.
+- **Edit anytime + skill packs**: edit a published listing's content page, thumbnail, name, and description at any time, and group several published skills into a **skill pack** — all in Studio → My listings.
+
+See the [Listing Guide](docs/listing-ready-v1.md) for details.
+
+---
+
 ## Folder Structure
 
 ```

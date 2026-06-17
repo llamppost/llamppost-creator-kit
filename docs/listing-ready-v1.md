@@ -127,6 +127,8 @@ compatible_personas: []             ← standalone? leave as []
 
 Below the YAML are five sections, each with an HTML comment explaining what to write (`<!-- gray text -->`). Delete the comments once you're done.
 
+**These five sections become your public content page** — they render live on the product detail page, and they're what buyers read before they buy. Write them well.
+
 **The two most important sections:**
 
 "**What User needs to provide**" — be specific so users know what to prepare.
@@ -142,7 +144,7 @@ Below the YAML are five sections, each with an HTML comment explaining what to w
 - [ ] base_price is 0 or ≥100
 ```
 
-Submit through Creator Portal.
+Submit through Creator Portal. During submission you can upload an optional **product thumbnail** (PNG, 16:10 recommended) — it shows on the marketplace card and the detail page. Skip it and the card shows an auto-generated lettered placeholder instead.
 
 ---
 
@@ -298,6 +300,20 @@ Final check:
 - [ ] All three files read like the same character (tone, setting, voice)
 - [ ] base_price is 0 or ≥100
 ```
+
+---
+
+## After you publish
+
+These are done in the Portal — there's no Kit file format for them.
+
+### Edit your listing anytime
+
+At **Studio → My listings (我的上架)** you can edit a published product's content page, thumbnail, name, and description at any time. Changes take effect immediately — no re-review.
+
+### Bundle skills into a skill pack
+
+At **Studio → My listings → Create skill pack (建立技能包)** you can group several of your published skills into one **skill pack** — a marketplace product of its own with its own price and thumbnail. The member skills stay individually purchasable.
 
 ---
 

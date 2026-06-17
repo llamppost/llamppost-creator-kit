@@ -227,6 +227,8 @@ If you still want to fill them manually (transitional support):
 
 ## Filling in the body
 
+> **These body sections are your public content page.** The five sections below render live on the product detail page — they're what buyers read before they buy. Write them for a reader, not just to pass review.
+
 ### "What this skill does"
 
 In 3–5 sentences, describe:
