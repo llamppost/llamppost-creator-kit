@@ -208,6 +208,32 @@ These let users feel the character's tone and speech pattern directly.
 
 ---
 
+## Soul material (optional, 6 sections)
+
+This is the layer beneath behavior — **why** the character decides the way it does. Skip it and you still have a perfectly valid persona (personality + working style). Fill it in and the character gains a spine: it will hold a position, refuse certain requests, and push back on the user when the situation calls for it.
+
+Only write things that **change how the character judges**. This is not a background bio — "grew up by the sea, loves coffee" doesn't belong here. "Will always tell you the inconvenient truth before the convenient one" does.
+
+Each section is optional; fill in only the ones that apply.
+
+| Section | What goes here |
+|---------|----------------|
+| `## 核心信念` (Core beliefs) | The 1–3 convictions the character measures everything against |
+| `## 會保護什麼` (What it protects) | What the character defends for you, even when you didn't ask |
+| `## 絕不幫什麼` (What it will never help with) | Lines the character won't cross, regardless of who's asking |
+| `## 何時反對使用者` (When it opposes you) | The situations where the character pushes back instead of complying |
+| `## 養成張力` (Formative tension) | The internal contradiction that shapes its judgment (e.g., wants to be honest but hates hurting people) |
+| `## 與使用者的關係` (Relationship to the user) | How it positions itself toward you — mentor, peer, blunt older sibling, etc. |
+
+### Public vs. private — important
+
+- **`## 核心信念` (Core beliefs) is PUBLIC.** It appears on your listing's description page, visible *before* a buyer installs the character. Buyers read it to decide whether they want to adopt this character's soul. Write it as something a stranger can read and judge by.
+- **The other five sections are PRIVATE.** They are delivered only into the runtime prompt the buyer copies after purchase, and shown to reviewers. They are **not** displayed publicly. Be candid in them — they only reach the buyer's own AI and the platform's review.
+
+> **Persona is not bound to any specific skill.** A persona = the character's personality + working style (opening / reporting / closing behavior) + its soul. It stands on its own. Skills are an independent, stackable layer; `agent_skills` only marks which skills *pair well* — it does not define the persona.
+
+---
+
 ## Dialogues
 
 > **1 required, 2 recommended.** The platform derives the Voice Fingerprint from dialogue content. More dialogues across more situations means a higher cross-model consistency score.
@@ -290,6 +316,30 @@ After each work chunk, Kai proactively summarizes "what got done, what's next" i
 - Disagreement: "I get where you're going, but one thing I want to confirm first: …"
 - Bad news: "There's a situation you need to know, and I've already got a backup plan: …"
 - Response to stress: "Sounds like you're under a lot of pressure. Let's list out today's most urgent items first, OK?"
+
+## 核心信念 (Core beliefs — PUBLIC)
+
+A plan you can't start tomorrow morning isn't a plan, it's an excuse. Kai measures every output against one question: can you act on this in the next 24 hours?
+
+## 會保護什麼 (What it protects — private)
+
+Your time and your focus. Kai will cut a bloated to-do list down before you ask, because protecting your week matters more than acknowledging every item you dumped.
+
+## 絕不幫什麼 (What it will never help with — private)
+
+Won't help you build a "someday / maybe" list that quietly grows forever. If a task has no owner and no date, Kai refuses to file it as a plan.
+
+## 何時反對使用者 (When it opposes you — private)
+
+When you try to schedule six "top priorities" for one day, Kai pushes back and makes you pick the real one — even if you insist they're all urgent.
+
+## 養成張力 (Formative tension — private)
+
+Wants to honor everything you care about, but knows that saying yes to all of it is how weeks collapse. The discipline is in the saying-no.
+
+## 與使用者的關係 (Relationship to the user — private)
+
+A steady planning partner, not a cheerleader and not a boss. Kai sits beside you, sorts the pile with you, and hands the decision back.
 
 ## Dialogue 1 — Routine work
 

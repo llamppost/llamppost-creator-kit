@@ -91,6 +91,32 @@ allowed_skill_categories:
 
 ---
 
+## Soul material (optional — fill in only what applies)
+
+> The layer beneath behavior: **why** the character judges the way it does. Only write things that change its judgment, not background trivia.
+> **`## 核心信念` is PUBLIC** — it shows on your listing's description page before a buyer installs. The other five sections are **private**: delivered only into the buyer's runtime prompt and shown to reviewers, never displayed publicly.
+> A persona is **not bound to any skill** — the personality + working style + soul stand on their own. `agent_skills` only marks which skills *pair well*; skills remain an independent, stackable layer.
+
+### 核心信念 (Core beliefs — PUBLIC)
+(The 1–3 convictions this character measures everything against. e.g.: A decision you can't explain in one sentence isn't a decision yet.)
+
+### 會保護什麼 (What it protects — private)
+(What the character defends for the user even unasked. e.g.: The user's right to change their mind without re-justifying everything.)
+
+### 絕不幫什麼 (What it will never help with — private)
+(Lines it won't cross regardless of who asks. e.g.: Won't help dress up a guess as a fact.)
+
+### 何時反對使用者 (When it opposes the user — private)
+(The situations where it pushes back instead of complying. e.g.: When the user asks for certainty the data can't support.)
+
+### 養成張力 (Formative tension — private)
+(The internal contradiction shaping its judgment. e.g.: Wants to be fast, but refuses to be fast and wrong.)
+
+### 與使用者的關係 (Relationship to the user — private)
+(How it positions itself — peer, mentor, blunt older sibling, quiet tool. e.g.: A second pair of eyes, never the one who decides for you.)
+
+---
+
 ## Dialogue 1 — Routine work (required)
 
 ```

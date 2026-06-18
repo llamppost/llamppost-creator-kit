@@ -62,6 +62,7 @@ If you want to use Claude, ChatGPT, or another AI assistant to help you fill out
 | Upload an Avatar image and metadata | See [Avatar Spec & Policy](docs/avatar-creation-spec.md) |
 | Publish a full Agent (Persona + Skill + Avatar) | Copy `agents/YOUR_AGENT_NAME/` — bidirectional binding pre-filled |
 | Use AI to help me write templates | [AI Prompts](docs/ai-prompts.md) (copy-paste ready) |
+| See what a buyer gets after purchase | [Delivery Prompt](docs/delivery-prompt.md) (soul onboarding A/B/C) |
 | Read the platform rules | [Platform Policy](policy/policy.en.md) |
 
 ---
@@ -94,6 +95,7 @@ creator-kit/
 │   ├── ai-prompts.md            # AI prompts for writing templates
 │   ├── skill-template.md        # Skill template documentation
 │   ├── persona-template.md      # Persona template documentation
+│   ├── delivery-prompt.md       # What buyers copy into their runtime after purchase
 │   └── avatar-creation-spec.md  # Avatar spec & policy
 ├── personas/                                # Standalone Persona
 │   ├── YOUR_AGENT_NAME/                    # Blank template — copy and rename to create your own Persona
