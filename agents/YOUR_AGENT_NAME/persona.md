@@ -1,15 +1,3 @@
-<!--
-  Instructions (Agent template):
-  1. Copy the entire agents/YOUR_AGENT_NAME/ folder and rename to your agent name
-  2. Sync the IDs across all three files (persona_id / skill_id / avatar_id)
-  3. The bidirectional binding fields (agent_skills / compatible_personas) are pre-filled — keep them mirrored when you change IDs
-  4. Fill in the sections below, remove all lines starting with # and this instruction block
-  5. Submit through Creator Portal
-
-  Important:
-  - YOUR_AGENT_NAME is a reserved prefix; Portal will reject listings using it
-  - For full field reference, see docs/persona-template.md
--->
 ---
 persona_id: YOUR_AGENT_NAME              # Change to your persona ID (lowercase English + underscores)
 name: Your Persona Display Name
@@ -43,6 +31,19 @@ allowed_skill_categories:
 # model_fidelity:
 #   claude-opus-4-6: canon
 ---
+
+<!--
+  Instructions (Agent template):
+  1. Copy the entire agents/YOUR_AGENT_NAME/ folder and rename to your agent name
+  2. Sync the IDs across all three files (persona_id / skill_id / avatar_id)
+  3. The bidirectional binding fields (agent_skills / compatible_personas) are pre-filled — keep them mirrored when you change IDs
+  4. Fill in the sections below, remove all lines starting with # and this instruction block
+  5. Submit through Creator Portal
+
+  Important:
+  - YOUR_AGENT_NAME is a reserved prefix; Portal will reject listings using it
+  - For full field reference, see docs/persona-template.md
+-->
 
 # Your Persona Display Name
 

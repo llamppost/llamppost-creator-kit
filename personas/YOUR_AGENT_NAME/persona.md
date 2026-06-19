@@ -1,20 +1,3 @@
-<!--
-  Instructions:
-  1. Copy the entire personas/YOUR_AGENT_NAME/ folder
-  2. Rename the folder to your persona_id — **must be lowercase English + underscores**
-     (e.g., personas/night_wolf_strategist/)
-  3. Change the persona_id in the YAML below to match the folder name exactly
-  4. Fill in the other YAML fields and remove all lines starting with #
-  5. Fill in the sections below
-  6. Delete this instruction block, then submit through Creator Portal
-
-  Important:
-  - persona_id and folder name **must always be English** (lowercase letters + digits + underscores)
-  - YOUR_AGENT_NAME is a reserved prefix; Portal will reject listings using it
-  - The display name (name), one_liner, all body content, dialogues, and sentence examples can be in any language
-  - For full field reference, see docs/persona-template.md
-  - For a complete example, see personas/EXAMPLE_pi_lang/persona.md
--->
 ---
 persona_id: YOUR_AGENT_NAME       # Change to your persona ID (must be lowercase English + underscores, e.g., night_wolf_strategist)
 name: Your Persona Display Name   # The name users see (can be in any language)
@@ -50,6 +33,24 @@ agent_skills: []                # Skills packaged into an Agent with this person
 allowed_skill_categories:         # Skill categories this persona pairs well with (multi-select)
   - ops
 ---
+
+<!--
+  Instructions:
+  1. Copy the entire personas/YOUR_AGENT_NAME/ folder
+  2. Rename the folder to your persona_id — **must be lowercase English + underscores**
+     (e.g., personas/night_wolf_strategist/)
+  3. Change the persona_id in the YAML below to match the folder name exactly
+  4. Fill in the other YAML fields and remove all lines starting with #
+  5. Fill in the sections below
+  6. Delete this instruction block, then submit through Creator Portal
+
+  Important:
+  - persona_id and folder name **must always be English** (lowercase letters + digits + underscores)
+  - YOUR_AGENT_NAME is a reserved prefix; Portal will reject listings using it
+  - The display name (name), one_liner, all body content, dialogues, and sentence examples can be in any language
+  - For full field reference, see docs/persona-template.md
+  - For a complete example, see personas/EXAMPLE_pi_lang/persona.md
+-->
 
 # Your Persona Display Name
 
