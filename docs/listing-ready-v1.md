@@ -116,8 +116,6 @@ languages:
 base_price: 0                       ← NT$。0 = 免費；≥100 = 付費（自訂）
 
 script_mode: workflow_only          ← 保持原樣（除非你有附腳本）
-
-compatible_personas: []             ← 單品上架留 [] 即可
 ---
 ```
 
@@ -174,12 +172,6 @@ languages:
   - en
 
 base_price: 0                      ← NT$。0 = 免費；≥100 = 付費
-
-agent_skills: []                 ← 單品上架留 []
-
-allowed_skill_categories:
-  - ops
-  - writing
 ---
 ```
 
