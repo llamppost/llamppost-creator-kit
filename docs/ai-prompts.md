@@ -117,6 +117,7 @@
 - script_mode 默认用 workflow_only，除非你明确要附脚本
 - 显示名称（title）可以有创意，但 skill_id 必须像 `weekly_report_writer` 这样的蛇形英文
 - base_price 只允许 `0` 或 `≥100`（1–99 会被 Portal 拒绝）
+- 单品 skill **不要**产出 compatible_personas 配对栏位——哪些 persona 跟它搭得好，推荐由平台依 category 自动处理（只有上架整组 Agent 时才需要双向绑定）
 - 不要问我 tested_runtimes / tested_models / test_level——这些是 v1.5 后 deprecated，Portal 之后会自动测试填写
 ```
 
@@ -180,6 +181,7 @@
 - 灵魂素材只能放**会改变角色判断**的东西，不是身世背景（不要写「喜欢咖啡、在海边长大」）
 - `## 核心信念` 是**公开的**（安装前就显示在上架页）；其余五段灵魂是**私有的**（只到执行 prompt 与审核者）。不要在核心信念里放任何我不想让陌生人读到的东西
 - base_price 只允许 `0` 或 `≥100`（1–99 会被 Portal 拒绝）
+- 单品 persona **不要**产出 agent_skills / allowed_skill_categories 配对栏位——哪些 skill 跟它搭得好，推荐由平台依 profession 自动处理（只有上架整组 Agent 时才需要双向绑定）
 - 不要问我 tested_runtimes / tested_models / test_level / model_fidelity / recommended_models / voice_fingerprint override——这些是 v1.5 后 deprecated 或由平台自动推导，Portal 之后会自动测试填写
 ```
 
