@@ -62,6 +62,7 @@
 | 上传 Avatar 图片与 metadata | 参考 [Avatar 规格与政策](docs/avatar-creation-spec.md) |
 | 上架完整 Agent（Persona + Skill + Avatar） | 复制 `agents/YOUR_AGENT_NAME/`，双向绑定已预填 |
 | 用 AI 辅助我写模板 | [AI Prompt 集](docs/ai-prompts.md)（复制粘贴即可用） |
+| 看买家购买后拿到什么 | [交付 Prompt](docs/delivery-prompt.md)（灵魂 onboarding A／B／C） |
 | 阅读平台规则 | [平台政策](policy/policy.zh-CN.md) |
 
 ---
@@ -94,6 +95,7 @@ creator-kit/
 │   ├── ai-prompts.md            # 用 AI 辅助写模板的 Prompt 集
 │   ├── skill-template.md        # Skill 模板文档
 │   ├── persona-template.md      # Persona 模板
+│   ├── delivery-prompt.md       # 买家购买后复制进执行环境的 prompt
 │   └── avatar-creation-spec.md  # Avatar 规格与政策
 ├── personas/                                # 单品 Persona
 │   ├── YOUR_AGENT_NAME/                    # 空白模板——复制并改名来创建你自己的 Persona
