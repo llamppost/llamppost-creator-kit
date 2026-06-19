@@ -10,13 +10,6 @@ languages:
   - en
 
 base_price: 250            # NT$。0 = 無料；≥100 = 有料（自由設定）
-
-agent_skills: []
-
-allowed_skill_categories:
-  - strat
-  - ops
-  - mktg
 ---
 
 <!--

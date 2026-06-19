@@ -116,8 +116,6 @@ languages:
 base_price: 0                       ← NT$。0 = 無料；≥100 = 有料（自由設定）
 
 script_mode: workflow_only          ← そのまま（スクリプト付属でない限り）
-
-compatible_personas: []             ← 単品上架なら [] のまま
 ---
 ```
 
@@ -174,12 +172,6 @@ languages:
   - en
 
 base_price: 0                      ← NT$。0 = 無料；≥100 = 有料
-
-agent_skills: []                 ← 単品上架なら []
-
-allowed_skill_categories:
-  - ops
-  - writing
 ---
 ```
 
