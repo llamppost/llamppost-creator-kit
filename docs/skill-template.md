@@ -47,7 +47,6 @@
 | `languages` | YAML | 是 | skill 運作的語言 BCP-47 代碼 |
 | `base_price` | YAML | 是 | NT$，`0`（免費）或 `≥100` |
 | `script_mode` | YAML | 是 | 見下方說明 |
-| `compatible_personas` | YAML | Agent 必填、單品選填 | 綁定的 Persona ID |
 | What this skill does | Body | 是 | 3–5 句描述 |
 | Workflow | Body | 是 | 3–7 個步驟 |
 | What User needs to provide | Body | 是 | 條列 |
@@ -177,18 +176,11 @@ base_price: 180     # NT$ 180
 
 ---
 
-### `compatible_personas`（Agent 必填、單品選填）
+### Skill 與 persona 的配對
 
-如果這個 skill 是要跟某個 Persona 一起打包成 Agent 出貨的，把它要配對的 `persona_id` 列在這裡。Portal 會驗證每一個 persona 的 `agent_skills` 欄位也要列出這個 skill——兩邊必須一致。
+單品上架的 skill **不需要**自填任何 persona 配對欄位——skill 是獨立、可疊加的層，本身就獨立成立。配對推薦交由平台依 `category` 自動處理，創作者不必手動宣告。
 
-```yaml
-compatible_personas:
-  - kai_weekly_coach
-```
-
-如果這個 skill 是獨立銷售，這個欄位可以省略或設為 `[]`。
-
-> **Agent 模板：** 如果你要上架完整 Agent（Persona + Skill + Avatar），用 `agents/YOUR_AGENT_NAME/` 模板——雙向綁定已預填好，比兩個單品資料夾來回對齊容易得多。
+> **Agent 模板：** 如果你要上架完整 Agent（Persona + Skill + Avatar），用 `agents/YOUR_AGENT_NAME/` 模板——skill 與 persona 的雙向綁定已預填好，比兩個單品資料夾來回對齊容易得多。
 
 ---
 
@@ -293,8 +285,6 @@ languages:
 base_price: 0
 
 script_mode: workflow_only
-
-compatible_personas: []
 ---
 ```
 

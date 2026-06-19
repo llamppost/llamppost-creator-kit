@@ -28,8 +28,6 @@ base_price: 0
 # test_level: smoke               # smoke | qa | prod_ready
 
 script_mode: workflow_only        # workflow_only（只有描述）| script_spec（規格）| script_provided（附腳本）
-
-compatible_personas: []           # 選填。這個 skill 綁定的 persona ID——standalone 銷售時留 [] 即可
 ---
 
 <!--
