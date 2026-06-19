@@ -62,6 +62,7 @@ Claude、ChatGPT、その他の AI アシスタントにテンプレートを書
 | Avatar 画像と metadata をアップロードする | [Avatar 仕様とポリシー](docs/avatar-creation-spec.md)を参照 |
 | Agent（Persona + Skill + Avatar）を上架する | `agents/YOUR_AGENT_NAME/` をコピー、双方向バインディングは事前に記入済み |
 | AI 補助でテンプレートを書く | [AI プロンプト集](docs/ai-prompts.md)（コピペで即使用） |
+| 購入者が購入後に何を受け取るか見る | [デリバリープロンプト](docs/delivery-prompt.md)（ソウル onboarding A／B／C） |
 | プラットフォームルールを読む | [プラットフォームポリシー](policy/policy.ja.md) |
 
 ---
@@ -94,6 +95,7 @@ creator-kit/
 │   ├── ai-prompts.md            # AI 補助でテンプレートを書くためのプロンプト集
 │   ├── skill-template.md        # Skill テンプレートドキュメント
 │   ├── persona-template.md      # Persona テンプレートドキュメント
+│   ├── delivery-prompt.md       # 購入者が購入後に実行環境へコピーするプロンプト
 │   └── avatar-creation-spec.md  # Avatar 仕様とポリシー
 ├── personas/                                # 単品 Persona
 │   ├── YOUR_AGENT_NAME/                    # 空白テンプレート——コピーしてリネームし、自分の Persona を作る
