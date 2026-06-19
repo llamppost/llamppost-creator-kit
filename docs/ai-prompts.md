@@ -151,14 +151,22 @@
     - 第一段（日常工作・必填）：角色在什麼情境下被問問題？
     - 第二段（衝突／不同意・建議）：使用者反駁什麼？
     - 第三段（脆弱／情緒支持・建議）：使用者分享了什麼困難？
-10. 你希望這個 persona 的 persona_id 叫什麼？（英文小寫 + 底線）
-11. base_price 想填 0（免費上架，Hatchling 試上架）還是付費（≥100 NT$）？
+10. 靈魂素材（選填，但強烈建議——這是讓角色有脊椎的東西）。請依序問我，每一段都接受「跳過」：
+    - **核心信念**（這段會公開顯示在上架頁，買家安裝前就會讀到）：角色拿來衡量一切的 1 到 3 條信念是什麼？
+    - 它會替使用者守住什麼，就算沒被要求？
+    - 不管是誰來問，它都絕不幫的是什麼？
+    - 它在什麼情況下會反對使用者、而不是照辦？
+    - 形塑它判斷的內在張力是什麼？
+    - 它怎麼擺放自己對使用者的位置（平輩、導師、直話直說的兄姐、安靜的工具）？
+11. 你希望這個 persona 的 persona_id 叫什麼？（英文小寫 + 底線）
+12. base_price 想填 0（免費上架，Hatchling 試上架）還是付費（≥100 NT$）？
 
 問完之後，請依照 personas/EXAMPLE_pi_lang/persona.md 的結構輸出：
 - 完整的 persona.md 檔案內容
 - YAML frontmatter（所有必填欄位）
 - Opening / During-work / Closing behavior 各 1–2 句
 - 5 句 sentence examples（對應前面問的 5 個情境）
+- 使用者填寫的靈魂素材段落：`## 核心信念`，再加上 `## 會保護什麼` / `## 絕不幫什麼` / `## 何時反對使用者` / `## 養成張力` / `## 與使用者的關係` 之中有回答的那幾段。只放使用者回答過的段落——沒回答的就略過，不要自己編
 - 至少 1 段必填對話（建議補滿 3 段），每段都有 2–3 輪 User/Persona 交流
 - 建議的資料夾路徑（例如 `personas/night_wolf_strategist/`）
 
@@ -168,6 +176,9 @@
 - name（顯示名稱）、one_liner、所有 behavior 描述、對話、句子範例可以使用任何語言
 - 若有補上多段對話，**語氣必須一致**——這是 llamppost 跨模型一致性的核心賣點。如果讀起來像不同的人，這個 persona 就廢了
 - 多段對話要涵蓋**不同情緒 register**（routine / disagreement / vulnerability）——一段很長的單一情境對話不算多段
+- 靈魂素材是選填。只寫我實際回答的段落——不要編造我沒給你的信念或拒絕
+- 靈魂素材只能放**會改變角色判斷**的東西，不是身家背景（不要寫「喜歡咖啡、在海邊長大」）
+- `## 核心信念` 是**公開的**（安裝前就顯示在上架頁）；其餘五段靈魂是**私有的**（只到執行 prompt 與審核者）。不要在核心信念裡放任何我不想讓陌生人讀到的東西
 - base_price 只允許 `0` 或 `≥100`（1–99 會被 Portal 拒絕）
 - 不要問我 tested_runtimes / tested_models / test_level / model_fidelity / recommended_models / voice_fingerprint override——這些是 v1.5 後 deprecated 或由平台自動推導，Portal 之後會自動測試填寫
 ```
@@ -209,8 +220,8 @@
 
 ===== 階段 2：填 Persona =====
 
-用 Prompt C 的題目問我 Persona 細節（個性、招牌口頭禪、三段對話情境等）。
-寫出完整的 persona.md 檔案內容。
+用 Prompt C 的題目問我 Persona 細節（個性、三段對話情境，以及靈魂素材——尤其是**核心信念**，它會公開顯示在上架頁）。
+寫出完整的 persona.md 檔案內容，包含 `## 核心信念` 段落，以及我有回答的其餘靈魂段落。
 輸出後等我 review，我說 OK 再進階段 3。
 
 ===== 階段 3：填 Skill =====
@@ -254,6 +265,8 @@
 - Persona ↔ Skill 的 agent_skills ↔ compatible_personas 必須雙向綁定
 - Agent 必須三者都齊（Persona + Skill + Avatar）。沒有 Avatar 不能以 Agent 上架——告訴我要拆成單品還是先生成 Avatar
 - 三個檔案的語氣、設定、世界觀必須一致
+- 靈魂素材是選填、且只在 persona 這一層——只寫我回答的，絕不自己編。`## 核心信念` 公開顯示在上架頁；其餘五段靈魂是私有的（只到執行 prompt 與審核者）
+- persona **不綁它的 skill**——靈魂屬於 persona，skill 是另一個可疊加的層；`agent_skills` ↔ `compatible_personas` 只標記搭配關係
 - 每一階段結束都要等我確認才進下一階段——不要一口氣全部生出來
 - base_price 只允許 `0` 或 `≥100`（1–99 會被 Portal 拒絕）
 - 不要問我 tested_models / test_level / model_fidelity / voice_fingerprint override——這些都已 deprecated 或由平台自動推導

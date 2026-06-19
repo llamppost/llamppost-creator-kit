@@ -62,6 +62,7 @@
 | 上傳 Avatar 圖片與 metadata | 參考 [Avatar 規格與政策](docs/avatar-creation-spec.md) |
 | 上架完整 Agent（Persona + Skill + Avatar） | 複製 `agents/YOUR_AGENT_NAME/`，雙向綁定已預填 |
 | 用 AI 輔助我寫模板 | [AI Prompt 集](docs/ai-prompts.md)（複製貼上即可用） |
+| 看買家購買後拿到什麼 | [交付 Prompt](docs/delivery-prompt.md)（靈魂 onboarding A／B／C） |
 | 閱讀平台規則 | [平台政策](policy/policy.zh-TW.md) |
 
 ---
@@ -94,6 +95,7 @@ creator-kit/
 │   ├── ai-prompts.md            # 用 AI 輔助寫模板的 Prompt 集
 │   ├── skill-template.md        # Skill 模板文件
 │   ├── persona-template.md      # Persona 模板
+│   ├── delivery-prompt.md       # 買家購買後複製進執行環境的 prompt
 │   └── avatar-creation-spec.md  # Avatar 規格與政策
 ├── personas/                                # 單品 Persona
 │   ├── YOUR_AGENT_NAME/                    # 空白模板——複製並改名來建立你自己的 Persona
