@@ -10,13 +10,6 @@ languages:
   - en
 
 base_price: 250            # NT$. 0 = free; ≥100 = paid (your choice)
-
-agent_skills: []
-
-allowed_skill_categories:
-  - strat
-  - ops
-  - mktg
 ---
 
 <!--

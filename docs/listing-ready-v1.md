@@ -116,8 +116,6 @@ languages:
 base_price: 0                       ← NT$. 0 = free; ≥100 = paid (your choice)
 
 script_mode: workflow_only          ← keep as-is unless you ship a script
-
-compatible_personas: []             ← standalone? leave as []
 ---
 ```
 
@@ -174,12 +172,6 @@ languages:
   - en
 
 base_price: 0                      ← NT$. 0 = free; ≥100 = paid
-
-agent_skills: []                 ← standalone? leave as []
-
-allowed_skill_categories:
-  - ops
-  - writing
 ---
 ```
 
