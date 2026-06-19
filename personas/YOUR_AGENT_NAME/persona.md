@@ -1,19 +1,3 @@
-<!--
-  說明：
-  1. 複製整個 personas/YOUR_AGENT_NAME/ 資料夾
-  2. 將資料夾改名為你的 persona_id——**必須是英文小寫 + 底線**（例如：personas/night_wolf_strategist/）
-  3. 把下面 YAML 的 persona_id 改成跟資料夾名稱完全一樣
-  4. 填寫上面其他 YAML 欄位，刪掉所有開頭為 # 的行
-  5. 填寫下方的各個區塊
-  6. 刪除這個說明區塊，然後透過 Creator Portal 送出
-
-  重要：
-  - persona_id 與資料夾名稱**永遠必須是英文**（小寫字母 + 數字 + 底線）
-  - YOUR_AGENT_NAME 是保留前綴，Portal 會拒絕含此前綴的上架
-  - 顯示名稱（name）、one_liner、所有 body 內容、對話、句子範例可以使用任何語言
-  - 完整欄位說明請見 docs/persona-template.md
-  - 完整範例請見 personas/EXAMPLE_pi_lang/persona.md
--->
 ---
 persona_id: YOUR_AGENT_NAME       # 改成你的 persona ID（必須英文小寫 + 底線，例如：night_wolf_strategist）
 name: 你的 Persona 顯示名稱         # 使用者看到的名稱（可以使用任何語言）
@@ -48,6 +32,23 @@ agent_skills: []                # 這個 persona 綁定的 skill——standalone
 allowed_skill_categories:         # 這個 persona 適合的 skill 分類（可複選）
   - ops
 ---
+
+<!--
+  說明：
+  1. 複製整個 personas/YOUR_AGENT_NAME/ 資料夾
+  2. 將資料夾改名為你的 persona_id——**必須是英文小寫 + 底線**（例如：personas/night_wolf_strategist/）
+  3. 把下面 YAML 的 persona_id 改成跟資料夾名稱完全一樣
+  4. 填寫上面其他 YAML 欄位，刪掉所有開頭為 # 的行
+  5. 填寫下方的各個區塊
+  6. 刪除這個說明區塊，然後透過 Creator Portal 送出
+
+  重要：
+  - persona_id 與資料夾名稱**永遠必須是英文**（小寫字母 + 數字 + 底線）
+  - YOUR_AGENT_NAME 是保留前綴，Portal 會拒絕含此前綴的上架
+  - 顯示名稱（name）、one_liner、所有 body 內容、對話、句子範例可以使用任何語言
+  - 完整欄位說明請見 docs/persona-template.md
+  - 完整範例請見 personas/EXAMPLE_pi_lang/persona.md
+-->
 
 # 你的 Persona 顯示名稱
 
