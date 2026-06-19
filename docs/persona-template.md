@@ -73,22 +73,7 @@ base_price: 980     # NT$ 980
 
 ---
 
-### `agent_skills` (required for Agents, optional for standalone)
-
-If this persona is meant to be packaged into an Agent with specific skills, list their `skill_id` here. Each skill listed must:
-
-1. Exist under your creator account
-2. List this persona's `persona_id` in its own `compatible_personas` field (Portal verifies the symmetry on both sides)
-
-```yaml
-agent_skills:
-  - weekly_report_writer
-  - quarterly_planning_kit
-```
-
-If the persona is sold standalone, leave it as `[]` (empty array).
-
-> **Agent template:** If you're publishing a complete Agent (Persona + Skill + Avatar), use the `agents/YOUR_AGENT_NAME/` template — bidirectional binding is pre-filled, which is much easier than keeping two standalone folders in sync.
+> **Standalone vs. Agent:** A standalone persona needs no pairing fields — the platform recommends matching skills by `profession`, so you don't fill in any cross-link yourself. If you're publishing a complete Agent (Persona + Skill + Avatar), use the `agents/YOUR_AGENT_NAME/` template — bidirectional binding is pre-filled there.
 
 ---
 
@@ -121,18 +106,6 @@ Each Persona picks exactly one profession. This decides how the character is cat
 | `teacher_tutor` | Teacher / tutor |
 | `companion_partner` | Companion / partner |
 | `companion_ex` | Ex-partner companion |
-
----
-
-### `allowed_skill_categories` (optional)
-
-If this persona accepts pairing with skills from specific categories, list them. Multi-select. Leave blank to accept all.
-
-```yaml
-allowed_skill_categories:
-  - ops
-  - writing
-```
 
 ---
 
@@ -230,7 +203,7 @@ Each section is optional; fill in only the ones that apply.
 - **`## 核心信念` (Core beliefs) is PUBLIC.** It appears on your listing's description page, visible *before* a buyer installs the character. Buyers read it to decide whether they want to adopt this character's soul. Write it as something a stranger can read and judge by.
 - **The other five sections are PRIVATE.** They are delivered only into the runtime prompt the buyer copies after purchase, and shown to reviewers. They are **not** displayed publicly. Be candid in them — they only reach the buyer's own AI and the platform's review.
 
-> **Persona is not bound to any specific skill.** A persona = the character's personality + working style (opening / reporting / closing behavior) + its soul. It stands on its own. Skills are an independent, stackable layer; `agent_skills` only marks which skills *pair well* — it does not define the persona.
+> **Persona is not bound to any specific skill.** A persona = the character's personality + working style (opening / reporting / closing behavior) + its soul. It stands on its own. Skills are an independent, stackable layer — for a standalone persona the platform recommends matching skills by `profession`, so you declare no cross-link yourself.
 
 ---
 
@@ -287,13 +260,6 @@ languages:
   - en
 
 base_price: 0
-
-agent_skills:
-  - weekly_report_writer
-
-allowed_skill_categories:
-  - ops
-  - writing
 ---
 ```
 

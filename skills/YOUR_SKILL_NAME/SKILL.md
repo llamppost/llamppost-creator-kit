@@ -29,8 +29,6 @@ base_price: 0
 # test_level: smoke               # smoke | qa | prod_ready
 
 script_mode: workflow_only        # workflow_only (description only) | script_spec (spec) | script_provided (script included)
-
-compatible_personas: []           # Optional. Persona IDs this skill is bound to — leave [] if sold standalone
 ---
 
 <!--

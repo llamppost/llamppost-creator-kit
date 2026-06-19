@@ -27,11 +27,6 @@ base_price: 0
 # test_level: smoke               # smoke | qa | prod_ready
 # model_fidelity:
 #   claude-opus-4-6: canon        # canon | compatible | lite | untested
-
-agent_skills: []                # Skills packaged into an Agent with this persona — leave [] if standalone
-
-allowed_skill_categories:         # Skill categories this persona pairs well with (multi-select)
-  - ops
 ---
 
 <!--
