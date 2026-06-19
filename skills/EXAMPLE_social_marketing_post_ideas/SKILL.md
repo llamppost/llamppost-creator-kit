@@ -14,8 +14,6 @@ languages:
 base_price: 180        # NT$。0 = 免费；≥100 = 付费（自定）
 
 script_mode: workflow_only
-
-compatible_personas: []
 ---
 
 <!--
