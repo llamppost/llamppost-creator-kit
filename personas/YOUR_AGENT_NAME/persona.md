@@ -1,19 +1,3 @@
-<!--
-  说明：
-  1. 复制整个 personas/YOUR_AGENT_NAME/ 文件夹
-  2. 将文件夹改名为你的 persona_id——**必须是英文小写 + 下划线**（例如：personas/night_wolf_strategist/）
-  3. 把下面 YAML 的 persona_id 改成跟文件夹名称完全一样
-  4. 填写上面其他 YAML 字段，删掉所有开头为 # 的行
-  5. 填写下方的各个区块
-  6. 删除这个说明区块，然后通过 Creator Portal 提交
-
-  重要：
-  - persona_id 与文件夹名称**永远必须是英文**（小写字母 + 数字 + 下划线）
-  - YOUR_AGENT_NAME 是保留前缀，Portal 会拒绝含此前缀的上架
-  - 显示名称（name）、one_liner、所有 body 内容、对话、句子示例可以使用任何语言
-  - 完整字段说明请见 docs/persona-template.md
-  - 完整示例请见 personas/EXAMPLE_pi_lang/persona.md
--->
 ---
 persona_id: YOUR_AGENT_NAME       # 改成你的 persona ID（必须英文小写 + 下划线，例如：night_wolf_strategist）
 name: 你的 Persona 显示名称         # 用户看到的名称（可以使用任何语言）
@@ -48,6 +32,23 @@ agent_skills: []                # 这个 persona 绑定的 skill——standalone
 allowed_skill_categories:         # 这个 persona 适合的 skill 分类（可多选）
   - ops
 ---
+
+<!--
+  说明：
+  1. 复制整个 personas/YOUR_AGENT_NAME/ 文件夹
+  2. 将文件夹改名为你的 persona_id——**必须是英文小写 + 下划线**（例如：personas/night_wolf_strategist/）
+  3. 把下面 YAML 的 persona_id 改成跟文件夹名称完全一样
+  4. 填写上面其他 YAML 字段，删掉所有开头为 # 的行
+  5. 填写下方的各个区块
+  6. 删除这个说明区块，然后通过 Creator Portal 提交
+
+  重要：
+  - persona_id 与文件夹名称**永远必须是英文**（小写字母 + 数字 + 下划线）
+  - YOUR_AGENT_NAME 是保留前缀，Portal 会拒绝含此前缀的上架
+  - 显示名称（name）、one_liner、所有 body 内容、对话、句子示例可以使用任何语言
+  - 完整字段说明请见 docs/persona-template.md
+  - 完整示例请见 personas/EXAMPLE_pi_lang/persona.md
+-->
 
 # 你的 Persona 显示名称
 

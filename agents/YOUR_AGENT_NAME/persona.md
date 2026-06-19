@@ -1,15 +1,3 @@
-<!--
-  说明（Agent 模板）：
-  1. 复制整个 agents/YOUR_AGENT_NAME/ 文件夹，改成你自己的 agent 名称
-  2. 同步改三份文件内的 ID（persona_id / skill_id / avatar_id）
-  3. 双向绑定字段（agent_skills / compatible_personas）已预填好，改 ID 时两边要对称
-  4. 填写下方各区块，删掉所有开头为 # 与此说明区块
-  5. 通过 Creator Portal 提交
-
-  重要：
-  - YOUR_AGENT_NAME 是保留前缀，Portal 会拒绝
-  - 完整字段说明请见 docs/persona-template.md
--->
 ---
 persona_id: YOUR_AGENT_NAME              # 改成你的 persona ID（英文小写 + 下划线）
 name: 你的 Persona 显示名称
@@ -43,6 +31,19 @@ allowed_skill_categories:
 # model_fidelity:
 #   claude-opus-4-6: canon
 ---
+
+<!--
+  说明（Agent 模板）：
+  1. 复制整个 agents/YOUR_AGENT_NAME/ 文件夹，改成你自己的 agent 名称
+  2. 同步改三份文件内的 ID（persona_id / skill_id / avatar_id）
+  3. 双向绑定字段（agent_skills / compatible_personas）已预填好，改 ID 时两边要对称
+  4. 填写下方各区块，删掉所有开头为 # 与此说明区块
+  5. 通过 Creator Portal 提交
+
+  重要：
+  - YOUR_AGENT_NAME 是保留前缀，Portal 会拒绝
+  - 完整字段说明请见 docs/persona-template.md
+-->
 
 # 你的 Persona 显示名称
 
