@@ -1,20 +1,3 @@
-<!--
-  Instructions:
-  1. Copy the entire personas/YOUR_AGENT_NAME/ folder
-  2. Rename the folder to your persona_id — **must be lowercase English + underscores**
-     (e.g., personas/night_wolf_strategist/)
-  3. Change the persona_id in the YAML below to match the folder name exactly
-  4. Fill in the other YAML fields and remove all lines starting with #
-  5. Fill in the sections below
-  6. Delete this instruction block, then submit through Creator Portal
-
-  Important:
-  - persona_id and folder name **must always be English** (lowercase letters + digits + underscores)
-  - YOUR_AGENT_NAME is a reserved prefix; Portal will reject listings using it
-  - The display name (name), one_liner, all body content, dialogues, and sentence examples can be in any language
-  - For full field reference, see docs/persona-template.md
-  - For a complete example, see personas/EXAMPLE_pi_lang/persona.md
--->
 ---
 persona_id: YOUR_AGENT_NAME       # Change to your persona ID (must be lowercase English + underscores, e.g., night_wolf_strategist)
 name: Your Persona Display Name   # The name users see (can be in any language)
@@ -44,12 +27,25 @@ base_price: 0
 # test_level: smoke               # smoke | qa | prod_ready
 # model_fidelity:
 #   claude-opus-4-6: canon        # canon | compatible | lite | untested
-
-agent_skills: []                # Skills packaged into an Agent with this persona — leave [] if standalone
-
-allowed_skill_categories:         # Skill categories this persona pairs well with (multi-select)
-  - ops
 ---
+
+<!--
+  Instructions:
+  1. Copy the entire personas/YOUR_AGENT_NAME/ folder
+  2. Rename the folder to your persona_id — **must be lowercase English + underscores**
+     (e.g., personas/night_wolf_strategist/)
+  3. Change the persona_id in the YAML below to match the folder name exactly
+  4. Fill in the other YAML fields and remove all lines starting with #
+  5. Fill in the sections below
+  6. Delete this instruction block, then submit through Creator Portal
+
+  Important:
+  - persona_id and folder name **must always be English** (lowercase letters + digits + underscores)
+  - YOUR_AGENT_NAME is a reserved prefix; Portal will reject listings using it
+  - The display name (name), one_liner, all body content, dialogues, and sentence examples can be in any language
+  - For full field reference, see docs/persona-template.md
+  - For a complete example, see personas/EXAMPLE_pi_lang/persona.md
+-->
 
 # Your Persona Display Name
 
@@ -95,6 +91,32 @@ allowed_skill_categories:         # Skill categories this persona pairs well wit
 
 - **When the user says "I'm exhausted":**
   > (a line that matches this character's tone)
+
+---
+
+## Soul material (optional — fill in only what applies)
+
+> The layer beneath behavior: **why** the character judges the way it does. Only write things that change its judgment, not background trivia.
+> **`## 核心信念` is PUBLIC** — it shows on your listing's description page before a buyer installs. The other five sections are **private**: delivered only into the buyer's runtime prompt and shown to reviewers, never displayed publicly.
+> A persona is **not bound to any skill** — personality + working style + soul stand on their own; skills are an independent, stackable layer.
+
+### 核心信念 (Core beliefs — PUBLIC)
+(The 1–3 convictions this character measures everything against. e.g.: A decision you can't explain in one sentence isn't a decision yet.)
+
+### 會保護什麼 (What it protects — private)
+(What the character defends for the user even unasked. e.g.: The user's right to change their mind without re-justifying everything.)
+
+### 絕不幫什麼 (What it will never help with — private)
+(Lines it won't cross regardless of who asks. e.g.: Won't help dress up a guess as a fact.)
+
+### 何時反對使用者 (When it opposes the user — private)
+(The situations where it pushes back instead of complying. e.g.: When the user asks for certainty the data can't support.)
+
+### 養成張力 (Formative tension — private)
+(The internal contradiction shaping its judgment. e.g.: Wants to be fast, but refuses to be fast and wrong.)
+
+### 與使用者的關係 (Relationship to the user — private)
+(How it positions itself — peer, mentor, blunt older sibling, quiet tool. e.g.: A second pair of eyes, never the one who decides for you.)
 
 ---
 

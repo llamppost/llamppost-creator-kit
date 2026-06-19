@@ -151,14 +151,22 @@ Then ask me the following questions in order, one at a time:
     - First (routine work, required): what situation is the character asked about?
     - Second (conflict / disagreement, recommended): what does the user push back on?
     - Third (vulnerability / emotional support, recommended): what hard thing does the user share?
-10. What persona_id do you want for this persona? (lowercase English + underscores)
-11. Do you want base_price to be 0 (free Hatchling trial) or paid (≥100 NT$)?
+10. Soul material (optional but strongly recommended — this is what gives the character a spine). Ask me in order, and accept "skip" for any:
+    - **Core beliefs** (this becomes PUBLIC on the listing page — buyers read it before installing): what 1–3 convictions does the character measure everything against?
+    - What does it protect for the user, even unasked?
+    - What will it never help with, no matter who asks?
+    - When does it push back on the user instead of complying?
+    - What internal tension shapes its judgment?
+    - How does it position itself toward the user (peer, mentor, blunt older sibling, quiet tool)?
+11. What persona_id do you want for this persona? (lowercase English + underscores)
+12. Do you want base_price to be 0 (free Hatchling trial) or paid (≥100 NT$)?
 
 After the questions, output, following the structure of personas/EXAMPLE_pi_lang/persona.md:
 - Complete persona.md content
 - YAML frontmatter (all required fields)
 - Opening / During-work / Closing behavior, 1–2 sentences each
 - 5 sentence examples (matching the 5 situations from earlier)
+- The Soul material sections the user filled in: `## 核心信念` (Core beliefs) plus any of `## 會保護什麼` / `## 絕不幫什麼` / `## 何時反對使用者` / `## 養成張力` / `## 與使用者的關係`. Only include sections the user answered — skip the rest, don't invent.
 - At least 1 required dialogue (3 recommended), each with 2–3 turns of User/Persona exchange
 - Suggested folder path (e.g., `personas/night_wolf_strategist/`)
 
@@ -168,6 +176,9 @@ Hard rules:
 - name (display name), one_liner, all behavior descriptions, dialogues, sentence examples can be in any language
 - If you write multiple dialogues, **the tone must be consistent** — this is llamppost's core selling point for cross-model consistency. If they read like different people, the persona is broken
 - Multiple dialogues must cover **different emotional registers** (routine / disagreement / vulnerability) — one long single-situation dialogue does not count as multiple
+- Soul material is optional. Only write the sections I actually answer — don't invent beliefs or refusals I didn't give you
+- Soul material must contain only things that **change the character's judgment**, not background trivia (no "loves coffee, grew up by the sea")
+- `## 核心信念` (Core beliefs) is **public** (shows on the listing page before install); the other five soul sections are **private** (runtime + reviewer only). Don't put anything in 核心信念 that I wouldn't want a stranger to read
 - base_price only allows `0` or `≥100` (1–99 will be rejected by Portal)
 - Don't ask me about tested_runtimes / tested_models / test_level / model_fidelity / recommended_models / voice_fingerprint override — these are deprecated in v1.5 or auto-derived by the platform, Portal will fill them via testing later
 ```
@@ -209,8 +220,8 @@ After my answers, output a 30-second elevator pitch (under 100 chars) to confirm
 
 ===== Stage 2: fill the Persona =====
 
-Use Prompt C's questions to ask me about Persona details (personality, signature catchphrases, the three dialogue scenarios, etc.).
-Write the complete persona.md content.
+Use Prompt C's questions to ask me about Persona details (personality, the three dialogue scenarios, and the Soul material — especially **Core beliefs**, which becomes public on the listing page).
+Write the complete persona.md content, including the `## 核心信念` (Core beliefs) section and any other soul sections I answered.
 After output, wait for my review, then move to Stage 3 once I say OK.
 
 ===== Stage 3: fill the Skill =====
@@ -254,6 +265,8 @@ Hard rules (combining all three previous prompts):
 - Persona ↔ Skill's agent_skills ↔ compatible_personas must be bidirectionally bound
 - An Agent requires all three (Persona + Skill + Avatar). Without an Avatar, you can't ship as an Agent — tell me to either split into standalones or generate an Avatar first
 - The three files' tone, setting, worldview must be consistent
+- Soul material is optional and persona-level only — only write what I answer, never invent it. `## 核心信念` (Core beliefs) is public on the listing page; the other five soul sections are private (runtime + reviewer only)
+- A persona is **not bound to its skill** — the soul belongs to the persona, the skill is a separate stackable layer; `agent_skills` ↔ `compatible_personas` only marks the pairing
 - Wait for my confirmation after each stage — don't generate everything in one shot
 - base_price only allows `0` or `≥100` (1–99 will be rejected by Portal)
 - Don't ask me about tested_models / test_level / model_fidelity / voice_fingerprint override — these are all deprecated or auto-derived by the platform

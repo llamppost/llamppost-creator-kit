@@ -47,7 +47,6 @@ Your skill's `title` (display name, e.g., `title: 週報自動生成器`), `one_
 | `languages` | YAML | Yes | BCP-47 codes for the skill's operating language |
 | `base_price` | YAML | Yes | NT$, either `0` (free) or `≥100` |
 | `script_mode` | YAML | Yes | See details below |
-| `compatible_personas` | YAML | Required for Agents, optional for standalone | Bound Persona ID |
 | What this skill does | Body | Yes | 3–5 sentence description |
 | Workflow | Body | Yes | 3–7 steps |
 | What User needs to provide | Body | Yes | Bullet list |
@@ -177,18 +176,7 @@ base_price: 180     # NT$ 180
 
 ---
 
-### `compatible_personas` (required for Agents, optional for standalone)
-
-If this skill is meant to be packaged into an Agent with a specific Persona, list the `persona_id` it pairs with here. Portal verifies that each persona's `agent_skills` field also lists this skill — both sides must match.
-
-```yaml
-compatible_personas:
-  - kai_weekly_coach
-```
-
-If this skill is sold standalone, the field can be omitted or set to `[]`.
-
-> **Agent template:** If you're publishing a complete Agent (Persona + Skill + Avatar), use the `agents/YOUR_AGENT_NAME/` template — bidirectional binding is pre-filled, which is much easier than keeping two standalone folders in sync.
+> **Standalone vs. Agent:** A standalone skill needs no pairing field — the platform recommends matching personas by `category`, so you don't declare any cross-link yourself. If you're publishing a complete Agent (Persona + Skill + Avatar), use the `agents/YOUR_AGENT_NAME/` template — bidirectional binding is pre-filled there.
 
 ---
 
@@ -293,8 +281,6 @@ languages:
 base_price: 0
 
 script_mode: workflow_only
-
-compatible_personas: []
 ---
 ```
 

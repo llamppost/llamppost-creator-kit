@@ -1,12 +1,3 @@
-<!--
-  =====================================================================
-  This is a REFERENCE EXAMPLE.
-  Both the folder name and skill_id use the EXAMPLE_ prefix so you
-  can tell at a glance: "this is a kit reference, not a real listing."
-  Your own skill folders and skill_ids MUST NOT use the EXAMPLE_
-  prefix — Portal will reject them.
-  =====================================================================
--->
 ---
 skill_id: EXAMPLE_social_marketing_post_ideas
 title: Social Marketing: Post Ideas Pack
@@ -23,9 +14,17 @@ languages:
 base_price: 180        # NT$. 0 = free; ≥100 = paid (your choice)
 
 script_mode: workflow_only
-
-compatible_personas: []
 ---
+
+<!--
+  =====================================================================
+  This is a REFERENCE EXAMPLE.
+  Both the folder name and skill_id use the EXAMPLE_ prefix so you
+  can tell at a glance: "this is a kit reference, not a real listing."
+  Your own skill folders and skill_ids MUST NOT use the EXAMPLE_
+  prefix — Portal will reject them.
+  =====================================================================
+-->
 
 <!--
   v1.5 design notes:

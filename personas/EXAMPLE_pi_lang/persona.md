@@ -1,12 +1,3 @@
-<!--
-  =====================================================================
-  This is a REFERENCE EXAMPLE.
-  Both the folder name and persona_id use the EXAMPLE_ prefix so you
-  can tell at a glance: "this is a kit reference, not a real listing."
-  Your own persona folders and persona_ids MUST NOT use the EXAMPLE_
-  prefix — Portal will reject them.
-  =====================================================================
--->
 ---
 persona_id: EXAMPLE_pi_lang
 name: Pi Lang
@@ -19,14 +10,17 @@ languages:
   - en
 
 base_price: 250            # NT$. 0 = free; ≥100 = paid (your choice)
-
-agent_skills: []
-
-allowed_skill_categories:
-  - strat
-  - ops
-  - mktg
 ---
+
+<!--
+  =====================================================================
+  This is a REFERENCE EXAMPLE.
+  Both the folder name and persona_id use the EXAMPLE_ prefix so you
+  can tell at a glance: "this is a kit reference, not a real listing."
+  Your own persona folders and persona_ids MUST NOT use the EXAMPLE_
+  prefix — Portal will reject them.
+  =====================================================================
+-->
 
 <!--
   v1.5 design notes:
