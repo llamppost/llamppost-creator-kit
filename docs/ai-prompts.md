@@ -117,6 +117,7 @@
 - script_mode はデフォルトで workflow_only、明確にスクリプト付属でない限り
 - 表示名（title）はクリエイティブで OK、ただし skill_id は `weekly_report_writer` のような snake_case 英語必須
 - base_price は `0` または `≥100` のみ許可（1–99 は Portal が拒否）
+- 単品 Skill に `compatible_personas` を出力しないでください——単品上架にペアリング欄はなく、プラットフォームが `category` をもとに相性のよい Persona を扱います（バインディングが必要な場合は Agent テンプレートを使う）
 - tested_runtimes / tested_models / test_level を私に訊かないでください——v1.5 以降 deprecated、Portal が今後自動テストして記入します
 ```
 
@@ -180,6 +181,7 @@
 - ソウル素材には**キャラクターの判断を変えるもの**だけを置く、生い立ちではない（「コーヒーが好き、海辺で育った」は書かない）
 - `## 核心信念` は**公開**（インストール前に上架ページに表示）；残りの 5 段のソウルは**私有**（実行プロンプトと審査者にのみ届く）。核心信念には、見知らぬ人に読まれたくないものを一切入れない
 - base_price は `0` または `≥100` のみ許可（1–99 は Portal が拒否）
+- 単品 Persona に `agent_skills` / `allowed_skill_categories` を出力しないでください——単品上架にペアリング欄はなく、プラットフォームが `profession` をもとに相性のよい skill を扱います（バインディングが必要な場合は Agent テンプレートを使う）
 - tested_runtimes / tested_models / test_level / model_fidelity / recommended_models / voice_fingerprint override を私に訊かないでください——これらは v1.5 以降 deprecated またはプラットフォームが自動推論、Portal が今後自動テストして記入します
 ```
 

@@ -27,11 +27,6 @@ base_price: 0
 # test_level: smoke               # smoke | qa | prod_ready
 # model_fidelity:
 #   claude-opus-4-6: canon        # canon | compatible | lite | untested
-
-agent_skills: []                # この persona がバインドする skill——standalone なら [] のまま
-
-allowed_skill_categories:         # この persona に適した skill カテゴリ（複数選択可）
-  - ops
 ---
 
 <!--

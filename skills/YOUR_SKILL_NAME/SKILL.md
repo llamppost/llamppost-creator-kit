@@ -29,8 +29,6 @@ base_price: 0
 # test_level: smoke               # smoke | qa | prod_ready
 
 script_mode: workflow_only        # workflow_only（説明のみ）| script_spec（仕様）| script_provided（スクリプト付属）
-
-compatible_personas: []           # 任意。この skill がバインドする persona ID——standalone 販売なら [] のままで OK
 ---
 
 <!--

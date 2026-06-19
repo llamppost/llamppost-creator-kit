@@ -47,7 +47,6 @@ skill の `title`（表示名、例：`title: 週報自動ジェネレーター`
 | `languages` | YAML | はい | skill が動作する言語の BCP-47 コード |
 | `base_price` | YAML | はい | NT$、`0`（無料）または `≥100` |
 | `script_mode` | YAML | はい | 下の説明を参照 |
-| `compatible_personas` | YAML | Agent 必須、単品は任意 | バインディング対象の Persona ID |
 | What this skill does | Body | はい | 3–5 文の説明 |
 | Workflow | Body | はい | 3–7 ステップ |
 | What User needs to provide | Body | はい | 箇条書き |
@@ -177,18 +176,11 @@ base_price: 180     # NT$ 180
 
 ---
 
-### `compatible_personas`（Agent 必須、単品は任意）
+### 単品上架にペアリング欄は不要
 
-この skill をある Persona と 1 つの Agent にまとめて販売したい場合、ペアリングする `persona_id` をここにリストしてください。Portal は各 persona の `agent_skills` フィールドにもこの skill がリストされているかを検証します——両側が一致している必要があります。
+単品の Skill には、特定の Persona を宣言する欄はありません。プラットフォームが skill の `category` をもとに相性のよい Persona を自動でマッチングするので、クリエイターが手動でペアリングを記入する必要はありません。
 
-```yaml
-compatible_personas:
-  - kai_weekly_coach
-```
-
-この skill が単独販売の場合、このフィールドは省略するか `[]` に設定できます。
-
-> **Agent テンプレート：** 完全な Agent（Persona + Skill + Avatar）を上架するなら、`agents/YOUR_AGENT_NAME/` テンプレートを使ってください——双方向バインディングが事前に記入済みで、2 つの単品フォルダを行き来して揃えるよりずっと簡単です。
+> **Agent テンプレート：** Skill と Persona を 1 つの Agent にまとめて販売したいなら、`agents/YOUR_AGENT_NAME/` テンプレートを使ってください——双方向バインディングが事前に記入済みです。
 
 ---
 
@@ -293,8 +285,6 @@ languages:
 base_price: 0
 
 script_mode: workflow_only
-
-compatible_personas: []
 ---
 ```
 
