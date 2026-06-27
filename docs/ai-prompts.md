@@ -36,6 +36,25 @@ For example, chat.openai.com, claude.ai web, Gemini web, mobile apps.
 
 When to use: you already have a character image (or are about to generate one) and need to produce `metadata.json` and confirm rights compliance.
 
+### Already have the image? The 2-minute path (no AI interview needed)
+
+If your character image is done and you just need the metadata, you don't need the prompt below — just fill the file yourself:
+
+1. Put your image in the folder as `avatar.png` (PNG, square, at least 512×512).
+2. Open `metadata.json` and fill these — that's all there is:
+   - `avatar_id` — lowercase English + underscores, e.g. `night_wolf_001`
+   - `collection` — your series name, e.g. `weekday_workers`
+   - `listing_description` — 2–3 sentences: what the buyer gets + the character's vibe (this is what shows on the listing — don't leave it blank)
+   - `species` / `universe` / `realm` — pick from the enums in `docs/avatar-creation-spec.md`
+   - `base` — `original` (your own art) or the licensed IP name
+   - `traits` — a few visual tags (hair / style / expression)
+   - `rights.creator` — your creator id
+3. Upload the folder. Done.
+
+Prefer to have an AI fill it from a description? Copy the whole block below instead.
+
+### Full assisted version
+
 Copy the whole block:
 
 ```
