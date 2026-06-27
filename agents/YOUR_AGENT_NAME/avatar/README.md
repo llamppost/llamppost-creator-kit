@@ -1,11 +1,13 @@
-# Avatar (required for Agents)
+# Avatar (this Agent's visual)
 
-Agent listings require an Avatar. Place the following in this folder:
+This is the Avatar slot for an **Agent** listing — every Agent needs one. Place the following in this folder:
 
 - `avatar.png` — at least 512×512, 1024×1024 recommended, PNG, 1:1
 - `metadata.json` — pre-filled placeholder, please edit
 
 Full spec and rights policy in [`docs/avatar-creation-spec.md`](../../../docs/avatar-creation-spec.md).
+
+> **Just want to publish an Avatar on its own?** You don't need this Agent folder — and you don't need a `persona.md`. Copy [`avatars/YOUR_AVATAR_NAME/`](../../../avatars/YOUR_AVATAR_NAME) instead and publish the Avatar standalone.
 
 ## No Avatar yet but want to test the water?
 

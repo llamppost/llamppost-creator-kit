@@ -59,7 +59,7 @@ If you want to use Claude, ChatGPT, or another AI assistant to help you fill out
 | Understand the difference between Skill / Persona / Avatar | [Listing Guide](docs/listing-ready-v1.md) |
 | Create a new Skill (standalone) | Copy `skills/YOUR_SKILL_NAME/`, see [Skill Template Docs](docs/skill-template.md) |
 | Create a new Persona (standalone) | Copy `personas/YOUR_AGENT_NAME/`, see [Persona Template Docs](docs/persona-template.md) |
-| Upload an Avatar image and metadata | See [Avatar Spec & Policy](docs/avatar-creation-spec.md) |
+| Create a new Avatar (standalone) | Copy `avatars/YOUR_AVATAR_NAME/`, see [Avatar Spec & Policy](docs/avatar-creation-spec.md) |
 | Publish a full Agent (Persona + Skill + Avatar) | Copy `agents/YOUR_AGENT_NAME/` — bidirectional binding pre-filled |
 | Use AI to help me write templates | [AI Prompts](docs/ai-prompts.md) (copy-paste ready) |
 | See what a buyer gets after purchase | [Delivery Prompt](docs/delivery-prompt.md) (soul onboarding A/B/C) |

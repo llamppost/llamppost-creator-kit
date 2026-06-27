@@ -209,17 +209,28 @@ After each work chunk, Kai proactively summarizes "what got done, what's next" i
 
 ## Publishing a standalone Avatar
 
-### Step 1: Prepare the image
+> An Avatar publishes on its own. You do **not** need a `persona.md` or `SKILL.md` — those are only for a full Agent.
 
-- Filename: `avatar.png`
+### Step 1: Copy the template folder
+
+```
+Copy:   avatars/YOUR_AVATAR_NAME/
+Rename: avatars/your_avatar_id/      ← lowercase English + underscores, e.g., avatars/night_wolf_001/
+```
+
+The folder name MUST match the `avatar_id` inside `metadata.json`.
+
+### Step 2: Prepare the image
+
+- Filename: `avatar.png` (fixed)
 - Size: at least 512×512, 1024×1024 recommended
 - Format: PNG, 1:1
 
-### Step 2: Prepare metadata.json
+### Step 3: Fill in metadata.json
 
-Full schema and policy in [avatar-creation-spec.md](avatar-creation-spec.md).
+Edit every required field and rename `avatar_id` from the placeholder. Full schema, enum values, and rights policy in [avatar-creation-spec.md](avatar-creation-spec.md).
 
-### Step 3: Submit through Creator Portal
+### Step 4: Submit through Creator Portal
 
 ---
 
