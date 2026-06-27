@@ -1,0 +1,129 @@
+# Creator Kit · コンテンツポリシー
+
+言語：[English](https://github.com/illushane/llamppost-creator-kit/blob/main/docs/content-policy.md) · [繁體中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-TW/docs/content-policy.md) · [简体中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-CN/docs/content-policy.md) · [日本語](https://github.com/illushane/llamppost-creator-kit/blob/ja/docs/content-policy.md)
+
+llamppost は台湾で運営されています。すべての公開コンテンツは **台湾公平取引法第 21 条**（不実広告）に準拠する必要があります。違反は Portal AI 自動審査により却下、繰り返し違反者はプラットフォームによる take-down 対応となります。
+
+---
+
+## 法的根拠
+
+**公平取引法第 21 条** は、商品（サービスを含む）について虚偽または誤解を招く表示を行い、取引判断に影響を与えることを禁じています。違反者には罰金 NT$ 5 万〜2500 万円（公平取引法第 42 条）。
+
+llamppost 上の skill / persona / avatar listing は商業広告に該当し、本法の対象です。
+
+---
+
+## 4 つの高リスク表現カテゴリ
+
+### 1. 絶対的表現（高リスク・客観的主張は必ず却下）
+
+| 単語 | NG | OK |
+|---|---|---|
+| 保証 / guarantee | 「バズ保証」「効果保証」「収益保証」 | 「プライバシー保証」（事実）/「効果は保証しない」 |
+| 絶対 / 必ず | 「絶対 10 倍向上」「絶対最強」 | 「絶対に正直に限界を書く」（自己批評） |
+| 100% / 必ず / 必至 | 「100% 効果あり」「必ずバズる」 | （回避推奨） |
+
+**判断基準**：絶対的表現 + 結果保証 = 違法。絶対的表現 + 事実陳述 = OK。
+
+### 2. 最上級表現（客観データの裏付けが必要）
+
+| 単語 | NG | OK |
+|---|---|---|
+| 最も X | 「最強の writing AI」（データなし）/「最速」 | 「最も快適な体験」（主観）/「最も便利」（主観） |
+| 一番 / 唯一 / トップ | 「台湾初の X skill」「唯一できる」 | （第三者データの裏付けがない限り回避） |
+| No.1 / Top | 「売上 No.1」「Top creator」 | （回避推奨） |
+
+**判断基準**：
+- 「客観的事実レベル」（売上 / 速度 / 効果）→ 第三者データの裏付け必須
+- 「主観的感覚レベル」（最も快適 / 最も便利 / 最も楽しい）→ OK、主観には客観基準なし
+
+### 3. 永久 / 終身保証（高法的リスク）
+
+| 単語 | NG | OK |
+|---|---|---|
+| 永久 | 「永久無料更新」「永久有効」 | （回避・llamppost は技術的に永久保証不可） |
+| 一生 | 「一生エラーなし」 | （回避） |
+| 終身 X | 「終身保証」「終身無料」 | （回避） |
+
+**判断基準**：商業的に「永久」を保証することは不可能、約束自体が違法。
+
+### 4. 誇大な即効性 / 結果（具体的でなければならない）
+
+| 単語 | NG | OK |
+|---|---|---|
+| 即効 / 一夜にして | 「即効で売上アップ」 | （回避） |
+| X 分でプロに | 「5 分で writing プロに」 | 「5 分でフォーム記入」（文字通り正確） |
+| 一夜にして大金持ち / 必中 | 「この skill で一夜にして大金持ち」 | （絶対禁止） |
+| 即倍増 | 「クリックで即倍増」 | （回避） |
+
+**判断基準**：時効 + 結果の約束は「具体的・達成可能・文字通り成立」でなければならない。「5 分でフォーム記入」は記入時間そのものだから OK。「5 分でプロに」は NG、プロは 5 分でなれない。
+
+---
+
+## 例 vs 反例の対照
+
+### Skill one_liner
+
+| 反例 | 書き換え |
+|---|---|
+| バズる週報を保証、使えば必ず昇進 | 5 分で要点を押さえた週報、上司向けの成果重視バージョン |
+| 台湾初の writing AI、最強の筆致 | 4 つの語調切り替え可能なビジネス writing skill |
+| 永久無料、終身使用可能 | 無料公開（Hatchling tier） |
+
+### Skill 説明段落
+
+**反例**：
+> この skill を使えば、絶対にトップ marketing になれます。30 日以内に必ずフォロワーが 10 倍に。
+
+**書き換え**：
+> 思考プロセスを構造化したい marketing 担当者向け。使うことで「何を書けばいいかわからない」で詰まることが減ります。実際のフォロワー増加効果は、コンテンツ品質、プラットフォームのアルゴリズム、投稿頻度などの要因に依存します。
+
+---
+
+## 教育的言及 vs 自己主張の区別
+
+あなたの skill が「他者に過剰約束しないよう教える」もの？OK、禁止語を引用符で囲んで言及してください：
+
+> 「バズ保証」と書かないでください。Portal AI が検出します。
+
+引用符内の「バズ保証」は **教育的言及** であり、**自己主張** ではないため合法です。Portal AI は文脈で判断します。
+
+---
+
+## Portal 審査フロー
+
+1. draft を submit → `*_drafts` table に入る
+2. Auto-review L2 (AI) が 5 項目チェック：禁止コンテンツ / 品質基準 / IP リスク / 一貫性 / **過剰約束**
+3. AI verdict：
+   - `pass` → 自動公開
+   - `flag` → 人手レビュー queue へ
+   - `reject` → 自動却下・理由付き
+4. 人手 admin が flagged 件と境界 case を処理
+
+`/studio/drafts` で自分の draft の review status + reason を確認できます。
+
+---
+
+## 違反時の対応
+
+- 初回：draft reject、書き直しの機会
+- 2 回目：人手フラグ、今後の submit に対し厳格な審査
+- 複数回 / 深刻：creator アカウント停止 / 永久 BAN
+- 公開後に通報：take-down + 罰責は creator が負担（Terms に基づく）
+
+---
+
+## セルフチェック checklist
+
+公開前に `mcp-arrow` の `arrow.validate` を実行。`保證` `絕對` などを含む行に warning が出ます。本ドキュメントを参照して自分で文脈判断してください。warning ≠ 自動却下、self-correct の機会です。
+
+詳細な法解釈は以下を参照：
+
+- [公平取引法第 21 条全文](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=J0150002&flno=21)
+- [公平取引委員会「不実広告」事例集](https://www.ftc.gov.tw/internet/main/doc/docList.aspx?uid=165&mid=165)
+- [喆律法律事務所「不実広告の定義」](https://zhelu.tw/post/false-advertisement)
+
+---
+
+> 本ポリシーは ESC / llamppost が管理しています。質問は [github.com/illushane/llamppost-creator-kit/issues](https://github.com/illushane/llamppost-creator-kit/issues) へ。
