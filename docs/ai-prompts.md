@@ -56,6 +56,7 @@ Then ask me the following questions in order, one at a time, waiting for my answ
 7. If licensed IP: what's the IP name? Do you already have the license documents?
 8. Visual traits: hair, outfit, expression, accessories, other — at least 3
 9. What avatar_id do you want for this Avatar?
+10. Marketplace listing description: 2–3 sentences on what the buyer gets and the character's vibe. This shows on the product page and is saved as `listing_description` in metadata.json — required, don't leave it blank.
 
 After the questions, output:
 - The complete metadata.json (matching the schema in docs/avatar-creation-spec.md)

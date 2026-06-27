@@ -69,6 +69,7 @@ Place in the same folder as `avatar.png`, with the fixed filename `metadata.json
 {
   "avatar_id": "kai_001",
   "collection": "weekday_workers",
+  "listing_description": "A focused weekday office worker you can cast into your own short stories — calm, a little tired, dependable.",
   "species": "human",
   "universe": "modern",
   "realm": "earth",
@@ -95,6 +96,7 @@ Place in the same folder as `avatar.png`, with the fixed filename `metadata.json
 |-------|------|-------------|
 | `avatar_id` | string | Unique ID, lowercase + underscores, cannot be changed after naming |
 | `collection` | string | The series this Avatar belongs to (your own naming) |
+| `listing_description` | string | 2–3 sentence description shown on the marketplace listing — what the buyer gets and the character's vibe. Don't leave blank, or your Avatar shows up with no description. |
 | `species` | string | Character species, e.g. `human`, `robot`, `animal`, `spirit` |
 | `universe` | enum | World setting (see Enum list below) |
 | `realm` | enum | Domain (see Enum list below) |
