@@ -1,6 +1,6 @@
 # Listing Guide v1.5
 
-Language: English | [繁體中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-TW/docs/listing-ready-v1.md) | [简体中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-CN/docs/listing-ready-v1.md) | [日本語](https://github.com/illushane/llamppost-creator-kit/blob/ja/docs/listing-ready-v1.md)
+Language: English | [繁體中文](../../zh-TW/docs/listing-ready-v1.md) | [简体中文](../../zh-CN/docs/listing-ready-v1.md) | [日本語](../../ja/docs/listing-ready-v1.md)
 
 This guide walks you step by step through publishing your first listing. You don't need everything ready at once — **just pick one and start**.
 

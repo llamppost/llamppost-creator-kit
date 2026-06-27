@@ -1,6 +1,6 @@
 # Delivery Prompt (for buyers)
 
-Language: English | [繁體中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-TW/docs/delivery-prompt.md) | [简体中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-CN/docs/delivery-prompt.md) | [日本語](https://github.com/illushane/llamppost-creator-kit/blob/ja/docs/delivery-prompt.md)
+Language: English | [繁體中文](../../zh-TW/docs/delivery-prompt.md) | [简体中文](../../zh-CN/docs/delivery-prompt.md) | [日本語](../../ja/docs/delivery-prompt.md)
 
 This is the prompt a buyer copies into their own AI runtime (Claude Code, Cline, OpenClaw, ChatGPT, Gemini, or any agent) **after** they purchase a character. It loads the character's working style and — if the buyer chooses — its soul.
 

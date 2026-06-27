@@ -1,6 +1,6 @@
 # Persona 模板（v1.5）
 
-語言：繁體中文 | [English](https://github.com/illushane/llamppost-creator-kit/blob/main/docs/persona-template.md) | [简体中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-CN/docs/persona-template.md) | [日本語](https://github.com/illushane/llamppost-creator-kit/blob/ja/docs/persona-template.md)
+語言：繁體中文 | [English](../../en/docs/persona-template.md) | [简体中文](../../zh-CN/docs/persona-template.md) | [日本語](../../ja/docs/persona-template.md)
 
 這份文件說明如何填寫 Persona 模板。實際要編輯的檔案視你上架方式而定：
 

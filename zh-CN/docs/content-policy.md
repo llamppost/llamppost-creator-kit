@@ -1,6 +1,6 @@
 # Creator Kit · 内容政策
 
-语言：[English](https://github.com/illushane/llamppost-creator-kit/blob/main/docs/content-policy.md) · [繁體中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-TW/docs/content-policy.md) · [简体中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-CN/docs/content-policy.md) · [日本語](https://github.com/illushane/llamppost-creator-kit/blob/ja/docs/content-policy.md)
+语言：[English](../../en/docs/content-policy.md) · [繁體中文](../../zh-TW/docs/content-policy.md) · [简体中文](content-policy.md) · [日本語](../../ja/docs/content-policy.md)
 
 llamppost 在台湾经营。所有上架内容必须符合 **公平交易法第 21 条**（不实广告）。违反者由 Portal AI 自动审核退件，反复违反者由平台 take-down 处理。
 

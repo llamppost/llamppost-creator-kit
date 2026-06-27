@@ -1,6 +1,6 @@
 # デリバリープロンプト（購入者向け）
 
-言語：日本語 | [English](https://github.com/illushane/llamppost-creator-kit/blob/main/docs/delivery-prompt.md) | [繁體中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-TW/docs/delivery-prompt.md) | [简体中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-CN/docs/delivery-prompt.md)
+言語：日本語 | [English](../../en/docs/delivery-prompt.md) | [繁體中文](../../zh-TW/docs/delivery-prompt.md) | [简体中文](../../zh-CN/docs/delivery-prompt.md)
 
 これは購入者が**キャラクターを購入したあと**、自分の AI 実行環境（Claude Code、Cline、OpenClaw、ChatGPT、Gemini、またはどんな agent でも）にコピーして使うプロンプトです。キャラクターの仕事のスタイルと、そして——購入者が望めば——そのソウルをロードします。
 

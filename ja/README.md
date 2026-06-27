@@ -34,9 +34,9 @@ llamppost マーケットプレイスで、あなたの Persona、Skill、Avatar
 ## 言語
 
 - 日本語：このページ
-- English：[README.md](https://github.com/illushane/llamppost-creator-kit/tree/main)
-- 繁體中文：[README.md](https://github.com/illushane/llamppost-creator-kit/tree/zh-TW)
-- 简体中文：[README.md](https://github.com/illushane/llamppost-creator-kit/tree/zh-CN)
+- English：[README.md](../en/README.md)
+- 繁體中文：[README.md](../zh-TW/README.md)
+- 简体中文：[README.md](../zh-CN/README.md)
 
 ---
 

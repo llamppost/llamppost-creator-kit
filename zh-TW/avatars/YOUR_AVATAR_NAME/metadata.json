@@ -1,7 +1,7 @@
 {
   "avatar_id": "YOUR_AVATAR_NAME_001",
   "collection": "your_collection_name",
-  "listing_description": "REQUIRED — 2-3 sentences shown on the marketplace listing: what the buyer gets and the character's vibe.",
+  "listing_description": "必填——市集商品描述，2-3 句：買家會得到什麼、角色的調性。",
   "species": "human",
   "universe": "modern",
   "realm": "earth",

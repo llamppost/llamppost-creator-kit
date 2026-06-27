@@ -1,6 +1,6 @@
 # Skill テンプレートドキュメント（v1.5）
 
-言語：日本語 | [English](https://github.com/illushane/llamppost-creator-kit/blob/main/docs/skill-template.md) | [繁體中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-TW/docs/skill-template.md) | [简体中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-CN/docs/skill-template.md)
+言語：日本語 | [English](../../en/docs/skill-template.md) | [繁體中文](../../zh-TW/docs/skill-template.md) | [简体中文](../../zh-CN/docs/skill-template.md)
 
 このドキュメントは Skill テンプレートの記入方法を説明します。実際に編集するファイルは、上架方法によって変わります：
 

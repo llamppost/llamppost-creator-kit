@@ -1,6 +1,6 @@
 # Skill 模板文件（v1.5）
 
-語言：繁體中文 | [English](https://github.com/illushane/llamppost-creator-kit/blob/main/docs/skill-template.md) | [简体中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-CN/docs/skill-template.md) | [日本語](https://github.com/illushane/llamppost-creator-kit/blob/ja/docs/skill-template.md)
+語言：繁體中文 | [English](../../en/docs/skill-template.md) | [简体中文](../../zh-CN/docs/skill-template.md) | [日本語](../../ja/docs/skill-template.md)
 
 這份文件說明如何填寫 Skill 模板。實際要編輯的檔案視你上架方式而定：
 

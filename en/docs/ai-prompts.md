@@ -1,6 +1,6 @@
 # AI Prompts for Writing Templates
 
-Language: English | [繁體中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-TW/docs/ai-prompts.md) | [简体中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-CN/docs/ai-prompts.md) | [日本語](https://github.com/illushane/llamppost-creator-kit/blob/ja/docs/ai-prompts.md)
+Language: English | [繁體中文](../../zh-TW/docs/ai-prompts.md) | [简体中文](../../zh-CN/docs/ai-prompts.md) | [日本語](../../ja/docs/ai-prompts.md)
 
 This doc gives you **four ready-to-use prompts** for using Claude, ChatGPT, Gemini, or any AI assistant to help you fill out llamppost templates. Copy the whole prompt block and paste it into your AI chat.
 

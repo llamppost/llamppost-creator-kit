@@ -1,6 +1,6 @@
 # AI 補助でテンプレートを書くためのプロンプト集
 
-言語：日本語 | [English](https://github.com/illushane/llamppost-creator-kit/blob/main/docs/ai-prompts.md) | [繁體中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-TW/docs/ai-prompts.md) | [简体中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-CN/docs/ai-prompts.md)
+言語：日本語 | [English](../../en/docs/ai-prompts.md) | [繁體中文](../../zh-TW/docs/ai-prompts.md) | [简体中文](../../zh-CN/docs/ai-prompts.md)
 
 このドキュメントは**すぐに使える 4 つのプロンプト**を提供し、Claude、ChatGPT、Gemini、または任意の AI アシスタントを使って llamppost テンプレートの記入を手伝ってもらえます。プロンプト全体をコピーして、AI チャットに貼り付けてください。
 
@@ -36,6 +36,25 @@
 
 適用シチュエーション：すでにキャラクターの画像がある（または生成する予定）、`metadata.json` を出力し著作権コンプライアンスを確認する必要がある。
 
+### すでに画像がある？2分で完了（AIインタビュー不要）
+
+キャラクターの画像が完成していて metadata だけ必要なら、下のプロンプトは不要です——自分でファイルを記入すればそれで終わりです：
+
+1. 画像をフォルダに `avatar.png` として置く（PNG、正方形、最低 512×512）。
+2. `metadata.json` を開いて以下を記入する——必要なのはこれだけ：
+   - `avatar_id` — 英小文字 + アンダースコア、例：`night_wolf_001`
+   - `collection` — あなたのシリーズ名、例：`weekday_workers`
+   - `listing_description` — 2〜3 文：購入者が得られるもの + キャラクターの雰囲気（これがリスティングに表示される——空欄にしないこと）
+   - `species` / `universe` / `realm` — `docs/avatar-creation-spec.md` の enum から選ぶ
+   - `base` — `original`（自作）またはライセンス IP 名
+   - `traits` — ビジュアルタグをいくつか（髪 / スタイル / 表情）
+   - `rights.creator` — あなたの creator id
+3. フォルダをアップロード。完了。
+
+説明文から AI に記入してもらいたい？代わりに下の全体をコピーしてください。
+
+### 補助あり完全版
+
 下の全体をコピー：
 
 ```
@@ -56,6 +75,7 @@
 7. ライセンス IP の場合：IP 名は何？ライセンス書類は既にお持ち？
 8. ビジュアル特徴（traits）：髪、衣装、表情、アクセサリー、その他——最低 3 つ
 9. この Avatar の avatar_id を何にしたい？
+10. マーケットの商品説明：購入者が得られるものとキャラクターの雰囲気を 2〜3 文で。これは商品ページに表示され、metadata.json の `listing_description` として保存されます——必須、空欄にしないこと。
 
 すべて訊き終わったら、以下を出力してください：
 - 完全な metadata.json（docs/avatar-creation-spec.md の schema に準拠）

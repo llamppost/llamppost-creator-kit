@@ -1,6 +1,6 @@
 # AI 輔助撰寫模板的 Prompt 集
 
-語言：繁體中文 | [English](https://github.com/illushane/llamppost-creator-kit/blob/main/docs/ai-prompts.md) | [简体中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-CN/docs/ai-prompts.md) | [日本語](https://github.com/illushane/llamppost-creator-kit/blob/ja/docs/ai-prompts.md)
+語言：繁體中文 | [English](../../en/docs/ai-prompts.md) | [简体中文](../../zh-CN/docs/ai-prompts.md) | [日本語](../../ja/docs/ai-prompts.md)
 
 這份文件提供**四支現成的 Prompt**，讓你可以用 Claude、ChatGPT、Gemini 或任何 AI 助手輔助你填寫 llamppost 模板。複製整段 Prompt，貼到你的 AI 對話裡即可。
 
@@ -36,6 +36,25 @@
 
 適用情境：你已經有一張角色圖（或準備生成一張），需要產出 `metadata.json` 並確認版權合規。
 
+### 已經有圖了？兩分鐘搞定（不必跑 AI 問答）
+
+如果你的角色圖已經完成、只差 metadata，那你根本不需要下面那段 Prompt——自己填一下檔案就好：
+
+1. 把你的圖放進資料夾，命名為 `avatar.png`（PNG、正方形、至少 512×512）。
+2. 打開 `metadata.json`，填這幾項——就這些：
+   - `avatar_id`——英文小寫 + 底線，例如 `night_wolf_001`
+   - `collection`——你的系列名稱，例如 `weekday_workers`
+   - `listing_description`——2–3 句：買家會得到什麼 + 角色的調性（這就是顯示在上架頁的描述，別留空）
+   - `species` / `universe` / `realm`——從 `docs/avatar-creation-spec.md` 的枚舉值挑
+   - `base`——`original`（你自己的作品）或授權 IP 名稱
+   - `traits`——幾個視覺標籤（頭髮 / 風格 / 表情）
+   - `rights.creator`——你的 creator id
+3. 上傳資料夾。完成。
+
+想讓 AI 從一段描述幫你填？那就改複製下面整段。
+
+### 完整 AI 輔助版
+
 複製下面整段：
 
 ```
@@ -56,6 +75,7 @@
 7. 如果是授權 IP：IP 名稱是什麼？你是否已經有授權文件？
 8. 視覺特徵（traits）：頭髮、服裝、表情、配件、其他——至少 3 個
 9. 你希望這個 Avatar 的 avatar_id 叫什麼？
+10. 市集上架描述：用 2–3 句講買家會得到什麼、以及角色的調性。這段會顯示在商品頁，會存進 metadata.json 的 `listing_description` 欄位——必填，別留空。
 
 問完之後，請輸出：
 - 完整的 metadata.json（符合 docs/avatar-creation-spec.md 的 schema）

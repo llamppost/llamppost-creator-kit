@@ -1,6 +1,6 @@
 # Avatar 规格与政策（v1）
 
-语言：简体中文 | [English](https://github.com/illushane/llamppost-creator-kit/blob/main/docs/avatar-creation-spec.md) | [繁體中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-TW/docs/avatar-creation-spec.md) | [日本語](https://github.com/illushane/llamppost-creator-kit/blob/ja/docs/avatar-creation-spec.md)
+语言：简体中文 | [English](../../en/docs/avatar-creation-spec.md) | [繁體中文](../../zh-TW/docs/avatar-creation-spec.md) | [日本語](../../ja/docs/avatar-creation-spec.md)
 
 要发布一个 Avatar，你需要两样东西：**一张图片（avatar.png）** 与 **一份 metadata 文件（metadata.json）**。
 
@@ -69,6 +69,7 @@
 {
   "avatar_id": "kai_001",
   "collection": "weekday_workers",
+  "listing_description": "一个专注的工作日上班族，可以让你选进自己的短篇故事里——沉稳、带点疲惫，但靠得住。",
   "species": "human",
   "universe": "modern",
   "realm": "earth",
@@ -95,6 +96,7 @@
 |-------|------|-------------|
 | `avatar_id` | string | 唯一 ID，小写 + 下划线，命名后不可更改 |
 | `collection` | string | 这个 Avatar 所属的系列（你自己命名） |
+| `listing_description` | string | 2–3 句市集商品描述，说明买家会得到什么 + 角色的调性。别留空，否则你的 Avatar 上架时会没有描述。 |
 | `species` | string | 角色物种，例如 `human`、`robot`、`animal`、`spirit` |
 | `universe` | enum | 世界设定（见下方 Enum 清单） |
 | `realm` | enum | 所属领域（见下方 Enum 清单） |

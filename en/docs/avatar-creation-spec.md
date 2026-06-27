@@ -1,6 +1,6 @@
 # Avatar Spec & Policy (v1)
 
-Language: English | [繁體中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-TW/docs/avatar-creation-spec.md) | [简体中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-CN/docs/avatar-creation-spec.md) | [日本語](https://github.com/illushane/llamppost-creator-kit/blob/ja/docs/avatar-creation-spec.md)
+Language: English | [繁體中文](../../zh-TW/docs/avatar-creation-spec.md) | [简体中文](../../zh-CN/docs/avatar-creation-spec.md) | [日本語](../../ja/docs/avatar-creation-spec.md)
 
 To publish an Avatar, you need two things: **an image file (avatar.png)** and **a metadata file (metadata.json)**.
 

@@ -1,6 +1,6 @@
 # Creator Kit · Content Policy
 
-Languages: [English](https://github.com/illushane/llamppost-creator-kit/blob/main/docs/content-policy.md) · [繁體中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-TW/docs/content-policy.md) · [简体中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-CN/docs/content-policy.md) · [日本語](https://github.com/illushane/llamppost-creator-kit/blob/ja/docs/content-policy.md)
+Languages: English · [繁體中文](../../zh-TW/docs/content-policy.md) · [简体中文](../../zh-CN/docs/content-policy.md) · [日本語](../../ja/docs/content-policy.md)
 
 llamppost operates in Taiwan. All listed content must comply with **Taiwan Fair Trade Act, Article 21** (false advertising). Violations are auto-rejected by Portal AI review. Repeat offenders face take-down.
 

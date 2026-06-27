@@ -1,6 +1,6 @@
 # Skill Template Docs (v1.5)
 
-Language: English | [繁體中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-TW/docs/skill-template.md) | [简体中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-CN/docs/skill-template.md) | [日本語](https://github.com/illushane/llamppost-creator-kit/blob/ja/docs/skill-template.md)
+Language: English | [繁體中文](../../zh-TW/docs/skill-template.md) | [简体中文](../../zh-CN/docs/skill-template.md) | [日本語](../../ja/docs/skill-template.md)
 
 This doc explains how to fill out the Skill template. Which file you actually edit depends on how you publish:
 

@@ -1,6 +1,6 @@
 # 上架指南 v1.5
 
-语言：简体中文 | [English](https://github.com/illushane/llamppost-creator-kit/blob/main/docs/listing-ready-v1.md) | [繁體中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-TW/docs/listing-ready-v1.md) | [日本語](https://github.com/illushane/llamppost-creator-kit/blob/ja/docs/listing-ready-v1.md)
+语言：简体中文 | [English](../../en/docs/listing-ready-v1.md) | [繁體中文](../../zh-TW/docs/listing-ready-v1.md) | [日本語](../../ja/docs/listing-ready-v1.md)
 
 这份指南会一步步带你发布第一个商品。你不需要一次准备完所有东西——**先挑一个开始就好**。
 

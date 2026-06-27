@@ -1,6 +1,6 @@
 # 交付 Prompt（給買家）
 
-語言：繁體中文 | [English](https://github.com/illushane/llamppost-creator-kit/blob/main/docs/delivery-prompt.md) | [简体中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-CN/docs/delivery-prompt.md) | [日本語](https://github.com/illushane/llamppost-creator-kit/blob/ja/docs/delivery-prompt.md)
+語言：繁體中文 | [English](../../en/docs/delivery-prompt.md) | [简体中文](../../zh-CN/docs/delivery-prompt.md) | [日本語](../../ja/docs/delivery-prompt.md)
 
 這是買家在**購買角色之後**，複製進自己 AI 執行環境（Claude Code、Cline、OpenClaw、ChatGPT、Gemini，或任何 agent）的 prompt。它會載入角色的工作風格，以及——如果買家選擇的話——它的靈魂。
 

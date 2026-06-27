@@ -34,9 +34,9 @@
 ## 语言
 
 - 简体中文：本页
-- English：[README.md](https://github.com/illushane/llamppost-creator-kit/tree/main)
-- 繁體中文：[README.md](https://github.com/illushane/llamppost-creator-kit/tree/zh-TW)
-- 日本語：[README.md](https://github.com/illushane/llamppost-creator-kit/tree/ja)
+- English：[README.md](../en/README.md)
+- 繁體中文：[README.md](../zh-TW/README.md)
+- 日本語：[README.md](../ja/README.md)
 
 ---
 

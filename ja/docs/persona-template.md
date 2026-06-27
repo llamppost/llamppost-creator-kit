@@ -1,6 +1,6 @@
 # Persona テンプレート（v1.5）
 
-言語：日本語 | [English](https://github.com/illushane/llamppost-creator-kit/blob/main/docs/persona-template.md) | [繁體中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-TW/docs/persona-template.md) | [简体中文](https://github.com/illushane/llamppost-creator-kit/blob/zh-CN/docs/persona-template.md)
+言語：日本語 | [English](../../en/docs/persona-template.md) | [繁體中文](../../zh-TW/docs/persona-template.md) | [简体中文](../../zh-CN/docs/persona-template.md)
 
 このドキュメントは Persona テンプレートの書き方を説明します。実際に編集するファイルは、上架方法によって変わります：
 
