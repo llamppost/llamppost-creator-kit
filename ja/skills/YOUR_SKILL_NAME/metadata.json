@@ -1,0 +1,22 @@
+{
+  "title": "あなたの Skill の表示名",
+  "one_liner": "この skill がユーザーのどんな問題を解決するかを一文で（60 文字以内）",
+  "version": "1.0",
+  "languages": ["ja"],
+  "category": ["writing"],
+  "script_mode": "workflow_only",
+  "listing_description": "マーケットのリストに表示される 2–3 文：購入者が何を得られるか、いつこの skill を使うか。",
+  "cover": "assets/cover-YOUR_SKILL_NAME.png",
+  "banner": "assets/banner-YOUR_SKILL_NAME.png",
+  "listing": {
+    "what_it_does": "一段落：この skill が何をするか、誰向けか、どんな問題を解決するか。設定すると、公開コンテンツページの「What this skill does」セクションを上書きします。",
+    "what_you_get": [
+      "具体的な成果物 1（数字／形式で）",
+      "具体的な成果物 2"
+    ],
+    "limitations": [
+      "正直な制約 1",
+      "正直な制約 2"
+    ]
+  }
+}

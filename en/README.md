@@ -74,12 +74,12 @@ If you want to use Claude, ChatGPT, or another AI assistant to help you fill out
 
 ---
 
-## On the marketplace (Portal, not Kit files)
+## On the marketplace
+
+- **Cover + banner ship in the bundle**: for standalone Skills and Personas, put `cover-<id>.png` (square 1:1, the card thumbnail) and `banner-<id>.png` (wide 16:10, the detail-page hero) into the product's `assets/` folder and declare them in `metadata.json` (`cover` / `banner`). PNG, under 2 MB each. No cover = an auto-generated lettered placeholder. (You can still override them in Studio after publishing.)
+- **Public content page**: your SKILL.md body sections render as the live content page buyers read on the detail page — and `metadata.json`'s `listing.*` block can override that text. Write them well.
 
 These happen in the Creator Portal when you publish — no Kit file changes needed:
-
-- **Product thumbnail**: upload an optional thumbnail (PNG, 16:10 recommended) shown on the marketplace card and detail page. No upload = an auto-generated lettered placeholder.
-- **Public content page**: your SKILL.md body sections render as the live content page buyers read on the detail page. Write them well.
 - **Edit anytime + skill packs**: edit a published listing's content page, thumbnail, name, and description at any time, and group several published skills into a **skill pack** — all in Studio → My listings.
 
 See the [Listing Guide](docs/listing-ready-v1.md) for details.
@@ -99,23 +99,31 @@ creator-kit/
 │   └── avatar-creation-spec.md  # Avatar spec & policy
 ├── personas/                                # Standalone Persona
 │   ├── YOUR_AGENT_NAME/                    # Blank template — copy and rename to create your own Persona
-│   │   └── persona.md
+│   │   ├── persona.md                      # Runtime character body (frontmatter: persona_id + profession + base_price)
+│   │   ├── metadata.json                    # Listing fields (name / one_liner / languages / version / listing_description / cover / banner)
+│   │   └── assets/                          # cover-<id>.png (1:1) + banner-<id>.png (16:10) — language-neutral, one version
 │   └── EXAMPLE_pi_lang/                    # Reference example (do NOT copy this folder name)
-│       └── persona.md
+│       ├── persona.md
+│       ├── metadata.json
+│       └── assets/
 ├── skills/                                  # Standalone Skill
 │   ├── YOUR_SKILL_NAME/                    # Blank template — copy and rename to create your own Skill
-│   │   ├── SKILL.md
+│   │   ├── SKILL.md                        # Runtime skill body (frontmatter: skill_id + base_price)
+│   │   ├── metadata.json                    # Listing fields (title / one_liner / category / … / listing.* / cover / banner)
+│   │   ├── assets/                          # cover-<id>.png (1:1) + banner-<id>.png (16:10) — language-neutral, one version
 │   │   └── examples/
 │   └── EXAMPLE_social_marketing_post_ideas/  # Reference example (do NOT copy this folder name)
-│       └── SKILL.md
+│       ├── SKILL.md
+│       ├── metadata.json
+│       └── assets/
 ├── agents/                                  # Agent (Persona + Skill + Avatar in one)
 │   └── YOUR_AGENT_NAME/                    # Agent template — bidirectional binding pre-filled
 │       ├── README.md                       # Agent usage notes
-│       ├── persona.md                      # Persona (binding points to same-folder SKILL.md)
-│       ├── SKILL.md                        # Skill (binding points to same-folder persona.md)
+│       ├── persona.md                      # Persona — listing fields stay in frontmatter (NO listing metadata.json here)
+│       ├── SKILL.md                        # Skill — listing fields stay in frontmatter (NO listing metadata.json here)
 │       └── avatar/                         # Avatar (required)
 │           ├── README.md
-│           └── metadata.json               # Pre-filled placeholder — drop in your avatar.png
+│           └── metadata.json               # AVATAR schema (avatar_id / traits / rights) — not the listing manifest
 ├── policy/
 │   └── policy.en.md             # Platform policy
 └── assets/

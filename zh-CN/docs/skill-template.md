@@ -39,21 +39,69 @@
 
 | 字段 | 位置 | 必填 | 说明 |
 |-------|----------|----------|-------------|
-| `skill_id` | YAML | 是 | 唯一 ID，小写 + 下划线 |
-| `title` | YAML | 是 | 显示名称，40 字以内 |
-| `version` | YAML | 是 | 从 `"1.0"` 开始 |
-| `category` | YAML | 是 | 最多 2 个分类 |
-| `one_liner` | YAML | 是 | 一句话 pitch，60 字以内 |
-| `languages` | YAML | 是 | skill 运作的语言 BCP-47 代码 |
-| `base_price` | YAML | 是 | NT$，`0`（免费）或 `≥100` |
-| `script_mode` | YAML | 是 | 见下方说明 |
-| What this skill does | Body | 是 | 3–5 句描述 |
-| Workflow | Body | 是 | 3–7 个步骤 |
-| What User needs to provide | Body | 是 | 条列 |
-| What User will receive | Body | 是 | 条列 |
-| Known limitations | Body | 是 | 条列 |
-| Script | Body | 选填 | 仅在 script_spec / script_provided 时填写 |
-| `tested_runtimes` / `tested_models` / `test_level` | YAML | deprecated | Portal 之后会自动测试填写 |
+| `skill_id` | SKILL.md YAML | 是 | 唯一 ID，小写 + 下划线。必须等于文件夹名称。 |
+| `base_price` | SKILL.md YAML | 是 | NT$，`0`（免费）或 `≥100` |
+| `title` | metadata.json | 是 | 显示名称，40 字以内 |
+| `version` | metadata.json | 是 | 从 `"1.0"` 开始 |
+| `category` | metadata.json | 是 | 最多 2 个分类 |
+| `one_liner` | metadata.json | 是 | 一句话 pitch，60 字以内 |
+| `languages` | metadata.json | 是 | skill 运作的语言 BCP-47 代码 |
+| `script_mode` | metadata.json | 是 | 见下方说明 |
+| `listing_description` | metadata.json | 建议 | 市集短描述 |
+| `cover` | metadata.json | 建议 | `assets/cover-<id>.png`，方形 1:1 |
+| `banner` | metadata.json | 建议 | `assets/banner-<id>.png`，宽 16:10 |
+| `listing.what_it_does` / `listing.what_you_get` / `listing.limitations` | metadata.json | 选填 | 覆写内容页对应的 body 区块 |
+| What this skill does | SKILL.md body | 是 | 3–5 句描述 |
+| Workflow | SKILL.md body | 是 | 3–7 个步骤 |
+| What User needs to provide | SKILL.md body | 是 | 条列 |
+| What User will receive | SKILL.md body | 是 | 条列 |
+| Known limitations | SKILL.md body | 是 | 条列 |
+| Script | SKILL.md body | 选填 | 仅在 script_spec / script_provided 时填写 |
+| `tested_runtimes` / `tested_models` / `test_level` | — | deprecated | Portal 之后会自动测试填写 |
+
+> **各字段放哪（Phase-3 拆分）：** `SKILL.md` frontmatter 现在只留**运行身份 + 定价**（`skill_id` + `base_price`）。市集*上架*显示的一切都放在 `SKILL.md` 旁边的 **`metadata.json`**。`SKILL.md` 的 body 区块保留原位——会渲染成公开内容页，且 `metadata.json` 的 `listing.*` 可覆写它们。
+
+---
+
+## 上架 manifest（`metadata.json`）
+
+`metadata.json` 位在 skill 文件夹里、`SKILL.md` 旁边，承载市集上架显示的每个字段。文件层级是选填的（没有 `metadata.json` 的 bundle 会 fallback 到 `SKILL.md` frontmatter），但对 Phase-3 skill 而言，这就是上架字段该放的地方。
+
+```json
+{
+  "title": "周报自动生成器",
+  "one_liner": "输入本周任务清单，拿到结构化的周报草稿",
+  "version": "1.0",
+  "languages": ["zh-CN", "en"],
+  "category": ["writing", "ops"],
+  "script_mode": "workflow_only",
+  "listing_description": "市集上架显示的 2–3 句描述。",
+  "cover": "assets/cover-weekly_report_writer.png",
+  "banner": "assets/banner-weekly_report_writer.png",
+  "listing": {
+    "what_it_does": "一段——覆写 SKILL.md 的「What this skill does」区块。",
+    "what_you_get": ["交付物 1", "交付物 2"],
+    "limitations": ["限制 1", "限制 2"]
+  }
+}
+```
+
+- `title` / `one_liner` / `version` / `category` / `script_mode` / `listing_description`——意义与规则跟下方逐项说明相同，只是现在放在 `metadata.json`（除了 `skill_id` / `base_price` 留在 `SKILL.md`）。
+- `listing.what_it_does`（字符串）、`listing.what_you_get`（字符串数组）、`listing.limitations`（字符串数组）——公开内容页的选填覆写。不填就沿用 `SKILL.md` 的 body 区块。
+- `cover` / `banner`——见下方。
+
+### cover 与 banner 图片（`assets/`）
+
+把上架图放进 skill 的 `assets/` 文件夹，并在 `metadata.json` 声明：
+
+| 字段 | 文件 | 比例 | 用途 |
+|-------|------|-------|------|
+| `cover` | `assets/cover-<skill_id>.png` | 方形 **1:1** | 市集卡片缩略图 |
+| `banner` | `assets/banner-<skill_id>.png` | 宽 **16:10** | 商品页主视觉 |
+
+- PNG，每张 2 MB 以内。比例检查有小容差（±2%）。
+- 图片是**语言中性**的——只放一版，不用每个语言文件夹各放一份。（`metadata.json` 本身则是**每语一份**：本地化 `title` / `one_liner` / `listing_description`。）
+- 平台以文件名（basename）比对图片，所以 `assets/` 路径前缀没问题，只要 basename 唯一即可。
 
 ---
 
@@ -268,25 +316,32 @@ base_price: 180     # NT$ 180
 
 以下是一个完整填写的 Skill 供参考：
 
+`SKILL.md` frontmatter（只留运行身份 + 定价）：
+
 ```yaml
 ---
 skill_id: social_post_ideas
-title: Social Marketing：贴文灵感包
-version: "1.0"
-category:
-  - marketing
-  - writing
-one_liner: 输入品牌信息，立刻拿到 20 个符合品牌调性的贴文灵感与开头 hook
-
-languages:
-  - zh-CN
-  - en
-
 base_price: 0
-
-script_mode: workflow_only
 ---
 ```
+
+`metadata.json`（上架字段，放在 `SKILL.md` 旁边）：
+
+```json
+{
+  "title": "Social Marketing：贴文灵感包",
+  "one_liner": "输入品牌信息，立刻拿到 20 个符合品牌调性的贴文灵感与开头 hook",
+  "version": "1.0",
+  "languages": ["zh-CN", "en"],
+  "category": ["marketing", "writing"],
+  "script_mode": "workflow_only",
+  "listing_description": "把一份简短的品牌 brief 变成 20 个可直接用的贴文灵感，每个都附开头 hook。",
+  "cover": "assets/cover-social_post_ideas.png",
+  "banner": "assets/banner-social_post_ideas.png"
+}
+```
+
+`SKILL.md` body（公开内容页——`metadata.json.listing.*` 可覆写）：
 
 ```markdown
 # Social Marketing：贴文灵感包

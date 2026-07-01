@@ -24,8 +24,8 @@
 **做法**：
 1. 先把**下列檔案的完整內容**貼到對話開頭：
    - Avatar → `docs/avatar-creation-spec.md`
-   - Skill → `docs/skill-template.md` + `skills/YOUR_SKILL_NAME/SKILL.md` + `skills/EXAMPLE_social_marketing_post_ideas/SKILL.md`
-   - Persona → `docs/persona-template.md` + `personas/YOUR_AGENT_NAME/persona.md` + `personas/EXAMPLE_pi_lang/persona.md`
+   - Skill → `docs/skill-template.md` + `skills/YOUR_SKILL_NAME/SKILL.md` + `skills/YOUR_SKILL_NAME/metadata.json` + `skills/EXAMPLE_social_marketing_post_ideas/SKILL.md` + `skills/EXAMPLE_social_marketing_post_ideas/metadata.json`
+   - Persona → `docs/persona-template.md` + `personas/YOUR_AGENT_NAME/persona.md` + `personas/YOUR_AGENT_NAME/metadata.json` + `personas/EXAMPLE_pi_lang/persona.md` + `personas/EXAMPLE_pi_lang/metadata.json`
    - Agent（全套）→ `agents/YOUR_AGENT_NAME/` 整包（README.md + persona.md + SKILL.md + avatar/metadata.json）+ 上面三組
 2. 再複製對應的 Prompt 貼到對話
 3. AI 會根據你貼的檔案內容與規則對你發問
@@ -122,12 +122,15 @@
 10. title（顯示名稱）與 one_liner（搜尋結果的第一句）你想怎麼寫？
 11. base_price 想填 0（免費上架，Hatchling 試上架）還是付費（≥100 NT$）？
 
-問完之後，請輸出：
-- 完整的 SKILL.md 檔案內容（YAML frontmatter + 所有 body 區塊）
+問完之後，請輸出「兩份檔案」：
+- `SKILL.md`——frontmatter 只放 `skill_id` + `base_price`，加上所有 body 區塊
+- `metadata.json`——上架欄位：`title`、`one_liner`、`version`、`languages`、`category`、`script_mode`、`listing_description`、`cover`、`banner`，以及巢狀的 `listing` 區塊（`what_it_does` 字串、`what_you_get` 字串陣列、`limitations` 字串陣列）
+- 放進 `assets/` 的兩張圖規格：`cover-<skill_id>.png`（方形 1:1）+ `banner-<skill_id>.png`（寬 16:10），PNG 每張 2 MB 以內
 - 建議的資料夾路徑（例如 `skills/weekly_report_writer/`）
 - 我還沒想清楚但可以補強的地方（誠實指出）
 
 硬性規則：
+- 上架欄位（title / one_liner / version / languages / category / script_mode / listing_description / listing.*）放進 `metadata.json`。`SKILL.md` frontmatter 只留 `skill_id` + `base_price`，不要把上架欄位塞回 frontmatter。
 - skill_id 與資料夾名稱必須是**英文小寫 + 數字 + 底線**，且兩者完全一致
 - 不可使用 EXAMPLE_ 或 YOUR_ 前綴
 - title、one_liner、body 內容可以使用任何語言（繁中、英文、日文、任何語言）
@@ -181,9 +184,10 @@
 11. 你希望這個 persona 的 persona_id 叫什麼？（英文小寫 + 底線）
 12. base_price 想填 0（免費上架，Hatchling 試上架）還是付費（≥100 NT$）？
 
-問完之後，請依照 personas/EXAMPLE_pi_lang/persona.md 的結構輸出：
-- 完整的 persona.md 檔案內容
-- YAML frontmatter（所有必填欄位）
+問完之後，請依照 personas/EXAMPLE_pi_lang/ 的結構輸出「兩份檔案」：
+- `persona.md`——frontmatter 只放 `persona_id` + `profession` + `base_price`，加上完整 body
+- `metadata.json`——上架欄位：`name`、`one_liner`、`version`、`languages`、`listing_description`、`cover`、`banner`（persona manifest 沒有 title/category/script_mode/listing 區塊）
+- 放進 `assets/` 的兩張圖規格：`cover-<persona_id>.png`（1:1）+ `banner-<persona_id>.png`（16:10），PNG 每張 2 MB 以內
 - Opening / During-work / Closing behavior 各 1–2 句
 - 5 句 sentence examples（對應前面問的 5 個情境）
 - 使用者填寫的靈魂素材段落：`## 核心信念`，再加上 `## 會保護什麼` / `## 絕不幫什麼` / `## 何時反對使用者` / `## 養成張力` / `## 與使用者的關係` 之中有回答的那幾段。只放使用者回答過的段落——沒回答的就略過，不要自己編
@@ -191,6 +195,7 @@
 - 建議的資料夾路徑（例如 `personas/night_wolf_strategist/`）
 
 硬性規則：
+- 上架欄位（name / one_liner / languages / version / listing_description）放進 `metadata.json`。`persona.md` frontmatter 只留 `persona_id` + `profession` + `base_price`，不要把上架欄位塞回 frontmatter。
 - persona_id 與資料夾名稱必須是**英文小寫 + 數字 + 底線**，且兩者完全一致
 - 不可使用 EXAMPLE_ 或 YOUR_ 前綴
 - name（顯示名稱）、one_liner、所有 behavior 描述、對話、句子範例可以使用任何語言
@@ -279,6 +284,7 @@
 - 上架前的最終檢查清單
 
 硬性規則（前面三支 Prompt 的規則全部合併）：
+- **Agent 不使用 listing `metadata.json`。** 這是跟單品 Skill / Persona 的關鍵差異：Agent 裡所有上架欄位（title、name、one_liner、category、languages、version、listing_description、script_mode）都留在 `persona.md` / `SKILL.md` 的 **frontmatter**。bundle 裡唯一的 `metadata.json` 是 `avatar/metadata.json`（avatar schema）。不要在 Agent 根目錄產生 listing `metadata.json` 或 `assets/` 的 cover/banner。
 - persona_id、skill_id、avatar_id、資料夾名稱都必須**英文小寫 + 數字 + 底線**
 - 不可使用 EXAMPLE_ 或 YOUR_ 前綴
 - 三個 ID 建議用共同前綴讓它們看起來是一組（例如 `night_wolf_strategist` / `night_wolf_strategist_skill` / `night_wolf_strategist_001`）

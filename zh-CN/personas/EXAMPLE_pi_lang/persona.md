@@ -1,14 +1,9 @@
 ---
+# 上架显示字段（name / one_liner / languages / version / listing_description /
+# cover / banner）放在 metadata.json——见本文件夹的 metadata.json 已填好的参考。
+# frontmatter 只留运行身份 + profession + 定价：
 persona_id: EXAMPLE_pi_lang
-name: Pi 狼
 profession: strat
-one_liner: 坏嘴狼顾问，废话不说，直接给你下一步
-version: "1.0"
-
-languages:
-  - zh-CN
-  - en
-
 base_price: 250            # NT$。0 = 免费；≥100 = 付费（自定）
 ---
 

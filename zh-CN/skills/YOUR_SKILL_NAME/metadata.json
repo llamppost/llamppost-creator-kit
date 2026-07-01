@@ -1,0 +1,22 @@
+{
+  "title": "你的 Skill 显示名称",
+  "one_liner": "一句话描述这个 skill 帮用户解决什么问题（60 字以内）",
+  "version": "1.0",
+  "languages": ["zh-CN"],
+  "category": ["writing"],
+  "script_mode": "workflow_only",
+  "listing_description": "市集列表上显示的 2–3 句：买家会得到什么、什么时候该用这个 skill。",
+  "cover": "assets/cover-YOUR_SKILL_NAME.png",
+  "banner": "assets/banner-YOUR_SKILL_NAME.png",
+  "listing": {
+    "what_it_does": "一段：这个 skill 做什么、给谁用、解决什么问题。若设定，会覆写公开内容页的「What this skill does」区块。",
+    "what_you_get": [
+      "具体交付物 1（用数字／格式）",
+      "具体交付物 2"
+    ],
+    "limitations": [
+      "诚实的限制 1",
+      "诚实的限制 2"
+    ]
+  }
+}

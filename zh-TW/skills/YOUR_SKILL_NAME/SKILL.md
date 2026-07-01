@@ -1,48 +1,30 @@
 ---
-skill_id: YOUR_SKILL_NAME        # 改成你的 skill ID（必須英文小寫 + 底線，例如：social_post_ideas）
-title: 你的 Skill 顯示名稱         # 使用者在搜尋結果看到的名稱（40 字以內，可以使用任何語言）
-version: "1.0"
-category:
-  - writing                       # 主要分類（必填，從清單中挑 1 個）
-  # - research                    # 次要分類（選填，最多再挑 1 個）
-one_liner: 一句話描述這個 skill 幫使用者解決什麼問題（60 字以內）
+# ── 執行身分 + 定價（這些留在 frontmatter）─────────
+# 市集「上架顯示」的欄位——title、one_liner、category、languages、version、
+# script_mode、listing_description、cover/banner——現在都放在 metadata.json（同資料夾）。
+# 這份 SKILL.md 是你的執行 skill 本體。
+skill_id: YOUR_SKILL_NAME        # 你的 skill ID——英文小寫 + 底線（例如 social_post_ideas）。必須跟資料夾名稱完全一致。
 
-languages:                        # 這個 skill 實際運作的語言（BCP-47 代碼，必填）
-  - zh-TW
-  # - en
-
-# ── 定價 ──────────────────────────────────────────
-# base_price 單位：NT$
-# 0     = 免費上架（Hatchling 試上架）
-# ≥100  = 付費上架（自訂價格，無上限）
+# base_price 單位：NT$  ·  0 = 免費上架（Hatchling 試上架）  ·  ≥100 = 付費上架（自訂價格，無上限）
 base_price: 0
-
-# ── 以下欄位 Portal 之後會自動測試填寫 ────────────
-# 目前可以不填，或填預設值。填了平台會用你的宣稱做初步參考，
-# 但所有 fidelity / test 標籤之後都會以 Portal 自動測試結果為準。
-# deprecated（手動填）→ 將由 Portal cross-model QA 自動覆寫
-# tested_runtimes:
-#   - claude
-# tested_models:
-#   - claude-opus-4-6
-# test_level: smoke               # smoke | qa | prod_ready
-
-script_mode: workflow_only        # workflow_only（只有描述）| script_spec（規格）| script_provided（附腳本）
 ---
 
 <!--
   說明：
   1. 複製整個 skills/YOUR_SKILL_NAME/ 資料夾
   2. 將資料夾改名為你的 skill_id——**必須是英文小寫 + 底線**（例如：skills/social_post_ideas/）
-  3. 把上面 YAML 的 skill_id 改成跟資料夾名稱完全一樣
-  4. 填寫上面其他 YAML 欄位，刪掉所有開頭為 # 的行
-  5. 填寫下方的各個區塊
+  3. 把上面的 skill_id 改成跟資料夾名稱完全一樣
+  4. 在 metadata.json 填寫「上架欄位」——title / one_liner / category / languages /
+     version / script_mode / listing_description，以及 listing.* 區塊。
+     再把 cover-<skill_id>.png（1:1）與 banner-<skill_id>.png（16:10）放進 assets/。
+  5. 填寫下方的各個區塊——這是你的執行 skill 內容，同時也會渲染成公開內容頁。
+     （若你在 metadata.json 設了 listing.*，會覆寫「What this skill does / receive / limitations」文字。）
   6. 刪除這個說明區塊，然後透過 Creator Portal 送出
 
   重要：
-  - skill_id 與資料夾名稱**永遠必須是英文**（小寫字母 + 數字 + 底線）
+  - skill_id 與資料夾名稱**永遠必須是英文**（小寫字母 + 數字 + 底線），且兩者要完全一致
   - YOUR_SKILL_NAME 是保留前綴，Portal 會拒絕含此前綴的上架
-  - 完整欄位說明請見 docs/skill-template.md
+  - 上架欄位放在 metadata.json，不在這裡——完整欄位說明請見 docs/skill-template.md
 -->
 
 # {{title}}
@@ -114,7 +96,7 @@ script_mode: workflow_only        # workflow_only（只有描述）| script_spec
 ## Script（選用）
 
 <!--
-  這一節只在 script_mode 設為 script_spec 或 script_provided 時才需要填。
+  這一節只在 script_mode（設在 metadata.json）為 script_spec 或 script_provided 時才需要填。
   如果 script_mode 是 workflow_only，整個這一節可以刪掉。
 -->
 

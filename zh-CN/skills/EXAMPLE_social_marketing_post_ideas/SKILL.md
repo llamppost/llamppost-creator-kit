@@ -1,19 +1,9 @@
 ---
+# 上架显示字段（title / one_liner / category / languages / version / script_mode /
+# listing_description / cover / banner / listing.*）放在 metadata.json——见本文件夹的
+# metadata.json 已填好的参考。frontmatter 只留运行身份 + 定价：
 skill_id: EXAMPLE_social_marketing_post_ideas
-title: Social Marketing：贴文灵感包
-version: "1.0"
-category:
-  - marketing
-  - writing
-one_liner: 输入品牌信息，立刻拿到 20 个符合品牌调性的贴文灵感与开头 hook
-
-languages:
-  - zh-CN
-  - en
-
 base_price: 180        # NT$。0 = 免费；≥100 = 付费（自定）
-
-script_mode: workflow_only
 ---
 
 <!--

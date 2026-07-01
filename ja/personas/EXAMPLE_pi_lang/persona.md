@@ -1,14 +1,9 @@
 ---
+# リスティング表示フィールド（name / one_liner / languages / version /
+# listing_description / cover / banner）は metadata.json に——このフォルダの
+# metadata.json に記入済みの参照があります。frontmatter には実行アイデンティティ + profession + 価格のみ：
 persona_id: EXAMPLE_pi_lang
-name: Pi 狼
 profession: strat
-one_liner: 毒舌ウルフ戦略コンサル。無駄話なし、即「次の一手」を渡す。
-version: "1.0"
-
-languages:
-  - ja
-  - en
-
 base_price: 250            # NT$。0 = 無料；≥100 = 有料（自由設定）
 ---
 

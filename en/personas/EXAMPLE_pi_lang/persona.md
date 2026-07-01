@@ -1,14 +1,10 @@
 ---
+# Listing display fields (name / one_liner / languages / version /
+# listing_description / cover / banner) live in metadata.json — see this folder's
+# metadata.json for the filled-in reference. Only runtime identity + profession +
+# pricing stay in frontmatter:
 persona_id: EXAMPLE_pi_lang
-name: Pi Lang
 profession: strat
-one_liner: Sharp-tongued wolf strategist. No fluff. Just the next move.
-version: "1.0"
-
-languages:
-  - zh-TW
-  - en
-
 base_price: 250            # NT$. 0 = free; ≥100 = paid (your choice)
 ---
 

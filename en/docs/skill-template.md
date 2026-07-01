@@ -39,21 +39,69 @@ Your skill's `title` (display name, e.g., `title: 週報自動生成器`), `one_
 
 | Field | Location | Required | Description |
 |-------|----------|----------|-------------|
-| `skill_id` | YAML | Yes | Unique ID, lowercase + underscores |
-| `title` | YAML | Yes | Display name, under 40 chars |
-| `version` | YAML | Yes | Start at `"1.0"` |
-| `category` | YAML | Yes | Up to 2 categories |
-| `one_liner` | YAML | Yes | One-sentence pitch, under 60 chars |
-| `languages` | YAML | Yes | BCP-47 codes for the skill's operating language |
-| `base_price` | YAML | Yes | NT$, either `0` (free) or `≥100` |
-| `script_mode` | YAML | Yes | See details below |
-| What this skill does | Body | Yes | 3–5 sentence description |
-| Workflow | Body | Yes | 3–7 steps |
-| What User needs to provide | Body | Yes | Bullet list |
-| What User will receive | Body | Yes | Bullet list |
-| Known limitations | Body | Yes | Bullet list |
-| Script | Body | Optional | Only when script_spec / script_provided |
-| `tested_runtimes` / `tested_models` / `test_level` | YAML | deprecated | Portal will auto-fill via testing later |
+| `skill_id` | SKILL.md YAML | Yes | Unique ID, lowercase + underscores. Must equal the folder name. |
+| `base_price` | SKILL.md YAML | Yes | NT$, either `0` (free) or `≥100` |
+| `title` | metadata.json | Yes | Display name, under 40 chars |
+| `version` | metadata.json | Yes | Start at `"1.0"` |
+| `category` | metadata.json | Yes | Up to 2 categories |
+| `one_liner` | metadata.json | Yes | One-sentence pitch, under 60 chars |
+| `languages` | metadata.json | Yes | BCP-47 codes for the skill's operating language |
+| `script_mode` | metadata.json | Yes | See details below |
+| `listing_description` | metadata.json | Recommended | Short marketplace description |
+| `cover` | metadata.json | Recommended | `assets/cover-<id>.png`, square 1:1 |
+| `banner` | metadata.json | Recommended | `assets/banner-<id>.png`, wide 16:10 |
+| `listing.what_it_does` / `listing.what_you_get` / `listing.limitations` | metadata.json | Optional | Overrides the matching body sections on the content page |
+| What this skill does | SKILL.md body | Yes | 3–5 sentence description |
+| Workflow | SKILL.md body | Yes | 3–7 steps |
+| What User needs to provide | SKILL.md body | Yes | Bullet list |
+| What User will receive | SKILL.md body | Yes | Bullet list |
+| Known limitations | SKILL.md body | Yes | Bullet list |
+| Script | SKILL.md body | Optional | Only when script_spec / script_provided |
+| `tested_runtimes` / `tested_models` / `test_level` | — | deprecated | Portal will auto-fill via testing later |
+
+> **Where fields live (Phase-3 split):** `SKILL.md` frontmatter now carries only **runtime identity + pricing** (`skill_id` + `base_price`). Everything the marketplace *listing* displays lives in **`metadata.json`** beside `SKILL.md`. The `SKILL.md` body sections stay put — they render as the public content page, and `metadata.json`'s `listing.*` can override them.
+
+---
+
+## Listing manifest (`metadata.json`)
+
+`metadata.json` sits beside `SKILL.md` in the skill folder and carries every field the marketplace listing shows. It is optional at the file level (a bundle with no `metadata.json` falls back to `SKILL.md` frontmatter), but for Phase-3 skills it is where the listing fields belong.
+
+```json
+{
+  "title": "Weekly Report Auto-Generator",
+  "one_liner": "Input your weekly task list, get a structured weekly report draft",
+  "version": "1.0",
+  "languages": ["zh-TW", "en"],
+  "category": ["writing", "ops"],
+  "script_mode": "workflow_only",
+  "listing_description": "2-3 sentences shown on the marketplace listing.",
+  "cover": "assets/cover-weekly_report_writer.png",
+  "banner": "assets/banner-weekly_report_writer.png",
+  "listing": {
+    "what_it_does": "One paragraph — overrides the SKILL.md 'What this skill does' section.",
+    "what_you_get": ["Deliverable 1", "Deliverable 2"],
+    "limitations": ["Limitation 1", "Limitation 2"]
+  }
+}
+```
+
+- `title` / `one_liner` / `version` / `category` / `script_mode` / `listing_description` — same meaning and rules as the field-by-field docs below; they just live in `metadata.json` now (except `skill_id` / `base_price`, which stay in `SKILL.md`).
+- `listing.what_it_does` (string), `listing.what_you_get` (string array), `listing.limitations` (string array) — optional overrides for the public content page. Omit them and the `SKILL.md` body sections are used as-is.
+- `cover` / `banner` — see below.
+
+### Cover and banner images (`assets/`)
+
+Put your listing images in the skill's `assets/` folder and declare them in `metadata.json`:
+
+| Field | File | Ratio | Role |
+|-------|------|-------|------|
+| `cover` | `assets/cover-<skill_id>.png` | square **1:1** | marketplace card thumbnail |
+| `banner` | `assets/banner-<skill_id>.png` | wide **16:10** | detail-page hero |
+
+- PNG, under 2 MB each. Ratios are checked with a small tolerance (±2%).
+- Images are **language-neutral** — ship one version, not one per language folder. (`metadata.json` itself IS per-language: localize `title` / `one_liner` / `listing_description`.)
+- The platform matches images by filename (basename), so the `assets/` path prefix is fine as long as the basename is unique.
 
 ---
 
@@ -264,25 +312,32 @@ Common limitation types:
 
 Here's a complete Skill fill-out for reference:
 
+`SKILL.md` frontmatter (runtime identity + pricing only):
+
 ```yaml
 ---
 skill_id: social_post_ideas
-title: Social Marketing: Post Ideas Pack
-version: "1.0"
-category:
-  - marketing
-  - writing
-one_liner: Input brand info, instantly get 20 on-brand post ideas with opening hooks
-
-languages:
-  - zh-TW
-  - en
-
 base_price: 0
-
-script_mode: workflow_only
 ---
 ```
+
+`metadata.json` (listing fields, beside `SKILL.md`):
+
+```json
+{
+  "title": "Social Marketing: Post Ideas Pack",
+  "one_liner": "Input brand info, instantly get 20 on-brand post ideas with opening hooks",
+  "version": "1.0",
+  "languages": ["zh-TW", "en"],
+  "category": ["marketing", "writing"],
+  "script_mode": "workflow_only",
+  "listing_description": "Turn a short brand brief into 20 ready-to-use post ideas, each with an opening hook.",
+  "cover": "assets/cover-social_post_ideas.png",
+  "banner": "assets/banner-social_post_ideas.png"
+}
+```
+
+`SKILL.md` body (public content page — `metadata.json.listing.*` can override):
 
 ```markdown
 # Social Marketing: Post Ideas Pack

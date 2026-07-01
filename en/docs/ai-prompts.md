@@ -24,8 +24,8 @@ For example, chat.openai.com, claude.ai web, Gemini web, mobile apps.
 **What to do:**
 1. First, paste the **full content of these files** at the start of the chat:
    - Avatar → `docs/avatar-creation-spec.md`
-   - Skill → `docs/skill-template.md` + `skills/YOUR_SKILL_NAME/SKILL.md` + `skills/EXAMPLE_social_marketing_post_ideas/SKILL.md`
-   - Persona → `docs/persona-template.md` + `personas/YOUR_AGENT_NAME/persona.md` + `personas/EXAMPLE_pi_lang/persona.md`
+   - Skill → `docs/skill-template.md` + `skills/YOUR_SKILL_NAME/SKILL.md` + `skills/YOUR_SKILL_NAME/metadata.json` + `skills/EXAMPLE_social_marketing_post_ideas/SKILL.md` + `skills/EXAMPLE_social_marketing_post_ideas/metadata.json`
+   - Persona → `docs/persona-template.md` + `personas/YOUR_AGENT_NAME/persona.md` + `personas/YOUR_AGENT_NAME/metadata.json` + `personas/EXAMPLE_pi_lang/persona.md` + `personas/EXAMPLE_pi_lang/metadata.json`
    - Agent (full set) → the whole `agents/YOUR_AGENT_NAME/` (README.md + persona.md + SKILL.md + avatar/metadata.json) plus the three sets above
 2. Then paste the matching prompt
 3. The AI will ask you questions based on the files and rules you pasted
@@ -122,12 +122,15 @@ Then ask me the following questions in order, one at a time:
 10. How do you want to write the title (display name) and one_liner (first line in search results)?
 11. Do you want base_price to be 0 (free Hatchling trial) or paid (≥100 NT$)?
 
-After the questions, output:
-- Complete SKILL.md content (YAML frontmatter + all body sections)
+After the questions, output BOTH files:
+- `SKILL.md` — frontmatter with ONLY `skill_id` + `base_price`, plus all body sections
+- `metadata.json` — the listing fields: `title`, `one_liner`, `version`, `languages`, `category`, `script_mode`, `listing_description`, `cover`, `banner`, and the nested `listing` block (`what_it_does` string, `what_you_get` string[], `limitations` string[])
+- A spec for the two images to drop into `assets/`: `cover-<skill_id>.png` (square 1:1) + `banner-<skill_id>.png` (wide 16:10), PNG under 2 MB
 - Suggested folder path (e.g., `skills/weekly_report_writer/`)
 - Things I haven't thought through that could be reinforced (be honest)
 
 Hard rules:
+- Listing fields (title / one_liner / version / languages / category / script_mode / listing_description / listing.*) go in `metadata.json`. `SKILL.md` frontmatter keeps ONLY `skill_id` + `base_price`. Don't put listing fields back in the frontmatter.
 - skill_id and folder name must be **lowercase English + digits + underscores**, and the two must match exactly
 - Do not use EXAMPLE_ or YOUR_ prefixes
 - title, one_liner, body content can be in any language (Traditional Chinese, English, Japanese, anything)
@@ -181,9 +184,10 @@ Then ask me the following questions in order, one at a time:
 11. What persona_id do you want for this persona? (lowercase English + underscores)
 12. Do you want base_price to be 0 (free Hatchling trial) or paid (≥100 NT$)?
 
-After the questions, output, following the structure of personas/EXAMPLE_pi_lang/persona.md:
-- Complete persona.md content
-- YAML frontmatter (all required fields)
+After the questions, output BOTH files, following the structure of personas/EXAMPLE_pi_lang/:
+- `persona.md` — frontmatter with ONLY `persona_id` + `profession` + `base_price`, plus the full body
+- `metadata.json` — the listing fields: `name`, `one_liner`, `version`, `languages`, `listing_description`, `cover`, `banner` (persona manifests have NO title/category/script_mode/listing block)
+- A spec for the two images for `assets/`: `cover-<persona_id>.png` (1:1) + `banner-<persona_id>.png` (16:10), PNG under 2 MB
 - Opening / During-work / Closing behavior, 1–2 sentences each
 - 5 sentence examples (matching the 5 situations from earlier)
 - The Soul material sections the user filled in: `## 核心信念` (Core beliefs) plus any of `## 會保護什麼` / `## 絕不幫什麼` / `## 何時反對使用者` / `## 養成張力` / `## 與使用者的關係`. Only include sections the user answered — skip the rest, don't invent.
@@ -191,6 +195,7 @@ After the questions, output, following the structure of personas/EXAMPLE_pi_lang
 - Suggested folder path (e.g., `personas/night_wolf_strategist/`)
 
 Hard rules:
+- Listing fields (name / one_liner / languages / version / listing_description) go in `metadata.json`. `persona.md` frontmatter keeps ONLY `persona_id` + `profession` + `base_price`. Don't put listing fields back in the frontmatter.
 - persona_id and folder name must be **lowercase English + digits + underscores**, and the two must match exactly
 - Do not use EXAMPLE_ or YOUR_ prefixes
 - name (display name), one_liner, all behavior descriptions, dialogues, sentence examples can be in any language
@@ -279,6 +284,7 @@ After all four stages, output a pre-launch checklist overview:
 - Final pre-launch checklist
 
 Hard rules (combining all three previous prompts):
+- **Agents do NOT use a listing `metadata.json`.** This is the key difference from standalone Skills/Personas: in an Agent, keep ALL listing fields (title, name, one_liner, category, languages, version, listing_description, script_mode) in the `persona.md` / `SKILL.md` **frontmatter**. The only `metadata.json` in the bundle is `avatar/metadata.json` (avatar schema). Do NOT emit a listing `metadata.json` or an `assets/` cover/banner pair at the Agent root.
 - persona_id, skill_id, avatar_id, folder names must all be **lowercase English + digits + underscores**
 - Do not use EXAMPLE_ or YOUR_ prefixes
 - All three IDs should share a common prefix to look like one set (e.g., `night_wolf_strategist` / `night_wolf_strategist_skill` / `night_wolf_strategist_001`)

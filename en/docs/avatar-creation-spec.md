@@ -63,6 +63,8 @@ Before submitting, confirm all items are complete:
 
 Place in the same folder as `avatar.png`, with the fixed filename `metadata.json`.
 
+> **This is the avatar schema — not the listing manifest.** An Avatar's `metadata.json` (`avatar_id`, `collection`, `traits`, `rights`, …) is unrelated to the listing `metadata.json` that standalone Skills and Personas use (`title` / `name`, `cover`, `banner`, `listing.*`). Don't cross-paste between them. Avatars also take no separate cover/banner pair — the square 1:1 `avatar.png` is the image itself.
+
 ### Complete Example
 
 ```json

@@ -21,5 +21,11 @@ Start by copying `avatars/YOUR_AVATAR_NAME/`. After copying, you MUST rename bot
 the folder AND the `avatar_id` inside `metadata.json` to your own English lowercase
 identifier (they must match exactly).
 
+> **Two different `metadata.json` schemas — don't cross-paste.** An Avatar's
+> `metadata.json` uses the **avatar schema** (`avatar_id`, `collection`, `traits`,
+> `rights`, …). This is unrelated to the **listing `metadata.json`** that standalone
+> Skills and Personas use (`title` / `name`, `cover`, `banner`, `listing.*`). Avatars
+> also have no separate cover/banner pair — the square 1:1 `avatar.png` is the image.
+
 Full schema, enum values, image specs, and rights policy in
 [`docs/avatar-creation-spec.md`](../docs/avatar-creation-spec.md).

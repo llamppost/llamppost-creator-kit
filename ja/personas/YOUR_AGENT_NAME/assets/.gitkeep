@@ -1,0 +1,5 @@
+# Drop your listing images here (language-neutral — one version, no per-language copies):
+#   cover-<persona_id>.png    square 1:1        (marketplace card thumbnail)
+#   banner-<persona_id>.png   wide 16:10        (detail-page hero)
+# PNG, under 2 MB each. Declare them in metadata.json via "cover" / "banner".
+# This .gitkeep only keeps the empty folder tracked; delete it once you add images.

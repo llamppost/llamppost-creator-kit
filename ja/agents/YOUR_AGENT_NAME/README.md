@@ -4,6 +4,8 @@
 
 このフォルダは Agent 上架の空白テンプレートです。**インキュベーターが出力するフォーマットはこの構造と 1:1 で揃っています**——インキュベーターが走り終わって吐き出すのはこの形そのものです、ただし `avatar/` はデフォルトで空、あなた自身の `avatar.png` を補わないと Agent 上架はできません。
 
+> **注意——Agent はリスティング `metadata.json` 規約を使いません。** 単品の Skill / Persona と違い、Agent はリスティングフィールド（title、one_liner、category、name、languages、version、listing_description など）を `persona.md` と `SKILL.md` の **frontmatter** に残します。Agent バンドル内で**唯一**の `metadata.json` は `avatar/metadata.json` で、**avatar schema** を使います。Agent のルートにリスティング `metadata.json` や `assets/` の cover/banner を追加しないでください。
+
 ---
 
 ## Agent vs 単品

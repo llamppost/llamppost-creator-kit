@@ -1,0 +1,23 @@
+{
+  "title": "Social Marketing：贴文灵感包",
+  "one_liner": "输入品牌信息，立刻拿到 20 个符合品牌调性的贴文灵感与开头 hook",
+  "version": "1.0",
+  "languages": ["zh-CN", "en"],
+  "category": ["marketing", "writing"],
+  "script_mode": "workflow_only",
+  "listing_description": "把一份简短的品牌 brief 变成 20 个可直接用的社交贴文灵感，每个都附开头 hook 与发展角度。专为需要频繁产出内容、却常常没灵感的个人创业者与小型营销团队而做。",
+  "cover": "assets/cover-example_social_marketing_post_ideas.png",
+  "banner": "assets/banner-example_social_marketing_post_ideas.png",
+  "listing": {
+    "what_it_does": "帮助营销人员快速产出符合品牌调性的社交贴文想法，附带吸引人的 hook 与多种切入角度。适合个人创业者与小型营销团队——需要频繁产出内容但常常没灵感。输入品牌信息与目标，几分钟内就能拿到 20 个可直接用的贴文方向，也可以选择加购完整草稿。",
+    "what_you_get": [
+      "20 个贴文想法（每一个包含：开头 hook + 发展角度）",
+      "（选填）3 篇可直接发布的完整贴文草稿"
+    ],
+    "limitations": [
+      "尚未在 grok 或 kimi 上测试",
+      "草稿质量取决于用户提供的品牌示例是否够详细",
+      "无法保证所有想法都符合特定平台当前的算法偏好"
+    ]
+  }
+}

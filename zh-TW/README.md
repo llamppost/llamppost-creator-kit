@@ -74,12 +74,12 @@
 
 ---
 
-## 市集上的功能（在 Portal 操作，不是 Kit 檔案）
+## 市集上的功能
+
+- **cover + banner 隨 bundle 出貨**：單品 Skill / Persona 把 `cover-<id>.png`（方形 1:1，卡片縮圖）與 `banner-<id>.png`（寬 16:10，商品頁主視覺）放進商品的 `assets/`，並在 `metadata.json` 用 `cover` / `banner` 宣告。PNG，每張 2 MB 以內。沒有 cover＝卡片用自動產生的字母 placeholder。（上架後仍可在 Studio 覆蓋。）
+- **公開內容頁**：你 SKILL.md 的 body 區塊會渲染成買家在商品頁讀到的內容頁——`metadata.json` 的 `listing.*` 區塊可覆寫那段文字。請好好寫。
 
 這些都在 Creator Portal 上架時操作，不需要改動 Kit 檔案：
-
-- **商品縮圖**：可上傳選填的縮圖（PNG，建議 16:10），會顯示在市集卡片與商品頁。不上傳的話卡片會用自動產生的字母 placeholder。
-- **公開內容頁**：你 SKILL.md 的 body 區塊會渲染成買家在商品頁讀到的內容頁，請好好寫。
 - **隨時編輯＋技能包**：已上架商品的內容頁、縮圖、名稱、描述都能隨時編輯，也能把多個已上架的 skill 組成一個**技能包**——全部在 Studio →「我的上架」操作。
 
 詳見[上架指南](docs/listing-ready-v1.md)。
@@ -99,23 +99,31 @@ creator-kit/
 │   └── avatar-creation-spec.md  # Avatar 規格與政策
 ├── personas/                                # 單品 Persona
 │   ├── YOUR_AGENT_NAME/                    # 空白模板——複製並改名來建立你自己的 Persona
-│   │   └── persona.md
+│   │   ├── persona.md                      # 執行角色本體（frontmatter：persona_id + profession + base_price）
+│   │   ├── metadata.json                    # 上架欄位（name / one_liner / languages / version / listing_description / cover / banner）
+│   │   └── assets/                          # cover-<id>.png（1:1）+ banner-<id>.png（16:10）——語言中性，只放一版
 │   └── EXAMPLE_pi_lang/                    # 參考範例 Persona（不要複製此資料夾名稱）
-│       └── persona.md
+│       ├── persona.md
+│       ├── metadata.json
+│       └── assets/
 ├── skills/                                  # 單品 Skill
 │   ├── YOUR_SKILL_NAME/                    # 空白模板——複製並改名來建立你自己的 Skill
-│   │   ├── SKILL.md
+│   │   ├── SKILL.md                        # 執行 skill 本體（frontmatter：skill_id + base_price）
+│   │   ├── metadata.json                    # 上架欄位（title / one_liner / category / … / listing.* / cover / banner）
+│   │   ├── assets/                          # cover-<id>.png（1:1）+ banner-<id>.png（16:10）——語言中性，只放一版
 │   │   └── examples/
 │   └── EXAMPLE_social_marketing_post_ideas/  # 參考範例 Skill（不要複製此資料夾名稱）
-│       └── SKILL.md
+│       ├── SKILL.md
+│       ├── metadata.json
+│       └── assets/
 ├── agents/                                  # Agent（Persona + Skill + Avatar 三合一）
 │   └── YOUR_AGENT_NAME/                    # Agent 模板——雙向綁定已預填
 │       ├── README.md                       # Agent 使用說明
-│       ├── persona.md                      # Persona（綁定指向同資料夾 SKILL.md）
-│       ├── SKILL.md                        # Skill（綁定指向同資料夾 persona.md）
+│       ├── persona.md                      # Persona——上架欄位留在 frontmatter（這裡不放 listing metadata.json）
+│       ├── SKILL.md                        # Skill——上架欄位留在 frontmatter（這裡不放 listing metadata.json）
 │       └── avatar/                         # Avatar（必備）
 │           ├── README.md
-│           └── metadata.json               # 預填 placeholder——需放上你的 avatar.png
+│           └── metadata.json               # AVATAR schema（avatar_id / traits / rights）——不是 listing manifest
 ├── policy/
 │   └── policy.zh-TW.md          # 平台政策
 └── assets/

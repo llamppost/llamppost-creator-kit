@@ -35,6 +35,42 @@
 
 ---
 
+## 各フィールドの場所（Phase-3 の分割）
+
+`persona.md` frontmatter には**実行アイデンティティ + 価格**のみを残します：`persona_id`、`profession`、`base_price`。マーケットの*リスティング*が表示するものはすべて `persona.md` の隣の **`metadata.json`** にあります。
+
+| フィールド | 場所 |
+|-------|----------|
+| `persona_id` | persona.md YAML（フォルダ名と一致必須） |
+| `profession` | persona.md YAML（プラットフォームが persona 分類のために読む） |
+| `base_price` | persona.md YAML |
+| `name` | metadata.json |
+| `one_liner` | metadata.json |
+| `languages` | metadata.json |
+| `version` | metadata.json |
+| `listing_description` | metadata.json |
+| `cover` / `banner` | metadata.json（→ `assets/`） |
+
+行動記述、例文、ソウル素材、対話は `persona.md` の body に残ります——それが実行キャラクター本体です（`## 核心信念` は公開表示されます）。
+
+### リスティング manifest（`metadata.json`）
+
+```json
+{
+  "name": "Kai",
+  "one_liner": "頭の中のごちゃごちゃを、実行可能な週次プランに変える",
+  "version": "1.0",
+  "languages": ["ja", "en"],
+  "listing_description": "マーケットのリスティングに表示される 2–3 文：どんなキャラクターで、何を手伝えるか。",
+  "cover": "assets/cover-kai_weekly_coach.png",
+  "banner": "assets/banner-kai_weekly_coach.png"
+}
+```
+
+Persona manifest には `title` / `category` / `script_mode` / `listing` ブロックは**ありません**——それらは skill 専用です。`cover-<persona_id>.png`（正方形 1:1）と `banner-<persona_id>.png`（横長 16:10）を `assets/` に配置し、PNG 各 2 MB 以内、`cover` / `banner` で宣言します。画像は言語ニュートラル（1 バージョン）；`metadata.json` 自体は言語ごと（`name` / `one_liner` / `listing_description` をローカライズ）。
+
+---
+
 ## フィールド説明
 
 ### `languages`（必須）
@@ -251,21 +287,31 @@ User: （脆弱なシェアリング）
 
 以下は完全に記入された Persona の参考例です：
 
+`persona.md` frontmatter（実行アイデンティティ + 価格のみ）：
+
 ```yaml
 ---
 persona_id: kai_weekly_coach
-name: Kai
 profession: ops
-one_liner: 頭の中の混沌を、実行可能な週次プランに変える
-version: "1.0"
-
-languages:
-  - zh-TW
-  - en
-
 base_price: 0
 ---
 ```
+
+`metadata.json`（リスティングフィールド、`persona.md` の隣）：
+
+```json
+{
+  "name": "Kai",
+  "one_liner": "頭の中の混沌を、実行可能な週次プランに変える",
+  "version": "1.0",
+  "languages": ["ja", "en"],
+  "listing_description": "安定した週次プランのパートナー。頭の中の山積みを、明日の朝から始められるプランに変えます。",
+  "cover": "assets/cover-kai_weekly_coach.png",
+  "banner": "assets/banner-kai_weekly_coach.png"
+}
+```
+
+`persona.md` body（実行キャラクター本体）：
 
 ```markdown
 ## Behavior descriptions

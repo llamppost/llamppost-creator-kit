@@ -1,19 +1,9 @@
 ---
+# リスティング表示フィールド（title / one_liner / category / languages / version /
+# script_mode / listing_description / cover / banner / listing.*）は metadata.json に——
+# このフォルダの metadata.json に記入済みの参照があります。frontmatter には実行アイデンティティ + 価格のみ：
 skill_id: EXAMPLE_social_marketing_post_ideas
-title: Social Marketing：投稿アイデアパック
-version: "1.0"
-category:
-  - marketing
-  - writing
-one_liner: ブランド情報を入力するだけで、ブランドに合った 20 の投稿アイデアとオープニングフックが即座に手に入る
-
-languages:
-  - ja
-  - en
-
 base_price: 180        # NT$。0 = 無料；≥100 = 有料（自由設定）
-
-script_mode: workflow_only
 ---
 
 <!--

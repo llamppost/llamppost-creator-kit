@@ -1,47 +1,30 @@
 ---
-persona_id: YOUR_AGENT_NAME       # 改成你的 persona ID（必须英文小写 + 下划线，例如：night_wolf_strategist）
-name: 你的 Persona 显示名称         # 用户看到的名称（可以使用任何语言）
+# ── 运行身份 + 定价（这些留在 frontmatter）─────────
+# 上架显示字段——name、one_liner、languages、version、listing_description、
+# cover/banner——现在都放在 metadata.json（同文件夹）。这份 persona.md 是运行角色本体。
+# （profession 留在这里：平台从 frontmatter 读它来替 persona 分类。）
+persona_id: YOUR_AGENT_NAME       # 你的 persona ID——英文小写 + 下划线（例如 night_wolf_strategist）。必须跟文件夹名称完全一致。
 profession: ops                   # 只能挑 1 个（见 docs/persona-template.md 的 profession 清单）
-one_liner: 一句话描述这个角色的个性或定位（40 字以内）
-version: "1.0"
 
-languages:                        # 这个 persona 实际使用的语言（BCP-47，必填）
-  - zh-CN
-  # - en
-
-# ── 定价 ──────────────────────────────────────────
-# base_price 单位：NT$
-# 0     = 免费上架（Hatchling 试上架）
-# ≥100  = 付费上架（自定价格，无上限）
+# base_price 单位：NT$  ·  0 = 免费上架（Hatchling 试上架）  ·  ≥100 = 付费上架（自定价格，无上限）
 base_price: 0
-
-# ── 以下字段 Portal 之后会自动测试填写 ────────────
-# 目前可以不填，或填默认值。填了平台会用你的声明做初步参考，
-# 但所有 fidelity / test 标签之后都会以 Portal 自动测试结果为准。
-# deprecated（手动填）→ 将由 Portal cross-model QA 自动覆写
-# tested_runtimes:
-#   - claude
-# tested_models:
-#   - claude-opus-4-6
-# test_level: smoke               # smoke | qa | prod_ready
-# model_fidelity:
-#   claude-opus-4-6: canon        # canon | compatible | lite | untested
 ---
 
 <!--
   说明：
   1. 复制整个 personas/YOUR_AGENT_NAME/ 文件夹
   2. 将文件夹改名为你的 persona_id——**必须是英文小写 + 下划线**（例如：personas/night_wolf_strategist/）
-  3. 把下面 YAML 的 persona_id 改成跟文件夹名称完全一样
-  4. 填写上面其他 YAML 字段，删掉所有开头为 # 的行
-  5. 填写下方的各个区块
+  3. 把上面的 persona_id 改成跟文件夹名称完全一样
+  4. 在 metadata.json 填写「上架字段」——name / one_liner / languages / version /
+     listing_description。再把 cover-<persona_id>.png（1:1）与 banner-<persona_id>.png（16:10）放进 assets/。
+  5. 填写下方的各个区块——行为、句子示例、灵魂素材、对话。这是运行角色本体（且 核心信念 会公开显示）。
   6. 删除这个说明区块，然后通过 Creator Portal 提交
 
   重要：
-  - persona_id 与文件夹名称**永远必须是英文**（小写字母 + 数字 + 下划线）
+  - persona_id 与文件夹名称**永远必须是英文**（小写字母 + 数字 + 下划线），且两者要完全一致
   - YOUR_AGENT_NAME 是保留前缀，Portal 会拒绝含此前缀的上架
   - 显示名称（name）、one_liner、所有 body 内容、对话、句子示例可以使用任何语言
-  - 完整字段说明请见 docs/persona-template.md
+  - 上架字段放在 metadata.json——完整字段说明请见 docs/persona-template.md
   - 完整示例请见 personas/EXAMPLE_pi_lang/persona.md
 -->
 

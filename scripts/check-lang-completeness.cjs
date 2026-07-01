@@ -16,7 +16,18 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const BASE = 'en';
 const LANGS = ['zh-TW', 'zh-CN', 'ja'];
-const IGNORE = new Set(['.DS_Store']);
+
+// Files ignored by exact name.
+// .gitkeep only keeps otherwise-empty asset drop-zones tracked in git.
+const IGNORE = new Set(['.DS_Store', '.gitkeep']);
+
+// Language-neutral binary/image assets ship as a single version (placed under en/
+// only, or with identical basenames per language) and are declared in each
+// product's metadata.json via `cover` / `banner`. They are NOT translated, so the
+// per-language file-tree parity check must skip them to avoid false "missing"
+// reports. metadata.json itself IS per-language (localized title / one_liner /
+// listing_description) and stays in the check.
+const IGNORE_EXT = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg']);
 
 function listFiles(dir) {
   const out = [];
@@ -24,6 +35,7 @@ function listFiles(dir) {
     const abs = path.join(ROOT, dir, rel);
     for (const name of fs.readdirSync(abs)) {
       if (IGNORE.has(name)) continue;
+      if (IGNORE_EXT.has(path.extname(name).toLowerCase())) continue;
       const childRel = rel ? path.join(rel, name) : name;
       if (fs.statSync(path.join(abs, name)).isDirectory()) walk(childRel);
       else out.push(childRel);

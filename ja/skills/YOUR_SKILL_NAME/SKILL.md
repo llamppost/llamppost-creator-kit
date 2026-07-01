@@ -1,49 +1,30 @@
 ---
-skill_id: YOUR_SKILL_NAME        # あなたの skill ID に変更（英小文字 + アンダースコア必須、例：social_post_ideas）
-title: あなたの Skill の表示名     # ユーザーが検索結果で見る名前（40 文字以内、どの言語でも可）
-version: "1.0"
-category:
-  - writing                       # メインカテゴリ（必須、リストから 1 つ選択）
-  # - research                    # サブカテゴリ（任意、最大もう 1 つ選択）
-one_liner: この skill がユーザーのどんな問題を解決するかを一文で（60 文字以内）
+# ── 実行アイデンティティ + 価格（これらは frontmatter に残す）─────
+# マーケット「リスティング表示」のフィールド——title、one_liner、category、
+# languages、version、script_mode、listing_description、cover/banner——は
+# すべて metadata.json（同フォルダ）に移動しました。この SKILL.md は実行 skill 本体です。
+skill_id: YOUR_SKILL_NAME        # あなたの skill ID——英小文字 + アンダースコア（例：social_post_ideas）。フォルダ名と完全一致必須。
 
-languages:                        # この skill が実際に動作する言語（BCP-47 コード、必須）
-  - ja
-  # - en
-
-# ── 価格設定 ──────────────────────────────────────
-# base_price 単位：NT$
-# 0     = 無料上架（Hatchling お試し上架）
-# ≥100  = 有料上架（自由価格、上限なし）
+# base_price 単位：NT$  ·  0 = 無料上架（Hatchling お試し）  ·  ≥100 = 有料上架（自由価格、上限なし）
 base_price: 0
-
-# ── 以下のフィールドは Portal が今後自動テストして記入 ────────────
-# 今は未記入でも、デフォルト値でも構いません。記入したらプラットフォームは
-# あなたの宣言を初期参考にしますが、すべての fidelity / test ラベルは
-# 最終的に Portal の自動テスト結果が優先されます。
-# deprecated（手動記入）→ Portal cross-model QA が自動で上書き
-# tested_runtimes:
-#   - claude
-# tested_models:
-#   - claude-opus-4-6
-# test_level: smoke               # smoke | qa | prod_ready
-
-script_mode: workflow_only        # workflow_only（説明のみ）| script_spec（仕様）| script_provided（スクリプト付属）
 ---
 
 <!--
   手順：
   1. skills/YOUR_SKILL_NAME/ フォルダ全体をコピー
   2. フォルダをあなたの skill_id にリネーム——**英小文字 + アンダースコア必須**（例：skills/social_post_ideas/）
-  3. 上の YAML の skill_id をフォルダ名と完全に一致するよう変更
-  4. 上の他の YAML フィールドを記入、# で始まる行はすべて削除
-  5. 下の各セクションを記入
+  3. 上の skill_id をフォルダ名と完全に一致するよう変更
+  4. metadata.json に「リスティングフィールド」を記入——title / one_liner / category /
+     languages / version / script_mode / listing_description、および listing.* ブロック。
+     さらに cover-<skill_id>.png（1:1）と banner-<skill_id>.png（16:10）を assets/ に配置。
+  5. 下の各セクションを記入——これは実行 skill の内容であり、公開コンテンツページにも表示されます。
+     （metadata.json で listing.* を設定すると「What this skill does / receive / limitations」の文言を上書きします。）
   6. この説明セクションを削除して、Creator Portal 経由で送信
 
   重要：
-  - skill_id とフォルダ名は**必ず英語**（小文字 + 数字 + アンダースコア）
+  - skill_id とフォルダ名は**必ず英語**（小文字 + 数字 + アンダースコア）で、両者は完全一致
   - YOUR_SKILL_NAME は予約プレフィックス、このプレフィックスを含む上架は Portal が拒否
-  - 完全なフィールド説明は docs/skill-template.md を参照
+  - リスティングフィールドは metadata.json にあります——完全な説明は docs/skill-template.md を参照
 -->
 
 # {{title}}
@@ -115,7 +96,7 @@ script_mode: workflow_only        # workflow_only（説明のみ）| script_spec
 ## Script（任意）
 
 <!--
-  このセクションは script_mode が script_spec または script_provided のときのみ記入。
+  このセクションは script_mode（metadata.json で設定）が script_spec または script_provided のときのみ記入。
   script_mode が workflow_only なら、このセクション全体を削除可能。
 -->
 

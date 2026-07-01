@@ -35,6 +35,42 @@
 
 ---
 
+## 各字段放哪（Phase-3 拆分）
+
+`persona.md` frontmatter 现在只留**运行身份 + 定价**：`persona_id`、`profession`、`base_price`。市集*上架*显示的一切都放在 `persona.md` 旁边的 **`metadata.json`**。
+
+| 字段 | 位置 |
+|-------|----------|
+| `persona_id` | persona.md YAML（必须等于文件夹名称） |
+| `profession` | persona.md YAML（平台读它来替 persona 分类） |
+| `base_price` | persona.md YAML |
+| `name` | metadata.json |
+| `one_liner` | metadata.json |
+| `languages` | metadata.json |
+| `version` | metadata.json |
+| `listing_description` | metadata.json |
+| `cover` / `banner` | metadata.json（→ `assets/`） |
+
+行为描述、句子示例、灵魂素材、对话都留在 `persona.md` 的 body——那是运行角色本体（且 `## 核心信念` 会公开显示）。
+
+### 上架 manifest（`metadata.json`）
+
+```json
+{
+  "name": "Kai",
+  "one_liner": "把你脑中的一团乱，变成可执行的周计划",
+  "version": "1.0",
+  "languages": ["zh-CN", "en"],
+  "listing_description": "市集上架显示的 2–3 句：这是个怎样的角色、能帮你什么。",
+  "cover": "assets/cover-kai_weekly_coach.png",
+  "banner": "assets/banner-kai_weekly_coach.png"
+}
+```
+
+Persona manifest **没有** `title` / `category` / `script_mode` / `listing` 区块——那些是 skill 专属。把 `cover-<persona_id>.png`（方形 1:1）与 `banner-<persona_id>.png`（宽 16:10）放进 `assets/`，PNG 每张 2 MB 以内，并用 `cover` / `banner` 声明。图片语言中性（只放一版）；`metadata.json` 本身每语一份（本地化 `name` / `one_liner` / `listing_description`）。
+
+---
+
 ## 字段说明
 
 ### `languages`（必填）
@@ -251,21 +287,31 @@ User: （脆弱的分享）
 
 以下是一个完整填写的 Persona 供参考：
 
+`persona.md` frontmatter（只留运行身份 + 定价）：
+
 ```yaml
 ---
 persona_id: kai_weekly_coach
-name: Kai
 profession: ops
-one_liner: 把你脑袋里的混乱变成可执行的周计划
-version: "1.0"
-
-languages:
-  - zh-CN
-  - en
-
 base_price: 0
 ---
 ```
+
+`metadata.json`（上架字段，放在 `persona.md` 旁边）：
+
+```json
+{
+  "name": "Kai",
+  "one_liner": "把你脑袋里的混乱变成可执行的周计划",
+  "version": "1.0",
+  "languages": ["zh-CN", "en"],
+  "listing_description": "稳定的周计划伙伴，把你脑中那堆事变成明天早上就能开始的计划。",
+  "cover": "assets/cover-kai_weekly_coach.png",
+  "banner": "assets/banner-kai_weekly_coach.png"
+}
+```
+
+`persona.md` body（运行角色本体）：
 
 ```markdown
 ## Behavior descriptions

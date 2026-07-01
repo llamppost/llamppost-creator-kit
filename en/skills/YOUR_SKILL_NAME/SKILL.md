@@ -1,34 +1,12 @@
 ---
-skill_id: YOUR_SKILL_NAME        # Change to your skill ID (must be lowercase English + underscores, e.g., social_post_ideas)
-title: Your Skill Display Name   # The name users see in search results (under 40 chars, can be in any language)
-version: "1.0"
-category:
-  - writing                       # Primary category (required, pick 1 from the list)
-  # - research                    # Secondary category (optional, pick at most 1 more)
-one_liner: One sentence describing what problem this skill solves for the user (under 60 chars)
+# ── Runtime identity + pricing (these stay in frontmatter) ─────────
+# Everything the *marketplace listing* displays — title, one_liner, category,
+# languages, version, script_mode, listing_description, cover/banner — now lives
+# in metadata.json (sibling file). This SKILL.md is your runtime skill body.
+skill_id: YOUR_SKILL_NAME        # Your skill ID — lowercase English + underscores (e.g. social_post_ideas). MUST equal the folder name.
 
-languages:                        # The languages this skill actually operates in (BCP-47 codes, required)
-  - zh-TW
-  # - en
-
-# ── Pricing ───────────────────────────────────────
-# base_price unit: NT$
-# 0     = free listing (Hatchling trial)
-# ≥100  = paid listing (set your own price, no cap)
+# base_price unit: NT$  ·  0 = free listing (Hatchling trial)  ·  ≥100 = paid (set your own price, no cap)
 base_price: 0
-
-# ── The fields below will be auto-filled by Portal testing later ─
-# You can leave them out for now, or fill in defaults. If filled, the platform uses
-# your claim as an initial reference, but all fidelity / test labels will ultimately
-# be set by Portal's automatic test results.
-# deprecated (manual fill) → will be overwritten by Portal cross-model QA
-# tested_runtimes:
-#   - claude
-# tested_models:
-#   - claude-opus-4-6
-# test_level: smoke               # smoke | qa | prod_ready
-
-script_mode: workflow_only        # workflow_only (description only) | script_spec (spec) | script_provided (script included)
 ---
 
 <!--
@@ -36,15 +14,19 @@ script_mode: workflow_only        # workflow_only (description only) | script_sp
   1. Copy the entire skills/YOUR_SKILL_NAME/ folder
   2. Rename the folder to your skill_id — **must be lowercase English + underscores**
      (e.g., skills/social_post_ideas/)
-  3. Change the skill_id in the YAML above to match the folder name exactly
-  4. Fill in the other YAML fields and remove all lines starting with #
-  5. Fill in the sections below
+  3. Change the skill_id above to match the folder name exactly
+  4. Fill in the LISTING fields in metadata.json — title / one_liner / category /
+     languages / version / script_mode / listing_description, plus the listing.* block.
+     Then drop cover-<skill_id>.png (1:1) and banner-<skill_id>.png (16:10) into assets/.
+  5. Fill in the body sections below — they are your runtime skill instructions, and
+     also render as the public content page. (metadata.json's listing.* can override
+     the "What this skill does" / "receive" / "limitations" text if you set it.)
   6. Delete this instruction block, then submit through Creator Portal
 
   Important:
-  - skill_id and folder name **must always be English** (lowercase letters + digits + underscores)
+  - skill_id and folder name **must always be English** (lowercase letters + digits + underscores) and must match exactly
   - YOUR_SKILL_NAME is a reserved prefix; Portal will reject listings using it
-  - For full field reference, see docs/skill-template.md
+  - Listing fields live in metadata.json, not here — full field reference in docs/skill-template.md
 -->
 
 # {{title}}
@@ -117,8 +99,8 @@ script_mode: workflow_only        # workflow_only (description only) | script_sp
 ## Script (optional)
 
 <!--
-  This section is only needed when script_mode is set to script_spec or script_provided.
-  If script_mode is workflow_only, you can delete this whole section.
+  This section is only needed when script_mode (set in metadata.json) is script_spec
+  or script_provided. If script_mode is workflow_only, you can delete this whole section.
 -->
 
 ### Goal

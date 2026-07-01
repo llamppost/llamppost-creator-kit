@@ -97,27 +97,34 @@ Rename: skills/your_skill_id/      ← lowercase English + underscores, e.g., sk
 
 There's one `SKILL.md` inside the folder — that's the only file you need to fill in. After renaming, make sure the `skill_id` inside `SKILL.md` matches the folder name.
 
-### Step 2: Fill in the YAML frontmatter
+### Step 2: Fill in `SKILL.md` frontmatter (runtime identity + pricing)
 
 ```yaml
 ---
-skill_id: weekly_report_writer      ← change to your skill ID (lowercase + underscores)
-title: Weekly Report Auto-Generator ← change to your skill name
-version: "1.0"
-category:
-  - writing                         ← primary category (see category list)
-  - ops                             ← secondary category (optional)
-one_liner: Input your weekly task list, get a structured weekly report draft
-
-languages:
-  - zh-TW
-  - en
-
+skill_id: weekly_report_writer      ← change to your skill ID (lowercase + underscores; MUST match the folder name)
 base_price: 0                       ← NT$. 0 = free; ≥100 = paid (your choice)
-
-script_mode: workflow_only          ← keep as-is unless you ship a script
 ---
 ```
+
+### Step 2b: Fill in `metadata.json` (listing fields) + drop in `assets/`
+
+Beside `SKILL.md`, the folder has a `metadata.json` carrying the marketplace listing fields, and an `assets/` folder for your images:
+
+```json
+{
+  "title": "Weekly Report Auto-Generator",
+  "one_liner": "Input your weekly task list, get a structured weekly report draft",
+  "version": "1.0",
+  "languages": ["zh-TW", "en"],
+  "category": ["writing", "ops"],
+  "script_mode": "workflow_only",
+  "listing_description": "2-3 sentences shown on the marketplace listing.",
+  "cover": "assets/cover-weekly_report_writer.png",
+  "banner": "assets/banner-weekly_report_writer.png"
+}
+```
+
+Drop `cover-<skill_id>.png` (square **1:1**, card thumbnail) and `banner-<skill_id>.png` (wide **16:10**, detail-page hero) into `assets/` — PNG, under 2 MB each. Images are language-neutral (one version, not per-language). Full field reference in [skill-template.md](skill-template.md).
 
 > **Category list:** writing, research, coding, data, strategy, ops, sales, marketing, design, learning
 
@@ -142,7 +149,7 @@ Below the YAML are five sections, each with an HTML comment explaining what to w
 - [ ] base_price is 0 or ≥100
 ```
 
-Submit through Creator Portal. During submission you can upload an optional **product thumbnail** (PNG, 16:10 recommended) — it shows on the marketplace card and the detail page. Skip it and the card shows an auto-generated lettered placeholder instead.
+Submit through Creator Portal. Your `cover` / `banner` ship inside the bundle via `metadata.json` + `assets/` (cover 1:1 card thumbnail, banner 16:10 detail hero). No cover = an auto-generated lettered placeholder. You can still override them in Studio after publishing.
 
 ---
 
@@ -157,23 +164,33 @@ Rename: personas/your_persona_id/  ← lowercase English + underscores
 
 For full field reference, see [persona-template.md](persona-template.md); for a fully filled-in example, see `personas/EXAMPLE_pi_lang/persona.md`.
 
-### Step 2: Fill in the YAML frontmatter
+### Step 2: Fill in `persona.md` frontmatter + `metadata.json`
+
+`persona.md` frontmatter keeps runtime identity + pricing:
 
 ```yaml
 ---
-persona_id: kai_weekly_coach
-name: Kai
+persona_id: kai_weekly_coach       ← MUST match the folder name
 profession: ops                    ← pick exactly 1 (see profession list)
-one_liner: Turn the mess in your head into an executable weekly plan
-version: "1.0"
-
-languages:
-  - zh-TW
-  - en
-
 base_price: 0                      ← NT$. 0 = free; ≥100 = paid
 ---
 ```
+
+The listing fields go in `metadata.json` beside `persona.md`, and images in `assets/`:
+
+```json
+{
+  "name": "Kai",
+  "one_liner": "Turn the mess in your head into an executable weekly plan",
+  "version": "1.0",
+  "languages": ["zh-TW", "en"],
+  "listing_description": "2-3 sentences shown on the marketplace listing.",
+  "cover": "assets/cover-kai_weekly_coach.png",
+  "banner": "assets/banner-kai_weekly_coach.png"
+}
+```
+
+Drop `cover-<persona_id>.png` (1:1) and `banner-<persona_id>.png` (16:10) into `assets/` (PNG, under 2 MB, language-neutral).
 
 > **Profession list:** life, pa, ops, people, sales, mktg, tech, strat, fitness_coach, life_coach, learning_coach, religion_mentor, intimacy_consultant, teacher_tutor, companion_partner, companion_ex
 
@@ -235,6 +252,8 @@ Edit every required field and rename `avatar_id` from the placeholder. Full sche
 ---
 
 ## Publishing an Agent (Persona + Skill + Avatar)
+
+> **Agents keep listing fields in frontmatter — no listing `metadata.json`.** The Phase-3 `metadata.json` + `assets/` convention applies to standalone Skills and Personas only. In an Agent bundle, `persona.md` and `SKILL.md` keep their listing fields (title, name, one_liner, category, …) in frontmatter, and the **only** `metadata.json` is `avatar/metadata.json` (the avatar schema).
 
 ### Step 1: Copy the Agent template folder
 
