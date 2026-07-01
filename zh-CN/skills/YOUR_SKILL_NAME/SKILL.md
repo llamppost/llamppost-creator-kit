@@ -1,12 +1,10 @@
 ---
-# ── 运行身份 + 定价（这些留在 frontmatter）─────────
-# 市集「上架显示」的字段——title、one_liner、category、languages、version、
-# script_mode、listing_description、cover/banner——现在都放在 metadata.json（同文件夹）。
-# 这份 SKILL.md 是你的运行 skill 本体。
-skill_id: YOUR_SKILL_NAME        # 你的 skill ID——英文小写 + 下划线（例如 social_post_ideas）。必须跟文件夹名称完全一致。
-
-# base_price 单位：NT$  ·  0 = 免费上架（Hatchling 试上架）  ·  ≥100 = 付费上架（自定价格，无上限）
-base_price: 0
+# ── 运行身份（留在 frontmatter）─────────
+# 市集「上架显示」的字段——title、one_liner、category、languages、version、script_mode、
+# listing_description、base_price、cover/banner——现在都放在 metadata.json（同文件夹）。
+# skill_id 也放在 metadata.json；这里一并保留，让读 frontmatter 的导入／验证工具仍能运作。
+# 平台以 metadata.json 为优先、frontmatter 为 fallback——两边都收。这份 SKILL.md 是运行 skill 本体。
+skill_id: YOUR_SKILL_NAME        # 英文小写 + 下划线（例如 social_post_ideas）。必须跟文件夹名称、以及 metadata.json 的 skill_id 完全一致。
 ---
 
 <!--
@@ -15,7 +13,7 @@ base_price: 0
   2. 将文件夹改名为你的 skill_id——**必须是英文小写 + 下划线**（例如：skills/social_post_ideas/）
   3. 把上面的 skill_id 改成跟文件夹名称完全一样
   4. 在 metadata.json 填写「上架字段」——title / one_liner / category / languages /
-     version / script_mode / listing_description，以及 listing.* 区块。
+     version / script_mode / listing_description / base_price，以及 listing.* 区块。
      再把 cover-<skill_id>.png（1:1）与 banner-<skill_id>.png（16:10）放进 assets/。
   5. 填写下方的各个区块——这是你的运行 skill 内容，同时也会渲染成公开内容页。
      （若你在 metadata.json 设了 listing.*，会覆写「What this skill does / receive / limitations」文字。）

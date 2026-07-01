@@ -97,12 +97,11 @@
 
 文件夹里有一份 `SKILL.md`——你只需要填这一个文件。改名后记得同时把 `SKILL.md` 里的 `skill_id` 改成跟文件夹名称一致。
 
-### 步骤 2：填写 `SKILL.md` frontmatter（运行身份 + 定价）
+### 步骤 2：填写 `SKILL.md` frontmatter（运行身份——`skill_id`）
 
 ```yaml
 ---
 skill_id: weekly_report_writer      ← 改成你的 skill ID（小写 + 下划线；必须等于文件夹名称）
-base_price: 0                       ← NT$。0 = 免费；≥100 = 付费（自定）
 ---
 ```
 
@@ -112,9 +111,11 @@ base_price: 0                       ← NT$。0 = 免费；≥100 = 付费（自
 
 ```json
 {
+  "skill_id": "weekly_report_writer",
   "title": "周报自动生成器",
   "one_liner": "输入你的周工作清单，自动拿到结构化的周报草稿",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["zh-CN", "en"],
   "category": ["writing", "ops"],
   "script_mode": "workflow_only",
@@ -166,13 +167,12 @@ YAML 下面有五个区块，每一个都附有注释说明（`<!-- 灰色字 --
 
 ### 步骤 2：填写 `persona.md` frontmatter + `metadata.json`
 
-`persona.md` frontmatter 留运行身份 + 定价：
+`persona.md` frontmatter 留运行身份（`persona_id` + `profession`）：
 
 ```yaml
 ---
 persona_id: kai_weekly_coach       ← 必须等于文件夹名称
 profession: ops                    ← 只能挑 1 个（见 profession 清单）
-base_price: 0                      ← NT$。0 = 免费；≥100 = 付费
 ---
 ```
 
@@ -180,9 +180,11 @@ base_price: 0                      ← NT$。0 = 免费；≥100 = 付费
 
 ```json
 {
+  "persona_id": "kai_weekly_coach",
   "name": "Kai",
   "one_liner": "把你脑袋里的混乱变成可执行的周计划",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["zh-CN", "en"],
   "listing_description": "市集上架显示的 2–3 句描述。",
   "cover": "assets/cover-kai_weekly_coach.png",

@@ -97,12 +97,11 @@ Rename: skills/your_skill_id/      ← lowercase English + underscores, e.g., sk
 
 There's one `SKILL.md` inside the folder — that's the only file you need to fill in. After renaming, make sure the `skill_id` inside `SKILL.md` matches the folder name.
 
-### Step 2: Fill in `SKILL.md` frontmatter (runtime identity + pricing)
+### Step 2: Fill in `SKILL.md` frontmatter (runtime identity — `skill_id`)
 
 ```yaml
 ---
 skill_id: weekly_report_writer      ← change to your skill ID (lowercase + underscores; MUST match the folder name)
-base_price: 0                       ← NT$. 0 = free; ≥100 = paid (your choice)
 ---
 ```
 
@@ -112,9 +111,11 @@ Beside `SKILL.md`, the folder has a `metadata.json` carrying the marketplace lis
 
 ```json
 {
+  "skill_id": "weekly_report_writer",
   "title": "Weekly Report Auto-Generator",
   "one_liner": "Input your weekly task list, get a structured weekly report draft",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["zh-TW", "en"],
   "category": ["writing", "ops"],
   "script_mode": "workflow_only",
@@ -166,13 +167,12 @@ For full field reference, see [persona-template.md](persona-template.md); for a 
 
 ### Step 2: Fill in `persona.md` frontmatter + `metadata.json`
 
-`persona.md` frontmatter keeps runtime identity + pricing:
+`persona.md` frontmatter keeps runtime identity (`persona_id` + `profession`):
 
 ```yaml
 ---
 persona_id: kai_weekly_coach       ← MUST match the folder name
 profession: ops                    ← pick exactly 1 (see profession list)
-base_price: 0                      ← NT$. 0 = free; ≥100 = paid
 ---
 ```
 
@@ -180,9 +180,11 @@ The listing fields go in `metadata.json` beside `persona.md`, and images in `ass
 
 ```json
 {
+  "persona_id": "kai_weekly_coach",
   "name": "Kai",
   "one_liner": "Turn the mess in your head into an executable weekly plan",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["zh-TW", "en"],
   "listing_description": "2-3 sentences shown on the marketplace listing.",
   "cover": "assets/cover-kai_weekly_coach.png",

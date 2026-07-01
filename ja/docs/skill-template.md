@@ -39,8 +39,8 @@ skill の `title`（表示名、例：`title: 週報自動ジェネレーター`
 
 | フィールド | 位置 | 必須 | 説明 |
 |-------|----------|----------|-------------|
-| `skill_id` | SKILL.md YAML | はい | 一意 ID、小文字 + アンダースコア。フォルダ名と一致必須。 |
-| `base_price` | SKILL.md YAML | はい | NT$、`0`（無料）または `≥100` |
+| `skill_id` | metadata.json + SKILL.md YAML | はい | 一意 ID、小文字 + アンダースコア。フォルダ名と一致必須。 |
+| `base_price` | metadata.json | はい | NT$、`0`（無料）または `≥100` |
 | `title` | metadata.json | はい | 表示名、40 文字以内 |
 | `version` | metadata.json | はい | `"1.0"` から開始 |
 | `category` | metadata.json | はい | 最大 2 カテゴリ |
@@ -59,7 +59,7 @@ skill の `title`（表示名、例：`title: 週報自動ジェネレーター`
 | Script | SKILL.md body | 任意 | script_spec / script_provided のときのみ記入 |
 | `tested_runtimes` / `tested_models` / `test_level` | — | deprecated | Portal が今後自動テストして記入 |
 
-> **各フィールドの場所（Phase-3 の分割）：** `SKILL.md` frontmatter には**実行アイデンティティ + 価格**（`skill_id` + `base_price`）のみを残します。マーケットの*リスティング*が表示するものはすべて `SKILL.md` の隣の **`metadata.json`** にあります。`SKILL.md` の body セクションはそのまま——公開コンテンツページとしてレンダリングされ、`metadata.json` の `listing.*` がそれらを上書きできます。
+> **各フィールドの場所（Phase-3 の分割）：** `SKILL.md` frontmatter には**実行アイデンティティ**（`skill_id`）のみを残します；`skill_id` + `base_price` は `metadata.json` にもあります（優先読み込み、frontmatter は fallback）。マーケットの*リスティング*が表示するものはすべて `SKILL.md` の隣の **`metadata.json`** にあります。`SKILL.md` の body セクションはそのまま——公開コンテンツページとしてレンダリングされ、`metadata.json` の `listing.*` がそれらを上書きできます。
 
 ---
 
@@ -69,9 +69,11 @@ skill の `title`（表示名、例：`title: 週報自動ジェネレーター`
 
 ```json
 {
+  "skill_id": "weekly_report_writer",
   "title": "週報自動ジェネレーター",
   "one_liner": "今週のタスクリストを入力すると、構造化された週報ドラフトが手に入る",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["ja", "en"],
   "category": ["writing", "ops"],
   "script_mode": "workflow_only",
@@ -86,7 +88,7 @@ skill の `title`（表示名、例：`title: 週報自動ジェネレーター`
 }
 ```
 
-- `title` / `one_liner` / `version` / `category` / `script_mode` / `listing_description`——意味とルールは下のフィールド別説明と同じで、`metadata.json` に置くようになっただけです（`skill_id` / `base_price` は `SKILL.md` に残る）。
+- `title` / `one_liner` / `version` / `category` / `script_mode` / `listing_description`——意味とルールは下のフィールド別説明と同じで、`metadata.json` に置くようになっただけです。`skill_id` と `base_price` も `metadata.json` にあります（スペックカード）；`skill_id` は互換のため `SKILL.md` frontmatter にも残します。
 - `listing.what_it_does`（文字列）、`listing.what_you_get`（文字列配列）、`listing.limitations`（文字列配列）——公開コンテンツページの任意の上書き。省略すると `SKILL.md` の body セクションがそのまま使われます。
 - `cover` / `banner`——下を参照。
 
@@ -316,12 +318,11 @@ AI や技術的詳細に触れる必要はありません。
 
 以下は完全に記入された Skill の参考例です：
 
-`SKILL.md` frontmatter（実行アイデンティティ + 価格のみ）：
+`SKILL.md` frontmatter（実行アイデンティティのみ——`skill_id`）：
 
 ```yaml
 ---
 skill_id: social_post_ideas
-base_price: 0
 ---
 ```
 
@@ -329,9 +330,11 @@ base_price: 0
 
 ```json
 {
+  "skill_id": "social_post_ideas",
   "title": "Social Marketing：投稿アイデアパック",
   "one_liner": "ブランド情報を入力するだけで、ブランドに合った 20 の投稿アイデアとオープニングフックが即座に手に入る",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["ja", "en"],
   "category": ["marketing", "writing"],
   "script_mode": "workflow_only",

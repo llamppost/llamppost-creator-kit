@@ -99,8 +99,8 @@ creator-kit/
 │   └── avatar-creation-spec.md  # Avatar spec & policy
 ├── personas/                                # Standalone Persona
 │   ├── YOUR_AGENT_NAME/                    # Blank template — copy and rename to create your own Persona
-│   │   ├── persona.md                      # Runtime character body (frontmatter: persona_id + profession + base_price)
-│   │   ├── metadata.json                    # Listing fields (name / one_liner / languages / version / listing_description / cover / banner)
+│   │   ├── persona.md                      # Runtime character body (frontmatter: persona_id + profession)
+│   │   ├── metadata.json                    # Listing fields (persona_id / name / one_liner / languages / version / base_price / listing_description / cover / banner)
 │   │   └── assets/                          # cover-<id>.png (1:1) + banner-<id>.png (16:10) — language-neutral, one version
 │   └── EXAMPLE_pi_lang/                    # Reference example (do NOT copy this folder name)
 │       ├── persona.md
@@ -108,8 +108,8 @@ creator-kit/
 │       └── assets/
 ├── skills/                                  # Standalone Skill
 │   ├── YOUR_SKILL_NAME/                    # Blank template — copy and rename to create your own Skill
-│   │   ├── SKILL.md                        # Runtime skill body (frontmatter: skill_id + base_price)
-│   │   ├── metadata.json                    # Listing fields (title / one_liner / category / … / listing.* / cover / banner)
+│   │   ├── SKILL.md                        # Runtime skill body (frontmatter: skill_id)
+│   │   ├── metadata.json                    # Listing fields (skill_id / title / one_liner / category / base_price / … / listing.* / cover / banner)
 │   │   ├── assets/                          # cover-<id>.png (1:1) + banner-<id>.png (16:10) — language-neutral, one version
 │   │   └── examples/
 │   └── EXAMPLE_social_marketing_post_ideas/  # Reference example (do NOT copy this folder name)

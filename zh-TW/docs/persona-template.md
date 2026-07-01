@@ -37,13 +37,13 @@
 
 ## 各欄位放哪（Phase-3 拆分）
 
-`persona.md` frontmatter 現在只留**執行身分 + 定價**：`persona_id`、`profession`、`base_price`。市集*上架*顯示的一切都放在 `persona.md` 旁邊的 **`metadata.json`**。
+`persona.md` frontmatter 現在只留**執行身分**：`persona_id`、`profession`。`persona_id` + `base_price` 也放在 `metadata.json`（優先讀取、frontmatter 為 fallback）。市集*上架*顯示的一切都放在 `persona.md` 旁邊的 **`metadata.json`**。
 
 | 欄位 | 位置 |
 |-------|----------|
-| `persona_id` | persona.md YAML（必須等於資料夾名稱） |
+| `persona_id` | metadata.json + persona.md YAML（必須等於資料夾名稱） |
 | `profession` | persona.md YAML（平台讀它來替 persona 分類） |
-| `base_price` | persona.md YAML |
+| `base_price` | metadata.json |
 | `name` | metadata.json |
 | `one_liner` | metadata.json |
 | `languages` | metadata.json |
@@ -57,9 +57,11 @@
 
 ```json
 {
+  "persona_id": "kai_weekly_coach",
   "name": "Kai",
   "one_liner": "把你腦中的一團亂，變成可執行的週計畫",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["zh-TW", "en"],
   "listing_description": "市集上架顯示的 2–3 句：這是個怎樣的角色、能幫你什麼。",
   "cover": "assets/cover-kai_weekly_coach.png",
@@ -287,13 +289,12 @@ User: （脆弱的分享）
 
 以下是一個完整填寫的 Persona 供參考：
 
-`persona.md` frontmatter（只留執行身分 + 定價）：
+`persona.md` frontmatter（只留執行身分——`persona_id` + `profession`）：
 
 ```yaml
 ---
 persona_id: kai_weekly_coach
 profession: ops
-base_price: 0
 ---
 ```
 
@@ -301,9 +302,11 @@ base_price: 0
 
 ```json
 {
+  "persona_id": "kai_weekly_coach",
   "name": "Kai",
   "one_liner": "把你腦袋裡的混亂變成可執行的週計畫",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["zh-TW", "en"],
   "listing_description": "穩定的週計畫夥伴，把你腦中那堆事變成明天早上就能開始的計畫。",
   "cover": "assets/cover-kai_weekly_coach.png",

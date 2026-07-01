@@ -1,14 +1,13 @@
 ---
-# ── Runtime identity + pricing (these stay in frontmatter) ─────────
+# ── Runtime identity (stays in frontmatter) ─────────
 # Listing display fields — name, one_liner, languages, version, listing_description,
-# cover/banner — now live in metadata.json (sibling file). This persona.md is the
-# runtime character body. (profession stays here: the platform reads it from
-# frontmatter to categorize the persona.)
-persona_id: YOUR_AGENT_NAME       # Your persona ID — lowercase English + underscores (e.g. night_wolf_strategist). MUST equal the folder name.
+# base_price, cover/banner — now live in metadata.json (sibling file). persona_id lives in
+# metadata.json too; it is kept here as well so import/validation tools that read frontmatter
+# keep working (the platform reads metadata.json first, frontmatter as fallback — both
+# accepted). profession stays here — the platform reads it from frontmatter to categorize the
+# persona. This persona.md is the runtime character body.
+persona_id: YOUR_AGENT_NAME       # lowercase English + underscores (e.g. night_wolf_strategist). MUST equal the folder name AND the persona_id in metadata.json.
 profession: ops                   # Pick exactly 1 (see profession list in docs/persona-template.md)
-
-# base_price unit: NT$  ·  0 = free listing (Hatchling trial)  ·  ≥100 = paid (set your own price, no cap)
-base_price: 0
 ---
 
 <!--
@@ -18,7 +17,7 @@ base_price: 0
      (e.g., personas/night_wolf_strategist/)
   3. Change the persona_id above to match the folder name exactly
   4. Fill in the LISTING fields in metadata.json — name / one_liner / languages /
-     version / listing_description. Drop cover-<persona_id>.png (1:1) and
+     version / listing_description / base_price. Drop cover-<persona_id>.png (1:1) and
      banner-<persona_id>.png (16:10) into assets/.
   5. Fill in the sections below — behavior, sentence examples, soul, dialogues.
      These are the runtime character body (and 核心信念 renders publicly).

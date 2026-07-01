@@ -1,9 +1,15 @@
 {
+  "skill_id": "YOUR_SKILL_NAME",
   "title": "あなたの Skill の表示名",
   "one_liner": "この skill がユーザーのどんな問題を解決するかを一文で（60 文字以内）",
   "version": "1.0",
-  "languages": ["ja"],
-  "category": ["writing"],
+  "base_price": 0,
+  "languages": [
+    "ja"
+  ],
+  "category": [
+    "writing"
+  ],
   "script_mode": "workflow_only",
   "listing_description": "マーケットのリストに表示される 2–3 文：購入者が何を得られるか、いつこの skill を使うか。",
   "cover": "assets/cover-YOUR_SKILL_NAME.png",

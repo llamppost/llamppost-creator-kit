@@ -1,12 +1,10 @@
 ---
-# ── 実行アイデンティティ + 価格（これらは frontmatter に残す）─────
-# マーケット「リスティング表示」のフィールド——title、one_liner、category、
-# languages、version、script_mode、listing_description、cover/banner——は
-# すべて metadata.json（同フォルダ）に移動しました。この SKILL.md は実行 skill 本体です。
-skill_id: YOUR_SKILL_NAME        # あなたの skill ID——英小文字 + アンダースコア（例：social_post_ideas）。フォルダ名と完全一致必須。
-
-# base_price 単位：NT$  ·  0 = 無料上架（Hatchling お試し）  ·  ≥100 = 有料上架（自由価格、上限なし）
-base_price: 0
+# ── 実行アイデンティティ（frontmatter に残す）─────
+# マーケット「リスティング表示」のフィールド——title、one_liner、category、languages、version、
+# script_mode、listing_description、base_price、cover/banner——はすべて metadata.json（同フォルダ）に。
+# skill_id も metadata.json にありますが、frontmatter を読む取り込み／検証ツールのためここにも残します。
+# プラットフォームは metadata.json を優先し frontmatter を fallback とします——両方受け付けます。この SKILL.md は実行 skill 本体です。
+skill_id: YOUR_SKILL_NAME        # 英小文字 + アンダースコア（例：social_post_ideas）。フォルダ名および metadata.json の skill_id と完全一致必須。
 ---
 
 <!--
@@ -15,7 +13,7 @@ base_price: 0
   2. フォルダをあなたの skill_id にリネーム——**英小文字 + アンダースコア必須**（例：skills/social_post_ideas/）
   3. 上の skill_id をフォルダ名と完全に一致するよう変更
   4. metadata.json に「リスティングフィールド」を記入——title / one_liner / category /
-     languages / version / script_mode / listing_description、および listing.* ブロック。
+     languages / version / script_mode / listing_description / base_price、および listing.* ブロック。
      さらに cover-<skill_id>.png（1:1）と banner-<skill_id>.png（16:10）を assets/ に配置。
   5. 下の各セクションを記入——これは実行 skill の内容であり、公開コンテンツページにも表示されます。
      （metadata.json で listing.* を設定すると「What this skill does / receive / limitations」の文言を上書きします。）

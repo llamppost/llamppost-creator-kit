@@ -99,8 +99,8 @@ creator-kit/
 │   └── avatar-creation-spec.md  # Avatar 仕様とポリシー
 ├── personas/                                # 単品 Persona
 │   ├── YOUR_AGENT_NAME/                    # 空白テンプレート——コピーしてリネームし、自分の Persona を作る
-│   │   ├── persona.md                      # 実行キャラクター本体（frontmatter：persona_id + profession + base_price）
-│   │   ├── metadata.json                    # リスティングフィールド（name / one_liner / languages / version / listing_description / cover / banner）
+│   │   ├── persona.md                      # 実行キャラクター本体（frontmatter：persona_id + profession）
+│   │   ├── metadata.json                    # リスティングフィールド（persona_id / name / one_liner / languages / version / base_price / listing_description / cover / banner）
 │   │   └── assets/                          # cover-<id>.png（1:1）+ banner-<id>.png（16:10）——言語ニュートラル、1 バージョンのみ
 │   └── EXAMPLE_pi_lang/                    # 参照用サンプル Persona（このフォルダ名はコピーしないでください）
 │       ├── persona.md
@@ -108,8 +108,8 @@ creator-kit/
 │       └── assets/
 ├── skills/                                  # 単品 Skill
 │   ├── YOUR_SKILL_NAME/                    # 空白テンプレート——コピーしてリネームし、自分の Skill を作る
-│   │   ├── SKILL.md                        # 実行 skill 本体（frontmatter：skill_id + base_price）
-│   │   ├── metadata.json                    # リスティングフィールド（title / one_liner / category / … / listing.* / cover / banner）
+│   │   ├── SKILL.md                        # 実行 skill 本体（frontmatter：skill_id）
+│   │   ├── metadata.json                    # リスティングフィールド（skill_id / title / one_liner / category / base_price / … / listing.* / cover / banner）
 │   │   ├── assets/                          # cover-<id>.png（1:1）+ banner-<id>.png（16:10）——言語ニュートラル、1 バージョンのみ
 │   │   └── examples/
 │   └── EXAMPLE_social_marketing_post_ideas/  # 参照用サンプル Skill（このフォルダ名はコピーしないでください）

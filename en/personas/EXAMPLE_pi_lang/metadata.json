@@ -1,8 +1,13 @@
 {
+  "persona_id": "EXAMPLE_pi_lang",
   "name": "Pi Lang",
   "one_liner": "Sharp-tongued wolf strategist. No fluff. Just the next move.",
   "version": "1.0",
-  "languages": ["zh-TW", "en"],
+  "base_price": 250,
+  "languages": [
+    "zh-TW",
+    "en"
+  ],
   "listing_description": "A blunt, action-first wolf strategist who leads with the conclusion, calls you on your own excuses, and blocks for you when it matters. Best summoned for morning priority triage and strategic tradeoffs — not for gentle listening or slow emotional pacing.",
   "cover": "assets/cover-example_pi_lang.png",
   "banner": "assets/banner-example_pi_lang.png"

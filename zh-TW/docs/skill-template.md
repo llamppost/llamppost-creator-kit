@@ -39,8 +39,8 @@
 
 | 欄位 | 位置 | 必填 | 說明 |
 |-------|----------|----------|-------------|
-| `skill_id` | SKILL.md YAML | 是 | 唯一 ID，小寫 + 底線。必須等於資料夾名稱。 |
-| `base_price` | SKILL.md YAML | 是 | NT$，`0`（免費）或 `≥100` |
+| `skill_id` | metadata.json + SKILL.md YAML | 是 | 唯一 ID，小寫 + 底線。必須等於資料夾名稱。 |
+| `base_price` | metadata.json | 是 | NT$，`0`（免費）或 `≥100` |
 | `title` | metadata.json | 是 | 顯示名稱，40 字以內 |
 | `version` | metadata.json | 是 | 從 `"1.0"` 開始 |
 | `category` | metadata.json | 是 | 最多 2 個分類 |
@@ -59,7 +59,7 @@
 | Script | SKILL.md body | 選填 | 僅在 script_spec / script_provided 時填寫 |
 | `tested_runtimes` / `tested_models` / `test_level` | — | deprecated | Portal 之後會自動測試填寫 |
 
-> **各欄位放哪（Phase-3 拆分）：** `SKILL.md` frontmatter 現在只留**執行身分 + 定價**（`skill_id` + `base_price`）。市集*上架*顯示的一切都放在 `SKILL.md` 旁邊的 **`metadata.json`**。`SKILL.md` 的 body 區塊保留原位——會渲染成公開內容頁，且 `metadata.json` 的 `listing.*` 可覆寫它們。
+> **各欄位放哪（Phase-3 拆分）：** `SKILL.md` frontmatter 現在只留**執行身分**（`skill_id`）；`skill_id` + `base_price` 也放在 `metadata.json`（優先讀取、frontmatter 為 fallback）。市集*上架*顯示的一切都放在 `SKILL.md` 旁邊的 **`metadata.json`**。`SKILL.md` 的 body 區塊保留原位——會渲染成公開內容頁，且 `metadata.json` 的 `listing.*` 可覆寫它們。
 
 ---
 
@@ -69,9 +69,11 @@
 
 ```json
 {
+  "skill_id": "weekly_report_writer",
   "title": "週報自動生成器",
   "one_liner": "輸入本週任務清單，拿到結構化的週報草稿",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["zh-TW", "en"],
   "category": ["writing", "ops"],
   "script_mode": "workflow_only",
@@ -86,7 +88,7 @@
 }
 ```
 
-- `title` / `one_liner` / `version` / `category` / `script_mode` / `listing_description`——意義與規則跟下方逐項說明相同，只是現在放在 `metadata.json`（除了 `skill_id` / `base_price` 留在 `SKILL.md`）。
+- `title` / `one_liner` / `version` / `category` / `script_mode` / `listing_description`——意義與規則跟下方逐項說明相同，只是現在放在 `metadata.json`。`skill_id` 與 `base_price` 也放在 `metadata.json`（規格卡）；`skill_id` 另外保留在 `SKILL.md` frontmatter 以求相容。
 - `listing.what_it_does`（字串）、`listing.what_you_get`（字串陣列）、`listing.limitations`（字串陣列）——公開內容頁的選填覆寫。不填就沿用 `SKILL.md` 的 body 區塊。
 - `cover` / `banner`——見下方。
 
@@ -316,12 +318,11 @@ base_price: 180     # NT$ 180
 
 以下是一個完整填寫的 Skill 供參考：
 
-`SKILL.md` frontmatter（只留執行身分 + 定價）：
+`SKILL.md` frontmatter（只留執行身分——`skill_id`）：
 
 ```yaml
 ---
 skill_id: social_post_ideas
-base_price: 0
 ---
 ```
 
@@ -329,9 +330,11 @@ base_price: 0
 
 ```json
 {
+  "skill_id": "social_post_ideas",
   "title": "Social Marketing：貼文靈感包",
   "one_liner": "輸入品牌資訊，立刻拿到 20 個符合品牌調性的貼文靈感與開頭 hook",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["zh-TW", "en"],
   "category": ["marketing", "writing"],
   "script_mode": "workflow_only",

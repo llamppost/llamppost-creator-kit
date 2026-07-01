@@ -1,10 +1,10 @@
 ---
-# Listing display fields (title / one_liner / category / languages / version /
-# script_mode / listing_description / cover / banner / listing.*) live in
-# metadata.json — see this folder's metadata.json for the filled-in reference.
-# Only runtime identity + pricing stay in frontmatter:
+# Listing display fields (title / one_liner / category / languages / version / script_mode /
+# listing_description / base_price / cover / banner / listing.*) live in metadata.json —
+# see this folder's metadata.json for the filled-in reference. Only runtime identity
+# (skill_id) stays in frontmatter — kept here so import/validation tools that read
+# frontmatter keep working; the platform reads metadata.json first (both accepted).
 skill_id: EXAMPLE_social_marketing_post_ideas
-base_price: 180        # NT$. 0 = free; ≥100 = paid (your choice)
 ---
 
 <!--

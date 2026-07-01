@@ -99,8 +99,8 @@ creator-kit/
 │   └── avatar-creation-spec.md  # Avatar 规格与政策
 ├── personas/                                # 单品 Persona
 │   ├── YOUR_AGENT_NAME/                    # 空白模板——复制并改名来创建你自己的 Persona
-│   │   ├── persona.md                      # 运行角色本体（frontmatter：persona_id + profession + base_price）
-│   │   ├── metadata.json                    # 上架字段（name / one_liner / languages / version / listing_description / cover / banner）
+│   │   ├── persona.md                      # 运行角色本体（frontmatter：persona_id + profession）
+│   │   ├── metadata.json                    # 上架字段（persona_id / name / one_liner / languages / version / base_price / listing_description / cover / banner）
 │   │   └── assets/                          # cover-<id>.png（1:1）+ banner-<id>.png（16:10）——语言中性，只放一版
 │   └── EXAMPLE_pi_lang/                    # 参考示例 Persona（不要复制此文件夹名称）
 │       ├── persona.md
@@ -108,8 +108,8 @@ creator-kit/
 │       └── assets/
 ├── skills/                                  # 单品 Skill
 │   ├── YOUR_SKILL_NAME/                    # 空白模板——复制并改名来创建你自己的 Skill
-│   │   ├── SKILL.md                        # 运行 skill 本体（frontmatter：skill_id + base_price）
-│   │   ├── metadata.json                    # 上架字段（title / one_liner / category / … / listing.* / cover / banner）
+│   │   ├── SKILL.md                        # 运行 skill 本体（frontmatter：skill_id）
+│   │   ├── metadata.json                    # 上架字段（skill_id / title / one_liner / category / base_price / … / listing.* / cover / banner）
 │   │   ├── assets/                          # cover-<id>.png（1:1）+ banner-<id>.png（16:10）——语言中性，只放一版
 │   │   └── examples/
 │   └── EXAMPLE_social_marketing_post_ideas/  # 参考示例 Skill（不要复制此文件夹名称）

@@ -1,9 +1,17 @@
 {
+  "skill_id": "EXAMPLE_social_marketing_post_ideas",
   "title": "Social Marketing：贴文灵感包",
   "one_liner": "输入品牌信息，立刻拿到 20 个符合品牌调性的贴文灵感与开头 hook",
   "version": "1.0",
-  "languages": ["zh-CN", "en"],
-  "category": ["marketing", "writing"],
+  "base_price": 180,
+  "languages": [
+    "zh-CN",
+    "en"
+  ],
+  "category": [
+    "marketing",
+    "writing"
+  ],
   "script_mode": "workflow_only",
   "listing_description": "把一份简短的品牌 brief 变成 20 个可直接用的社交贴文灵感，每个都附开头 hook 与发展角度。专为需要频繁产出内容、却常常没灵感的个人创业者与小型营销团队而做。",
   "cover": "assets/cover-example_social_marketing_post_ideas.png",

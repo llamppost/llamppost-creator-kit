@@ -1,10 +1,10 @@
 ---
-# 上架显示字段（name / one_liner / languages / version / listing_description /
-# cover / banner）放在 metadata.json——见本文件夹的 metadata.json 已填好的参考。
-# frontmatter 只留运行身份 + profession + 定价：
+# 上架显示字段（name / one_liner / languages / version / listing_description / base_price /
+# cover / banner）放在 metadata.json——见本文件夹 metadata.json 已填好的参考。frontmatter 只留
+# 运行身份（persona_id）+ profession——persona_id 保留在这里让读 frontmatter 的导入／验证工具
+# 仍能运作；平台以 metadata.json 为优先（两边都收）。
 persona_id: EXAMPLE_pi_lang
 profession: strat
-base_price: 250            # NT$。0 = 免费；≥100 = 付费（自定）
 ---
 
 <!--

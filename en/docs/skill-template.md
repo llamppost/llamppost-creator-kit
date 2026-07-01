@@ -39,8 +39,8 @@ Your skill's `title` (display name, e.g., `title: 週報自動生成器`), `one_
 
 | Field | Location | Required | Description |
 |-------|----------|----------|-------------|
-| `skill_id` | SKILL.md YAML | Yes | Unique ID, lowercase + underscores. Must equal the folder name. |
-| `base_price` | SKILL.md YAML | Yes | NT$, either `0` (free) or `≥100` |
+| `skill_id` | metadata.json + SKILL.md YAML | Yes | Unique ID, lowercase + underscores. Must equal the folder name. |
+| `base_price` | metadata.json | Yes | NT$, either `0` (free) or `≥100` |
 | `title` | metadata.json | Yes | Display name, under 40 chars |
 | `version` | metadata.json | Yes | Start at `"1.0"` |
 | `category` | metadata.json | Yes | Up to 2 categories |
@@ -59,7 +59,7 @@ Your skill's `title` (display name, e.g., `title: 週報自動生成器`), `one_
 | Script | SKILL.md body | Optional | Only when script_spec / script_provided |
 | `tested_runtimes` / `tested_models` / `test_level` | — | deprecated | Portal will auto-fill via testing later |
 
-> **Where fields live (Phase-3 split):** `SKILL.md` frontmatter now carries only **runtime identity + pricing** (`skill_id` + `base_price`). Everything the marketplace *listing* displays lives in **`metadata.json`** beside `SKILL.md`. The `SKILL.md` body sections stay put — they render as the public content page, and `metadata.json`'s `listing.*` can override them.
+> **Where fields live (Phase-3 split):** `SKILL.md` frontmatter now carries only **runtime identity** (`skill_id`); `skill_id` + `base_price` also live in `metadata.json` (read first, frontmatter fallback). Everything the marketplace *listing* displays lives in **`metadata.json`** beside `SKILL.md`. The `SKILL.md` body sections stay put — they render as the public content page, and `metadata.json`'s `listing.*` can override them.
 
 ---
 
@@ -69,9 +69,11 @@ Your skill's `title` (display name, e.g., `title: 週報自動生成器`), `one_
 
 ```json
 {
+  "skill_id": "weekly_report_writer",
   "title": "Weekly Report Auto-Generator",
   "one_liner": "Input your weekly task list, get a structured weekly report draft",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["zh-TW", "en"],
   "category": ["writing", "ops"],
   "script_mode": "workflow_only",
@@ -86,7 +88,7 @@ Your skill's `title` (display name, e.g., `title: 週報自動生成器`), `one_
 }
 ```
 
-- `title` / `one_liner` / `version` / `category` / `script_mode` / `listing_description` — same meaning and rules as the field-by-field docs below; they just live in `metadata.json` now (except `skill_id` / `base_price`, which stay in `SKILL.md`).
+- `title` / `one_liner` / `version` / `category` / `script_mode` / `listing_description` — same meaning and rules as the field-by-field docs below; they just live in `metadata.json` now. `skill_id` + `base_price` live in `metadata.json` too (the spec card); `skill_id` also stays in `SKILL.md` frontmatter for compatibility.
 - `listing.what_it_does` (string), `listing.what_you_get` (string array), `listing.limitations` (string array) — optional overrides for the public content page. Omit them and the `SKILL.md` body sections are used as-is.
 - `cover` / `banner` — see below.
 
@@ -312,12 +314,11 @@ Common limitation types:
 
 Here's a complete Skill fill-out for reference:
 
-`SKILL.md` frontmatter (runtime identity + pricing only):
+`SKILL.md` frontmatter (runtime identity only — `skill_id`):
 
 ```yaml
 ---
 skill_id: social_post_ideas
-base_price: 0
 ---
 ```
 
@@ -325,9 +326,11 @@ base_price: 0
 
 ```json
 {
+  "skill_id": "social_post_ideas",
   "title": "Social Marketing: Post Ideas Pack",
   "one_liner": "Input brand info, instantly get 20 on-brand post ideas with opening hooks",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["zh-TW", "en"],
   "category": ["marketing", "writing"],
   "script_mode": "workflow_only",

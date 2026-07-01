@@ -97,12 +97,11 @@
 
 フォルダの中に `SKILL.md` が 1 つあります——このファイルだけ記入すれば OK。リネーム後、`SKILL.md` 内の `skill_id` もフォルダ名と完全に一致するよう変更してください。
 
-### ステップ 2：`SKILL.md` frontmatter を記入（実行アイデンティティ + 価格）
+### ステップ 2：`SKILL.md` frontmatter を記入（実行アイデンティティ——`skill_id`）
 
 ```yaml
 ---
 skill_id: weekly_report_writer      ← あなたの skill ID に変更（英小文字 + アンダースコア；フォルダ名と一致必須）
-base_price: 0                       ← NT$。0 = 無料；≥100 = 有料（自由設定）
 ---
 ```
 
@@ -112,9 +111,11 @@ base_price: 0                       ← NT$。0 = 無料；≥100 = 有料（自
 
 ```json
 {
+  "skill_id": "weekly_report_writer",
   "title": "週報自動ジェネレーター",
   "one_liner": "あなたの週次タスクリストを入力すると、構造化された週報ドラフトが自動で手に入る",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["ja", "en"],
   "category": ["writing", "ops"],
   "script_mode": "workflow_only",
@@ -166,13 +167,12 @@ Creator Portal 経由で送信してください。`cover` / `banner` は `metad
 
 ### ステップ 2：`persona.md` frontmatter + `metadata.json` を記入
 
-`persona.md` frontmatter には実行アイデンティティ + 価格を残します：
+`persona.md` frontmatter には実行アイデンティティ（`persona_id` + `profession`）を残します：
 
 ```yaml
 ---
 persona_id: kai_weekly_coach       ← フォルダ名と一致必須
 profession: ops                    ← 1 つだけ選択（profession リスト参照）
-base_price: 0                      ← NT$。0 = 無料；≥100 = 有料
 ---
 ```
 
@@ -180,9 +180,11 @@ base_price: 0                      ← NT$。0 = 無料；≥100 = 有料
 
 ```json
 {
+  "persona_id": "kai_weekly_coach",
   "name": "Kai",
   "one_liner": "頭の中の混沌を、実行可能な週次プランに変える",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["ja", "en"],
   "listing_description": "マーケットのリスティングに表示される 2–3 文の説明。",
   "cover": "assets/cover-kai_weekly_coach.png",

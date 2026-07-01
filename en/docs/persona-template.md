@@ -37,13 +37,13 @@ Your persona's **display name** (the `name` field, e.g., `name: 派狼`), `one_l
 
 ## Where each field lives (Phase-3 split)
 
-`persona.md` frontmatter now carries only **runtime identity + pricing**: `persona_id`, `profession`, and `base_price`. Everything the marketplace *listing* displays lives in **`metadata.json`** beside `persona.md`.
+`persona.md` frontmatter now carries only **runtime identity**: `persona_id` + `profession`. `persona_id` + `base_price` also live in `metadata.json` (read first; frontmatter is a fallback). Everything the marketplace *listing* displays lives in **`metadata.json`** beside `persona.md`.
 
 | Field | Location |
 |-------|----------|
-| `persona_id` | persona.md YAML (must equal the folder name) |
+| `persona_id` | metadata.json + persona.md YAML (must equal the folder name) |
 | `profession` | persona.md YAML (platform reads it to categorize the persona) |
-| `base_price` | persona.md YAML |
+| `base_price` | metadata.json |
 | `name` | metadata.json |
 | `one_liner` | metadata.json |
 | `languages` | metadata.json |
@@ -57,9 +57,11 @@ The behavior descriptions, sentence examples, soul material, and dialogues stay 
 
 ```json
 {
+  "persona_id": "kai_weekly_coach",
   "name": "Kai",
   "one_liner": "Turn the mess in your head into an executable weekly plan",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["zh-TW", "en"],
   "listing_description": "2-3 sentences shown on the marketplace listing: who this character is and what they help with.",
   "cover": "assets/cover-kai_weekly_coach.png",
@@ -283,13 +285,12 @@ User: (vulnerable share)
 
 Here's a complete Persona fill-out for reference:
 
-`persona.md` frontmatter (runtime identity + pricing only):
+`persona.md` frontmatter (runtime identity only — `persona_id` + `profession`):
 
 ```yaml
 ---
 persona_id: kai_weekly_coach
 profession: ops
-base_price: 0
 ---
 ```
 
@@ -297,9 +298,11 @@ base_price: 0
 
 ```json
 {
+  "persona_id": "kai_weekly_coach",
   "name": "Kai",
   "one_liner": "Turn the mess in your head into an executable weekly plan",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["zh-TW", "en"],
   "listing_description": "A steady weekly-planning partner that turns your mental pile into a plan you can start tomorrow.",
   "cover": "assets/cover-kai_weekly_coach.png",

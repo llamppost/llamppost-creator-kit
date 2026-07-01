@@ -1,9 +1,15 @@
 {
+  "skill_id": "YOUR_SKILL_NAME",
   "title": "你的 Skill 顯示名稱",
   "one_liner": "一句話描述這個 skill 幫使用者解決什麼問題（60 字以內）",
   "version": "1.0",
-  "languages": ["zh-TW"],
-  "category": ["writing"],
+  "base_price": 0,
+  "languages": [
+    "zh-TW"
+  ],
+  "category": [
+    "writing"
+  ],
   "script_mode": "workflow_only",
   "listing_description": "市集列表上顯示的 2–3 句：買家會得到什麼、什麼時候該用這個 skill。",
   "cover": "assets/cover-YOUR_SKILL_NAME.png",

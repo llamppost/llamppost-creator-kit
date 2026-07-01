@@ -1,12 +1,12 @@
 ---
-# ── Runtime identity + pricing (these stay in frontmatter) ─────────
-# Everything the *marketplace listing* displays — title, one_liner, category,
-# languages, version, script_mode, listing_description, cover/banner — now lives
-# in metadata.json (sibling file). This SKILL.md is your runtime skill body.
-skill_id: YOUR_SKILL_NAME        # Your skill ID — lowercase English + underscores (e.g. social_post_ideas). MUST equal the folder name.
-
-# base_price unit: NT$  ·  0 = free listing (Hatchling trial)  ·  ≥100 = paid (set your own price, no cap)
-base_price: 0
+# ── Runtime identity (stays in frontmatter) ─────────
+# Everything the *marketplace listing* displays — title, one_liner, category, languages,
+# version, script_mode, listing_description, base_price, cover/banner — now lives in
+# metadata.json (sibling file). skill_id lives in metadata.json too; it is kept here as
+# well so import/validation tools that read frontmatter keep working. The platform reads
+# metadata.json first, frontmatter as fallback — both are accepted. This SKILL.md is your
+# runtime skill body.
+skill_id: YOUR_SKILL_NAME        # lowercase English + underscores (e.g. social_post_ideas). MUST equal the folder name AND the skill_id in metadata.json.
 ---
 
 <!--
@@ -16,7 +16,7 @@ base_price: 0
      (e.g., skills/social_post_ideas/)
   3. Change the skill_id above to match the folder name exactly
   4. Fill in the LISTING fields in metadata.json — title / one_liner / category /
-     languages / version / script_mode / listing_description, plus the listing.* block.
+     languages / version / script_mode / listing_description / base_price, plus the listing.* block.
      Then drop cover-<skill_id>.png (1:1) and banner-<skill_id>.png (16:10) into assets/.
   5. Fill in the body sections below — they are your runtime skill instructions, and
      also render as the public content page. (metadata.json's listing.* can override

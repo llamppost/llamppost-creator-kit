@@ -1,9 +1,17 @@
 {
+  "skill_id": "EXAMPLE_social_marketing_post_ideas",
   "title": "Social Marketing: Post Ideas Pack",
   "one_liner": "Input brand info, instantly get 20 on-brand post ideas with opening hooks",
   "version": "1.0",
-  "languages": ["en", "zh-TW"],
-  "category": ["marketing", "writing"],
+  "base_price": 180,
+  "languages": [
+    "en",
+    "zh-TW"
+  ],
+  "category": [
+    "marketing",
+    "writing"
+  ],
   "script_mode": "workflow_only",
   "listing_description": "Turn a short brand brief into 20 ready-to-use social post ideas, each with an opening hook and a development angle. Built for solo founders and small marketing teams who need frequent content but keep running dry on ideas.",
   "cover": "assets/cover-example_social_marketing_post_ideas.png",

@@ -1,9 +1,10 @@
 ---
-# リスティング表示フィールド（title / one_liner / category / languages / version /
-# script_mode / listing_description / cover / banner / listing.*）は metadata.json に——
-# このフォルダの metadata.json に記入済みの参照があります。frontmatter には実行アイデンティティ + 価格のみ：
+# リスティング表示フィールド（title / one_liner / category / languages / version / script_mode /
+# listing_description / base_price / cover / banner / listing.*）は metadata.json に——
+# このフォルダの metadata.json に記入済みの参照があります。frontmatter には実行アイデンティティ
+# （skill_id）のみ——frontmatter を読む取り込み／検証ツールのため残します。プラットフォームは
+# metadata.json を優先（両方受け付け）。
 skill_id: EXAMPLE_social_marketing_post_ideas
-base_price: 180        # NT$。0 = 無料；≥100 = 有料（自由設定）
 ---
 
 <!--

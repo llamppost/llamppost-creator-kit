@@ -123,14 +123,14 @@
 11. base_price 想填 0（免费上架，Hatchling 试上架）还是付费（≥100 NT$）？
 
 问完之后，请输出「两份文件」：
-- `SKILL.md`——frontmatter 只放 `skill_id` + `base_price`，加上所有 body 区块
-- `metadata.json`——上架字段：`title`、`one_liner`、`version`、`languages`、`category`、`script_mode`、`listing_description`、`cover`、`banner`，以及嵌套的 `listing` 区块（`what_it_does` 字符串、`what_you_get` 字符串数组、`limitations` 字符串数组）
+- `SKILL.md`——frontmatter 只放 `skill_id`，加上所有 body 区块
+- `metadata.json`——上架字段：`skill_id`、`title`、`one_liner`、`version`、`base_price`、`languages`、`category`、`script_mode`、`listing_description`、`cover`、`banner`，以及嵌套的 `listing` 区块（`what_it_does` 字符串、`what_you_get` 字符串数组、`limitations` 字符串数组）
 - 放进 `assets/` 的两张图规格：`cover-<skill_id>.png`（方形 1:1）+ `banner-<skill_id>.png`（宽 16:10），PNG 每张 2 MB 以内
 - 建议的文件夹路径（例如 `skills/weekly_report_writer/`）
 - 我还没想清楚但可以补强的地方（诚实指出）
 
 硬性规则：
-- 上架字段（title / one_liner / version / languages / category / script_mode / listing_description / listing.*）放进 `metadata.json`。`SKILL.md` frontmatter 只留 `skill_id` + `base_price`，不要把上架字段塞回 frontmatter。
+- 上架字段（title / one_liner / version / languages / category / script_mode / listing_description / listing.*）放进 `metadata.json`。`SKILL.md` frontmatter 只留 `skill_id`，不要把上架字段塞回 frontmatter。
 - skill_id 与文件夹名称必须是**英文小写 + 数字 + 下划线**，且两者完全一致
 - 不可使用 EXAMPLE_ 或 YOUR_ 前缀
 - title、one_liner、body 内容可以使用任何语言（简中、繁中、英文、日文、任何语言）
@@ -186,8 +186,8 @@
 12. base_price 想填 0（免费上架，Hatchling 试上架）还是付费（≥100 NT$）？
 
 问完之后，请依照 personas/EXAMPLE_pi_lang/ 的结构输出「两份文件」：
-- `persona.md`——frontmatter 只放 `persona_id` + `profession` + `base_price`，加上完整 body
-- `metadata.json`——上架字段：`name`、`one_liner`、`version`、`languages`、`listing_description`、`cover`、`banner`（persona manifest 没有 title/category/script_mode/listing 区块）
+- `persona.md`——frontmatter 只放 `persona_id` + `profession`，加上完整 body
+- `metadata.json`——上架字段：`persona_id`、`name`、`one_liner`、`version`、`base_price`、`languages`、`listing_description`、`cover`、`banner`（persona manifest 没有 title/category/script_mode/listing 区块）
 - 放进 `assets/` 的两张图规格：`cover-<persona_id>.png`（1:1）+ `banner-<persona_id>.png`（16:10），PNG 每张 2 MB 以内
 - Opening / During-work / Closing behavior 各 1–2 句
 - 5 句 sentence examples（对应前面问的 5 个场景）
@@ -196,7 +196,7 @@
 - 建议的文件夹路径（例如 `personas/night_wolf_strategist/`）
 
 硬性规则：
-- 上架字段（name / one_liner / languages / version / listing_description）放进 `metadata.json`。`persona.md` frontmatter 只留 `persona_id` + `profession` + `base_price`，不要把上架字段塞回 frontmatter。
+- 上架字段（name / one_liner / languages / version / listing_description）放进 `metadata.json`。`persona.md` frontmatter 只留 `persona_id` + `profession`，不要把上架字段塞回 frontmatter。
 - persona_id 与文件夹名称必须是**英文小写 + 数字 + 下划线**，且两者完全一致
 - 不可使用 EXAMPLE_ 或 YOUR_ 前缀
 - name（显示名称）、one_liner、所有 behavior 描述、对话、句子示例可以使用任何语言

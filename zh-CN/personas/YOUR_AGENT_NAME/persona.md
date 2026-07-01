@@ -1,13 +1,12 @@
 ---
-# ── 运行身份 + 定价（这些留在 frontmatter）─────────
-# 上架显示字段——name、one_liner、languages、version、listing_description、
-# cover/banner——现在都放在 metadata.json（同文件夹）。这份 persona.md 是运行角色本体。
-# （profession 留在这里：平台从 frontmatter 读它来替 persona 分类。）
-persona_id: YOUR_AGENT_NAME       # 你的 persona ID——英文小写 + 下划线（例如 night_wolf_strategist）。必须跟文件夹名称完全一致。
+# ── 运行身份（留在 frontmatter）─────────
+# 上架显示字段——name、one_liner、languages、version、listing_description、base_price、
+# cover/banner——现在都放在 metadata.json（同文件夹）。persona_id 也放在 metadata.json；这里
+# 一并保留，让读 frontmatter 的导入／验证工具仍能运作（平台以 metadata.json 为优先、frontmatter
+# 为 fallback——两边都收）。profession 留在这里——平台从 frontmatter 读它来替 persona 分类。
+# 这份 persona.md 是运行角色本体。
+persona_id: YOUR_AGENT_NAME       # 英文小写 + 下划线（例如 night_wolf_strategist）。必须跟文件夹名称、以及 metadata.json 的 persona_id 完全一致。
 profession: ops                   # 只能挑 1 个（见 docs/persona-template.md 的 profession 清单）
-
-# base_price 单位：NT$  ·  0 = 免费上架（Hatchling 试上架）  ·  ≥100 = 付费上架（自定价格，无上限）
-base_price: 0
 ---
 
 <!--
@@ -16,7 +15,7 @@ base_price: 0
   2. 将文件夹改名为你的 persona_id——**必须是英文小写 + 下划线**（例如：personas/night_wolf_strategist/）
   3. 把上面的 persona_id 改成跟文件夹名称完全一样
   4. 在 metadata.json 填写「上架字段」——name / one_liner / languages / version /
-     listing_description。再把 cover-<persona_id>.png（1:1）与 banner-<persona_id>.png（16:10）放进 assets/。
+     listing_description / base_price。再把 cover-<persona_id>.png（1:1）与 banner-<persona_id>.png（16:10）放进 assets/。
   5. 填写下方的各个区块——行为、句子示例、灵魂素材、对话。这是运行角色本体（且 核心信念 会公开显示）。
   6. 删除这个说明区块，然后通过 Creator Portal 提交
 

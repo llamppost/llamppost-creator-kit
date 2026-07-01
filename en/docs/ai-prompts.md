@@ -123,14 +123,14 @@ Then ask me the following questions in order, one at a time:
 11. Do you want base_price to be 0 (free Hatchling trial) or paid (≥100 NT$)?
 
 After the questions, output BOTH files:
-- `SKILL.md` — frontmatter with ONLY `skill_id` + `base_price`, plus all body sections
-- `metadata.json` — the listing fields: `title`, `one_liner`, `version`, `languages`, `category`, `script_mode`, `listing_description`, `cover`, `banner`, and the nested `listing` block (`what_it_does` string, `what_you_get` string[], `limitations` string[])
+- `SKILL.md` — frontmatter with ONLY `skill_id`, plus all body sections
+- `metadata.json` — the listing fields: `skill_id`, `title`, `one_liner`, `version`, `base_price`, `languages`, `category`, `script_mode`, `listing_description`, `cover`, `banner`, and the nested `listing` block (`what_it_does` string, `what_you_get` string[], `limitations` string[])
 - A spec for the two images to drop into `assets/`: `cover-<skill_id>.png` (square 1:1) + `banner-<skill_id>.png` (wide 16:10), PNG under 2 MB
 - Suggested folder path (e.g., `skills/weekly_report_writer/`)
 - Things I haven't thought through that could be reinforced (be honest)
 
 Hard rules:
-- Listing fields (title / one_liner / version / languages / category / script_mode / listing_description / listing.*) go in `metadata.json`. `SKILL.md` frontmatter keeps ONLY `skill_id` + `base_price`. Don't put listing fields back in the frontmatter.
+- Listing fields (title / one_liner / version / languages / category / script_mode / listing_description / listing.*) go in `metadata.json`. `SKILL.md` frontmatter keeps ONLY `skill_id`. Don't put listing fields back in the frontmatter.
 - skill_id and folder name must be **lowercase English + digits + underscores**, and the two must match exactly
 - Do not use EXAMPLE_ or YOUR_ prefixes
 - title, one_liner, body content can be in any language (Traditional Chinese, English, Japanese, anything)
@@ -185,8 +185,8 @@ Then ask me the following questions in order, one at a time:
 12. Do you want base_price to be 0 (free Hatchling trial) or paid (≥100 NT$)?
 
 After the questions, output BOTH files, following the structure of personas/EXAMPLE_pi_lang/:
-- `persona.md` — frontmatter with ONLY `persona_id` + `profession` + `base_price`, plus the full body
-- `metadata.json` — the listing fields: `name`, `one_liner`, `version`, `languages`, `listing_description`, `cover`, `banner` (persona manifests have NO title/category/script_mode/listing block)
+- `persona.md` — frontmatter with ONLY `persona_id` + `profession`, plus the full body
+- `metadata.json` — the listing fields: `persona_id`, `name`, `one_liner`, `version`, `base_price`, `languages`, `listing_description`, `cover`, `banner` (persona manifests have NO title/category/script_mode/listing block)
 - A spec for the two images for `assets/`: `cover-<persona_id>.png` (1:1) + `banner-<persona_id>.png` (16:10), PNG under 2 MB
 - Opening / During-work / Closing behavior, 1–2 sentences each
 - 5 sentence examples (matching the 5 situations from earlier)
@@ -195,7 +195,7 @@ After the questions, output BOTH files, following the structure of personas/EXAM
 - Suggested folder path (e.g., `personas/night_wolf_strategist/`)
 
 Hard rules:
-- Listing fields (name / one_liner / languages / version / listing_description) go in `metadata.json`. `persona.md` frontmatter keeps ONLY `persona_id` + `profession` + `base_price`. Don't put listing fields back in the frontmatter.
+- Listing fields (name / one_liner / languages / version / listing_description) go in `metadata.json`. `persona.md` frontmatter keeps ONLY `persona_id` + `profession`. Don't put listing fields back in the frontmatter.
 - persona_id and folder name must be **lowercase English + digits + underscores**, and the two must match exactly
 - Do not use EXAMPLE_ or YOUR_ prefixes
 - name (display name), one_liner, all behavior descriptions, dialogues, sentence examples can be in any language

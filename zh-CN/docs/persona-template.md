@@ -37,13 +37,13 @@
 
 ## 各字段放哪（Phase-3 拆分）
 
-`persona.md` frontmatter 现在只留**运行身份 + 定价**：`persona_id`、`profession`、`base_price`。市集*上架*显示的一切都放在 `persona.md` 旁边的 **`metadata.json`**。
+`persona.md` frontmatter 现在只留**运行身份**：`persona_id`、`profession`。`persona_id` + `base_price` 也放在 `metadata.json`（优先读取、frontmatter 为 fallback）。市集*上架*显示的一切都放在 `persona.md` 旁边的 **`metadata.json`**。
 
 | 字段 | 位置 |
 |-------|----------|
-| `persona_id` | persona.md YAML（必须等于文件夹名称） |
+| `persona_id` | metadata.json + persona.md YAML（必须等于文件夹名称） |
 | `profession` | persona.md YAML（平台读它来替 persona 分类） |
-| `base_price` | persona.md YAML |
+| `base_price` | metadata.json |
 | `name` | metadata.json |
 | `one_liner` | metadata.json |
 | `languages` | metadata.json |
@@ -57,9 +57,11 @@
 
 ```json
 {
+  "persona_id": "kai_weekly_coach",
   "name": "Kai",
   "one_liner": "把你脑中的一团乱，变成可执行的周计划",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["zh-CN", "en"],
   "listing_description": "市集上架显示的 2–3 句：这是个怎样的角色、能帮你什么。",
   "cover": "assets/cover-kai_weekly_coach.png",
@@ -287,13 +289,12 @@ User: （脆弱的分享）
 
 以下是一个完整填写的 Persona 供参考：
 
-`persona.md` frontmatter（只留运行身份 + 定价）：
+`persona.md` frontmatter（只留运行身份——`persona_id` + `profession`）：
 
 ```yaml
 ---
 persona_id: kai_weekly_coach
 profession: ops
-base_price: 0
 ---
 ```
 
@@ -301,9 +302,11 @@ base_price: 0
 
 ```json
 {
+  "persona_id": "kai_weekly_coach",
   "name": "Kai",
   "one_liner": "把你脑袋里的混乱变成可执行的周计划",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["zh-CN", "en"],
   "listing_description": "稳定的周计划伙伴，把你脑中那堆事变成明天早上就能开始的计划。",
   "cover": "assets/cover-kai_weekly_coach.png",

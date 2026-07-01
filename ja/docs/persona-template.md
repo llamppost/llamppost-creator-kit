@@ -37,13 +37,13 @@
 
 ## 各フィールドの場所（Phase-3 の分割）
 
-`persona.md` frontmatter には**実行アイデンティティ + 価格**のみを残します：`persona_id`、`profession`、`base_price`。マーケットの*リスティング*が表示するものはすべて `persona.md` の隣の **`metadata.json`** にあります。
+`persona.md` frontmatter には**実行アイデンティティ**のみを残します：`persona_id`、`profession`。`persona_id` + `base_price` は `metadata.json` にもあります（優先読み込み、frontmatter は fallback）。マーケットの*リスティング*が表示するものはすべて `persona.md` の隣の **`metadata.json`** にあります。
 
 | フィールド | 場所 |
 |-------|----------|
-| `persona_id` | persona.md YAML（フォルダ名と一致必須） |
+| `persona_id` | metadata.json + persona.md YAML（フォルダ名と一致必須） |
 | `profession` | persona.md YAML（プラットフォームが persona 分類のために読む） |
-| `base_price` | persona.md YAML |
+| `base_price` | metadata.json |
 | `name` | metadata.json |
 | `one_liner` | metadata.json |
 | `languages` | metadata.json |
@@ -57,9 +57,11 @@
 
 ```json
 {
+  "persona_id": "kai_weekly_coach",
   "name": "Kai",
   "one_liner": "頭の中のごちゃごちゃを、実行可能な週次プランに変える",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["ja", "en"],
   "listing_description": "マーケットのリスティングに表示される 2–3 文：どんなキャラクターで、何を手伝えるか。",
   "cover": "assets/cover-kai_weekly_coach.png",
@@ -287,13 +289,12 @@ User: （脆弱なシェアリング）
 
 以下は完全に記入された Persona の参考例です：
 
-`persona.md` frontmatter（実行アイデンティティ + 価格のみ）：
+`persona.md` frontmatter（実行アイデンティティのみ——`persona_id` + `profession`）：
 
 ```yaml
 ---
 persona_id: kai_weekly_coach
 profession: ops
-base_price: 0
 ---
 ```
 
@@ -301,9 +302,11 @@ base_price: 0
 
 ```json
 {
+  "persona_id": "kai_weekly_coach",
   "name": "Kai",
   "one_liner": "頭の中の混沌を、実行可能な週次プランに変える",
   "version": "1.0",
+  "base_price": 0,
   "languages": ["ja", "en"],
   "listing_description": "安定した週次プランのパートナー。頭の中の山積みを、明日の朝から始められるプランに変えます。",
   "cover": "assets/cover-kai_weekly_coach.png",

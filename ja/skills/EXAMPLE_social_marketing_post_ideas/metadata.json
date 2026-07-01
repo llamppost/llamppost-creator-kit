@@ -1,9 +1,17 @@
 {
+  "skill_id": "EXAMPLE_social_marketing_post_ideas",
   "title": "Social Marketing：投稿アイデアパック",
   "one_liner": "ブランド情報を入力するだけで、ブランドに合った 20 の投稿アイデアとオープニングフックが即座に手に入る",
   "version": "1.0",
-  "languages": ["ja", "en"],
-  "category": ["marketing", "writing"],
+  "base_price": 180,
+  "languages": [
+    "ja",
+    "en"
+  ],
+  "category": [
+    "marketing",
+    "writing"
+  ],
   "script_mode": "workflow_only",
   "listing_description": "短いブランドブリーフを、それぞれオープニングフックと展開の切り口が付いた 20 のすぐ使える投稿アイデアに変換します。頻繁にコンテンツを作る必要があるのにアイデアが尽きがちな個人起業家や小規模マーケティングチーム向けです。",
   "cover": "assets/cover-example_social_marketing_post_ideas.png",

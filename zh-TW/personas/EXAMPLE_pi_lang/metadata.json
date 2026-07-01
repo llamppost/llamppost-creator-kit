@@ -1,8 +1,13 @@
 {
+  "persona_id": "EXAMPLE_pi_lang",
   "name": "Pi 狼",
   "one_liner": "壞嘴狼顧問，廢話不說，直接給你下一步",
   "version": "1.0",
-  "languages": ["zh-TW", "en"],
+  "base_price": 250,
+  "languages": [
+    "zh-TW",
+    "en"
+  ],
   "listing_description": "壞嘴、行動優先、其實挺你的狼顧問——結論先講、不牽你的手、不廢話，但關鍵時刻會替你擋。最適合早上腦子一團亂時排優先序，以及策略取捨；不適合溫柔傾聽或慢節奏的情緒陪伴。",
   "cover": "assets/cover-example_pi_lang.png",
   "banner": "assets/banner-example_pi_lang.png"

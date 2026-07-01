@@ -1,9 +1,9 @@
 ---
 # 上架顯示欄位（title / one_liner / category / languages / version / script_mode /
-# listing_description / cover / banner / listing.*）放在 metadata.json——見本資料夾的
-# metadata.json 已填好的參考。frontmatter 只留執行身分 + 定價：
+# listing_description / base_price / cover / banner / listing.*）放在 metadata.json——
+# 見本資料夾 metadata.json 已填好的參考。frontmatter 只留執行身分（skill_id）——保留在這裡
+# 讓讀 frontmatter 的匯入／驗證工具仍能運作；平台以 metadata.json 為優先（兩邊都收）。
 skill_id: EXAMPLE_social_marketing_post_ideas
-base_price: 180        # NT$。0 = 免費；≥100 = 付費（自訂）
 ---
 
 <!--

@@ -123,14 +123,14 @@
 11. base_price は 0（無料上架、Hatchling お試し上架）と有料（≥100 NT$）どっちを入れたい？
 
 すべて訊き終わったら、「2 つのファイル」を出力してください：
-- `SKILL.md`——frontmatter には `skill_id` + `base_price` のみ、加えてすべての本文セクション
-- `metadata.json`——リスティングフィールド：`title`、`one_liner`、`version`、`languages`、`category`、`script_mode`、`listing_description`、`cover`、`banner`、およびネストされた `listing` ブロック（`what_it_does` 文字列、`what_you_get` 文字列配列、`limitations` 文字列配列）
+- `SKILL.md`——frontmatter には `skill_id` のみ、加えてすべての本文セクション
+- `metadata.json`——リスティングフィールド：`skill_id`、`title`、`one_liner`、`version`、`base_price`、`languages`、`category`、`script_mode`、`listing_description`、`cover`、`banner`、およびネストされた `listing` ブロック（`what_it_does` 文字列、`what_you_get` 文字列配列、`limitations` 文字列配列）
 - `assets/` に配置する 2 枚の画像仕様：`cover-<skill_id>.png`（正方形 1:1）+ `banner-<skill_id>.png`（横長 16:10）、PNG 各 2 MB 以内
 - 推奨フォルダパス（例：`skills/weekly_report_writer/`）
 - まだ考えがまとまっていないが補強できる部分（正直に指摘）
 
 ハードルール：
-- リスティングフィールド（title / one_liner / version / languages / category / script_mode / listing_description / listing.*）は `metadata.json` に入れます。`SKILL.md` frontmatter には `skill_id` + `base_price` のみを残し、リスティングフィールドを frontmatter に戻さないでください。
+- リスティングフィールド（title / one_liner / version / languages / category / script_mode / listing_description / listing.*）は `metadata.json` に入れます。`SKILL.md` frontmatter には `skill_id` のみを残し、リスティングフィールドを frontmatter に戻さないでください。
 - skill_id とフォルダ名は**英小文字 + 数字 + アンダースコア**、両者は完全一致
 - EXAMPLE_ や YOUR_ プレフィックスは使用不可
 - title、one_liner、本文はどの言語でも使用可（繁体字中国語、英語、日本語、何でも）
@@ -186,8 +186,8 @@
 12. base_price は 0（無料上架、Hatchling お試し上架）と有料（≥100 NT$）どっちを入れたい？
 
 すべて訊き終わったら、personas/EXAMPLE_pi_lang/ の構造に従って「2 つのファイル」を出力してください：
-- `persona.md`——frontmatter には `persona_id` + `profession` + `base_price` のみ、加えて完全な body
-- `metadata.json`——リスティングフィールド：`name`、`one_liner`、`version`、`languages`、`listing_description`、`cover`、`banner`（persona manifest には title/category/script_mode/listing ブロックはない）
+- `persona.md`——frontmatter には `persona_id` + `profession` のみ、加えて完全な body
+- `metadata.json`——リスティングフィールド：`persona_id`、`name`、`one_liner`、`version`、`base_price`、`languages`、`listing_description`、`cover`、`banner`（persona manifest には title/category/script_mode/listing ブロックはない）
 - `assets/` に配置する 2 枚の画像仕様：`cover-<persona_id>.png`（1:1）+ `banner-<persona_id>.png`（16:10）、PNG 各 2 MB 以内
 - Opening / During-work / Closing behavior 各 1–2 文
 - 5 つの sentence examples（前に訊いた 5 つのシチュエーションに対応）
@@ -196,7 +196,7 @@
 - 推奨フォルダパス（例：`personas/night_wolf_strategist/`）
 
 ハードルール：
-- リスティングフィールド（name / one_liner / languages / version / listing_description）は `metadata.json` に入れます。`persona.md` frontmatter には `persona_id` + `profession` + `base_price` のみを残し、リスティングフィールドを frontmatter に戻さないでください。
+- リスティングフィールド（name / one_liner / languages / version / listing_description）は `metadata.json` に入れます。`persona.md` frontmatter には `persona_id` + `profession` のみを残し、リスティングフィールドを frontmatter に戻さないでください。
 - persona_id とフォルダ名は**英小文字 + 数字 + アンダースコア**、両者は完全一致
 - EXAMPLE_ や YOUR_ プレフィックスは使用不可
 - name（表示名）、one_liner、すべての behavior 描写、対話、例文はどの言語でも使用可

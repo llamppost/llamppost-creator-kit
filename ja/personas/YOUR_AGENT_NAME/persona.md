@@ -1,14 +1,12 @@
 ---
-# ── 実行アイデンティティ + 価格（これらは frontmatter に残す）─────
-# リスティング表示フィールド——name、one_liner、languages、version、
-# listing_description、cover/banner——はすべて metadata.json（同フォルダ）に移動しました。
-# この persona.md は実行キャラクター本体です。
-# （profession はここに残す：プラットフォームが frontmatter から読んで persona を分類します。）
-persona_id: YOUR_AGENT_NAME       # あなたの persona ID——英小文字 + アンダースコア（例：night_wolf_strategist）。フォルダ名と完全一致必須。
+# ── 実行アイデンティティ（frontmatter に残す）─────
+# リスティング表示フィールド——name、one_liner、languages、version、listing_description、
+# base_price、cover/banner——はすべて metadata.json（同フォルダ）に。persona_id も metadata.json
+# にありますが、frontmatter を読む取り込み／検証ツールのためここにも残します（プラットフォームは
+# metadata.json を優先、frontmatter を fallback——両方受け付け）。profession はここに残す——
+# プラットフォームが frontmatter から読んで persona を分類します。この persona.md は実行キャラクター本体です。
+persona_id: YOUR_AGENT_NAME       # 英小文字 + アンダースコア（例：night_wolf_strategist）。フォルダ名および metadata.json の persona_id と完全一致必須。
 profession: ops                   # 1 つだけ選択（docs/persona-template.md の profession リスト参照）
-
-# base_price 単位：NT$  ·  0 = 無料上架（Hatchling お試し）  ·  ≥100 = 有料上架（自由価格、上限なし）
-base_price: 0
 ---
 
 <!--
@@ -17,7 +15,7 @@ base_price: 0
   2. フォルダをあなたの persona_id にリネーム——**英小文字 + アンダースコア必須**（例：personas/night_wolf_strategist/）
   3. 上の persona_id をフォルダ名と完全に一致するよう変更
   4. metadata.json に「リスティングフィールド」を記入——name / one_liner / languages /
-     version / listing_description。さらに cover-<persona_id>.png（1:1）と banner-<persona_id>.png（16:10）を assets/ に配置。
+     version / listing_description / base_price。さらに cover-<persona_id>.png（1:1）と banner-<persona_id>.png（16:10）を assets/ に配置。
   5. 下の各セクションを記入——行動、例文、ソウル素材、対話。これは実行キャラクター本体です（核心信念 は公開表示されます）。
   6. この説明セクションを削除して、Creator Portal 経由で送信
 
