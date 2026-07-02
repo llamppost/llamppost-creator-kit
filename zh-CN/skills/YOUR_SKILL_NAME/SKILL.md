@@ -1,48 +1,28 @@
 ---
-skill_id: YOUR_SKILL_NAME        # 改成你的 skill ID（必须英文小写 + 下划线，例如：social_post_ideas）
-title: 你的 Skill 显示名称         # 用户在搜索结果看到的名称（40 字以内，可以使用任何语言）
-version: "1.0"
-category:
-  - writing                       # 主要分类（必填，从清单中挑 1 个）
-  # - research                    # 次要分类（选填，最多再挑 1 个）
-one_liner: 一句话描述这个 skill 帮用户解决什么问题（60 字以内）
-
-languages:                        # 这个 skill 实际运作的语言（BCP-47 代码，必填）
-  - zh-CN
-  # - en
-
-# ── 定价 ──────────────────────────────────────────
-# base_price 单位：NT$
-# 0     = 免费上架（Hatchling 试上架）
-# ≥100  = 付费上架（自定价格，无上限）
-base_price: 0
-
-# ── 以下字段 Portal 之后会自动测试填写 ────────────
-# 目前可以不填，或填默认值。填了平台会用你的声明做初步参考，
-# 但所有 fidelity / test 标签之后都会以 Portal 自动测试结果为准。
-# deprecated（手动填）→ 将由 Portal cross-model QA 自动覆写
-# tested_runtimes:
-#   - claude
-# tested_models:
-#   - claude-opus-4-6
-# test_level: smoke               # smoke | qa | prod_ready
-
-script_mode: workflow_only        # workflow_only（只有描述）| script_spec（规格）| script_provided（附脚本）
+# ── 运行身份（留在 frontmatter）─────────
+# 市集「上架显示」的字段——title、one_liner、category、languages、version、script_mode、
+# listing_description、base_price、cover/banner——现在都放在 metadata.json（同文件夹）。
+# skill_id 也放在 metadata.json；这里一并保留，让读 frontmatter 的导入／验证工具仍能运作。
+# 平台以 metadata.json 为优先、frontmatter 为 fallback——两边都收。这份 SKILL.md 是运行 skill 本体。
+skill_id: YOUR_SKILL_NAME        # 英文小写 + 下划线（例如 social_post_ideas）。必须跟文件夹名称、以及 metadata.json 的 skill_id 完全一致。
 ---
 
 <!--
   说明：
   1. 复制整个 skills/YOUR_SKILL_NAME/ 文件夹
   2. 将文件夹改名为你的 skill_id——**必须是英文小写 + 下划线**（例如：skills/social_post_ideas/）
-  3. 把上面 YAML 的 skill_id 改成跟文件夹名称完全一样
-  4. 填写上面其他 YAML 字段，删掉所有开头为 # 的行
-  5. 填写下方的各个区块
+  3. 把上面的 skill_id 改成跟文件夹名称完全一样
+  4. 在 metadata.json 填写「上架字段」——title / one_liner / category / languages /
+     version / script_mode / listing_description / base_price，以及 listing.* 区块。
+     再把 cover-<skill_id>.png（1:1）与 banner-<skill_id>.png（16:10）放进 assets/。
+  5. 填写下方的各个区块——这是你的运行 skill 内容，同时也会渲染成公开内容页。
+     （若你在 metadata.json 设了 listing.*，会覆写「What this skill does / receive / limitations」文字。）
   6. 删除这个说明区块，然后通过 Creator Portal 提交
 
   重要：
-  - skill_id 与文件夹名称**永远必须是英文**（小写字母 + 数字 + 下划线）
+  - skill_id 与文件夹名称**永远必须是英文**（小写字母 + 数字 + 下划线），且两者要完全一致
   - YOUR_SKILL_NAME 是保留前缀，Portal 会拒绝含此前缀的上架
-  - 完整字段说明请见 docs/skill-template.md
+  - 上架字段放在 metadata.json，不在这里——完整字段说明请见 docs/skill-template.md
 -->
 
 # {{title}}
@@ -114,7 +94,7 @@ script_mode: workflow_only        # workflow_only（只有描述）| script_spec
 ## Script（选用）
 
 <!--
-  这一节只在 script_mode 设为 script_spec 或 script_provided 时才需要填。
+  这一节只在 script_mode（设在 metadata.json）为 script_spec 或 script_provided 时才需要填。
   如果 script_mode 是 workflow_only，整个这一节可以删掉。
 -->
 

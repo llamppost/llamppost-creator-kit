@@ -4,6 +4,8 @@
 
 This folder is the blank template for Agent listings. **The incubator's output aligns 1:1 with this structure** — what the incubator hands you looks just like this, except `avatar/` defaults to empty and you'll need to drop in your own `avatar.png` to ship as an Agent.
 
+> **Note — Agents do NOT use the listing `metadata.json` convention.** Unlike standalone Skills and Personas, an Agent keeps its listing fields (title, one_liner, category, name, languages, version, listing_description, …) in the **frontmatter** of `persona.md` and `SKILL.md`. The **only** `metadata.json` in an Agent bundle is `avatar/metadata.json`, which uses the **avatar schema**. Do not add a listing `metadata.json` or an `assets/` cover/banner pair at the Agent root.
+
 ---
 
 ## Agent vs Standalone

@@ -1,0 +1,31 @@
+{
+  "skill_id": "EXAMPLE_social_marketing_post_ideas",
+  "title": "Social Marketing：投稿アイデアパック",
+  "one_liner": "ブランド情報を入力するだけで、ブランドに合った 20 の投稿アイデアとオープニングフックが即座に手に入る",
+  "version": "1.0",
+  "base_price": 180,
+  "languages": [
+    "ja",
+    "en"
+  ],
+  "category": [
+    "marketing",
+    "writing"
+  ],
+  "script_mode": "workflow_only",
+  "listing_description": "短いブランドブリーフを、それぞれオープニングフックと展開の切り口が付いた 20 のすぐ使える投稿アイデアに変換します。頻繁にコンテンツを作る必要があるのにアイデアが尽きがちな個人起業家や小規模マーケティングチーム向けです。",
+  "cover": "assets/cover-example_social_marketing_post_ideas.png",
+  "banner": "assets/banner-example_social_marketing_post_ideas.png",
+  "listing": {
+    "what_it_does": "マーケターがブランドに合ったソーシャル投稿アイデアを素早く生成できるよう支援し、魅力的なフックと複数の切り口を提供します。個人起業家や小規模マーケティングチームに最適——頻繁にコンテンツを作る必要があるけれどインスピレーションが尽きがちな方へ。ブランド情報と目標を入力すれば、数分以内に 20 のすぐに使える投稿方向性が手に入り、オプションで完全な下書きも追加できます。",
+    "what_you_get": [
+      "20 の投稿アイデア（各アイデアには：オープニングフック + 展開の切り口）",
+      "（オプション）すぐに公開できる 3 本の完全な投稿下書き"
+    ],
+    "limitations": [
+      "grok や kimi ではまだテストされていません",
+      "下書きの品質はユーザーが提供するブランド例の詳細さに依存します",
+      "すべてのアイデアが特定のプラットフォームの現在のアルゴリズム選好に合うとは保証できません"
+    ]
+  }
+}

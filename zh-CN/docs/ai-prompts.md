@@ -24,8 +24,8 @@
 **做法**：
 1. 先把**下列文件的完整内容**粘贴到对话开头：
    - Avatar → `docs/avatar-creation-spec.md`
-   - Skill → `docs/skill-template.md` + `skills/YOUR_SKILL_NAME/SKILL.md` + `skills/EXAMPLE_social_marketing_post_ideas/SKILL.md`
-   - Persona → `docs/persona-template.md` + `personas/YOUR_AGENT_NAME/persona.md` + `personas/EXAMPLE_pi_lang/persona.md`
+   - Skill → `docs/skill-template.md` + `skills/YOUR_SKILL_NAME/SKILL.md` + `skills/YOUR_SKILL_NAME/metadata.json` + `skills/EXAMPLE_social_marketing_post_ideas/SKILL.md` + `skills/EXAMPLE_social_marketing_post_ideas/metadata.json`
+   - Persona → `docs/persona-template.md` + `personas/YOUR_AGENT_NAME/persona.md` + `personas/YOUR_AGENT_NAME/metadata.json` + `personas/EXAMPLE_pi_lang/persona.md` + `personas/EXAMPLE_pi_lang/metadata.json`
    - Agent（全套）→ `agents/YOUR_AGENT_NAME/` 整包（README.md + persona.md + SKILL.md + avatar/metadata.json）+ 上面三组
 2. 再复制对应的 Prompt 粘贴到对话
 3. AI 会根据你贴的文件内容与规则对你发问
@@ -122,12 +122,15 @@
 10. title（显示名称）与 one_liner（搜索结果的第一句）你想怎么写？
 11. base_price 想填 0（免费上架，Hatchling 试上架）还是付费（≥100 NT$）？
 
-问完之后，请输出：
-- 完整的 SKILL.md 文件内容（YAML frontmatter + 所有 body 区块）
+问完之后，请输出「两份文件」：
+- `SKILL.md`——frontmatter 只放 `skill_id`，加上所有 body 区块
+- `metadata.json`——上架字段：`skill_id`、`title`、`one_liner`、`version`、`base_price`、`languages`、`category`、`script_mode`、`listing_description`、`cover`、`banner`，以及嵌套的 `listing` 区块（`what_it_does` 字符串、`what_you_get` 字符串数组、`limitations` 字符串数组）
+- 放进 `assets/` 的两张图规格：`cover-<skill_id>.png`（方形 1:1）+ `banner-<skill_id>.png`（宽 16:10），PNG 每张 2 MB 以内
 - 建议的文件夹路径（例如 `skills/weekly_report_writer/`）
 - 我还没想清楚但可以补强的地方（诚实指出）
 
 硬性规则：
+- 上架字段（title / one_liner / version / languages / category / script_mode / listing_description / listing.*）放进 `metadata.json`。`SKILL.md` frontmatter 只留 `skill_id`，不要把上架字段塞回 frontmatter。
 - skill_id 与文件夹名称必须是**英文小写 + 数字 + 下划线**，且两者完全一致
 - 不可使用 EXAMPLE_ 或 YOUR_ 前缀
 - title、one_liner、body 内容可以使用任何语言（简中、繁中、英文、日文、任何语言）
@@ -182,9 +185,10 @@
 11. 你希望这个 persona 的 persona_id 叫什么？（英文小写 + 下划线）
 12. base_price 想填 0（免费上架，Hatchling 试上架）还是付费（≥100 NT$）？
 
-问完之后，请依照 personas/EXAMPLE_pi_lang/persona.md 的结构输出：
-- 完整的 persona.md 文件内容
-- YAML frontmatter（所有必填字段）
+问完之后，请依照 personas/EXAMPLE_pi_lang/ 的结构输出「两份文件」：
+- `persona.md`——frontmatter 只放 `persona_id` + `profession`，加上完整 body
+- `metadata.json`——上架字段：`persona_id`、`name`、`one_liner`、`version`、`base_price`、`languages`、`listing_description`、`cover`、`banner`（persona manifest 没有 title/category/script_mode/listing 区块）
+- 放进 `assets/` 的两张图规格：`cover-<persona_id>.png`（1:1）+ `banner-<persona_id>.png`（16:10），PNG 每张 2 MB 以内
 - Opening / During-work / Closing behavior 各 1–2 句
 - 5 句 sentence examples（对应前面问的 5 个场景）
 - 用户填写的灵魂素材段落：`## 核心信念`，再加上 `## 會保護什麼` / `## 絕不幫什麼` / `## 何時反對使用者` / `## 養成張力` / `## 與使用者的關係` 之中有回答的那几段。只放用户回答过的段落——没回答的就略过，不要自己编
@@ -192,6 +196,7 @@
 - 建议的文件夹路径（例如 `personas/night_wolf_strategist/`）
 
 硬性规则：
+- 上架字段（name / one_liner / languages / version / listing_description）放进 `metadata.json`。`persona.md` frontmatter 只留 `persona_id` + `profession`，不要把上架字段塞回 frontmatter。
 - persona_id 与文件夹名称必须是**英文小写 + 数字 + 下划线**，且两者完全一致
 - 不可使用 EXAMPLE_ 或 YOUR_ 前缀
 - name（显示名称）、one_liner、所有 behavior 描述、对话、句子示例可以使用任何语言
@@ -281,6 +286,7 @@
 - 上架前的最终检查清单
 
 硬性规则（前面三支 Prompt 的规则全部合并）：
+- **Agent 不使用 listing `metadata.json`。** 这是跟单品 Skill / Persona 的关键差异：Agent 里所有上架字段（title、name、one_liner、category、languages、version、listing_description、script_mode）都留在 `persona.md` / `SKILL.md` 的 **frontmatter**。bundle 里唯一的 `metadata.json` 是 `avatar/metadata.json`（avatar schema）。不要在 Agent 根目录产生 listing `metadata.json` 或 `assets/` 的 cover/banner。
 - persona_id、skill_id、avatar_id、文件夹名称都必须**英文小写 + 数字 + 下划线**
 - 不可使用 EXAMPLE_ 或 YOUR_ 前缀
 - 三个 ID 建议用共同前缀让它们看起来是一组（例如 `night_wolf_strategist` / `night_wolf_strategist_skill` / `night_wolf_strategist_001`）

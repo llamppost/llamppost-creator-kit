@@ -39,21 +39,71 @@ skill の `title`（表示名、例：`title: 週報自動ジェネレーター`
 
 | フィールド | 位置 | 必須 | 説明 |
 |-------|----------|----------|-------------|
-| `skill_id` | YAML | はい | 一意 ID、小文字 + アンダースコア |
-| `title` | YAML | はい | 表示名、40 文字以内 |
-| `version` | YAML | はい | `"1.0"` から開始 |
-| `category` | YAML | はい | 最大 2 カテゴリ |
-| `one_liner` | YAML | はい | 一文ピッチ、60 文字以内 |
-| `languages` | YAML | はい | skill が動作する言語の BCP-47 コード |
-| `base_price` | YAML | はい | NT$、`0`（無料）または `≥100` |
-| `script_mode` | YAML | はい | 下の説明を参照 |
-| What this skill does | Body | はい | 3–5 文の説明 |
-| Workflow | Body | はい | 3–7 ステップ |
-| What User needs to provide | Body | はい | 箇条書き |
-| What User will receive | Body | はい | 箇条書き |
-| Known limitations | Body | はい | 箇条書き |
-| Script | Body | 任意 | script_spec / script_provided のときのみ記入 |
-| `tested_runtimes` / `tested_models` / `test_level` | YAML | deprecated | Portal が今後自動テストして記入 |
+| `skill_id` | metadata.json + SKILL.md YAML | はい | 一意 ID、小文字 + アンダースコア。フォルダ名と一致必須。 |
+| `base_price` | metadata.json | はい | NT$、`0`（無料）または `≥100` |
+| `title` | metadata.json | はい | 表示名、40 文字以内 |
+| `version` | metadata.json | はい | `"1.0"` から開始 |
+| `category` | metadata.json | はい | 最大 2 カテゴリ |
+| `one_liner` | metadata.json | はい | 一文ピッチ、60 文字以内 |
+| `languages` | metadata.json | はい | skill が動作する言語の BCP-47 コード |
+| `script_mode` | metadata.json | はい | 下の説明を参照 |
+| `listing_description` | metadata.json | 推奨 | マーケットの短い説明 |
+| `cover` | metadata.json | 推奨 | `assets/cover-<id>.png`、正方形 1:1 |
+| `banner` | metadata.json | 推奨 | `assets/banner-<id>.png`、横長 16:10 |
+| `listing.what_it_does` / `listing.what_you_get` / `listing.limitations` | metadata.json | 任意 | コンテンツページの対応する body セクションを上書き |
+| What this skill does | SKILL.md body | はい | 3–5 文の説明 |
+| Workflow | SKILL.md body | はい | 3–7 ステップ |
+| What User needs to provide | SKILL.md body | はい | 箇条書き |
+| What User will receive | SKILL.md body | はい | 箇条書き |
+| Known limitations | SKILL.md body | はい | 箇条書き |
+| Script | SKILL.md body | 任意 | script_spec / script_provided のときのみ記入 |
+| `tested_runtimes` / `tested_models` / `test_level` | — | deprecated | Portal が今後自動テストして記入 |
+
+> **各フィールドの場所（Phase-3 の分割）：** `SKILL.md` frontmatter には**実行アイデンティティ**（`skill_id`）のみを残します；`skill_id` + `base_price` は `metadata.json` にもあります（優先読み込み、frontmatter は fallback）。マーケットの*リスティング*が表示するものはすべて `SKILL.md` の隣の **`metadata.json`** にあります。`SKILL.md` の body セクションはそのまま——公開コンテンツページとしてレンダリングされ、`metadata.json` の `listing.*` がそれらを上書きできます。
+
+---
+
+## リスティング manifest（`metadata.json`）
+
+`metadata.json` は skill フォルダ内の `SKILL.md` の隣にあり、マーケットのリスティングが表示するすべてのフィールドを保持します。ファイルレベルでは任意です（`metadata.json` のないバンドルは `SKILL.md` frontmatter にフォールバック）が、Phase-3 の skill ではここがリスティングフィールドの置き場所です。
+
+```json
+{
+  "skill_id": "weekly_report_writer",
+  "title": "週報自動ジェネレーター",
+  "one_liner": "今週のタスクリストを入力すると、構造化された週報ドラフトが手に入る",
+  "version": "1.0",
+  "base_price": 0,
+  "languages": ["ja", "en"],
+  "category": ["writing", "ops"],
+  "script_mode": "workflow_only",
+  "listing_description": "マーケットのリスティングに表示される 2–3 文の説明。",
+  "cover": "assets/cover-weekly_report_writer.png",
+  "banner": "assets/banner-weekly_report_writer.png",
+  "listing": {
+    "what_it_does": "一段落——SKILL.md の「What this skill does」セクションを上書き。",
+    "what_you_get": ["成果物 1", "成果物 2"],
+    "limitations": ["制約 1", "制約 2"]
+  }
+}
+```
+
+- `title` / `one_liner` / `version` / `category` / `script_mode` / `listing_description`——意味とルールは下のフィールド別説明と同じで、`metadata.json` に置くようになっただけです。`skill_id` と `base_price` も `metadata.json` にあります（スペックカード）；`skill_id` は互換のため `SKILL.md` frontmatter にも残します。
+- `listing.what_it_does`（文字列）、`listing.what_you_get`（文字列配列）、`listing.limitations`（文字列配列）——公開コンテンツページの任意の上書き。省略すると `SKILL.md` の body セクションがそのまま使われます。
+- `cover` / `banner`——下を参照。
+
+### cover と banner の画像（`assets/`）
+
+リスティング画像を skill の `assets/` フォルダに配置し、`metadata.json` で宣言します：
+
+| フィールド | ファイル | 比率 | 役割 |
+|-------|------|-------|------|
+| `cover` | `assets/cover-<skill_id>.png` | 正方形 **1:1** | マーケットカードのサムネイル |
+| `banner` | `assets/banner-<skill_id>.png` | 横長 **16:10** | 詳細ページのヒーロー |
+
+- PNG、各 2 MB 以内。比率は小さな許容差（±2%）でチェックされます。
+- 画像は**言語ニュートラル**——1 バージョンのみ、言語フォルダごとに用意する必要はありません。（`metadata.json` 自体は**言語ごと**：`title` / `one_liner` / `listing_description` をローカライズ。）
+- プラットフォームはファイル名（basename）で画像を照合するため、basename が一意であれば `assets/` のパスプレフィックスは問題ありません。
 
 ---
 
@@ -268,25 +318,33 @@ AI や技術的詳細に触れる必要はありません。
 
 以下は完全に記入された Skill の参考例です：
 
+`SKILL.md` frontmatter（実行アイデンティティのみ——`skill_id`）：
+
 ```yaml
 ---
 skill_id: social_post_ideas
-title: Social Marketing：投稿アイデアパック
-version: "1.0"
-category:
-  - marketing
-  - writing
-one_liner: ブランド情報を入力するだけで、ブランドに合った 20 の投稿アイデアとオープニングフックが即座に手に入る
-
-languages:
-  - zh-TW
-  - en
-
-base_price: 0
-
-script_mode: workflow_only
 ---
 ```
+
+`metadata.json`（リスティングフィールド、`SKILL.md` の隣）：
+
+```json
+{
+  "skill_id": "social_post_ideas",
+  "title": "Social Marketing：投稿アイデアパック",
+  "one_liner": "ブランド情報を入力するだけで、ブランドに合った 20 の投稿アイデアとオープニングフックが即座に手に入る",
+  "version": "1.0",
+  "base_price": 0,
+  "languages": ["ja", "en"],
+  "category": ["marketing", "writing"],
+  "script_mode": "workflow_only",
+  "listing_description": "短いブランドブリーフを、それぞれオープニングフック付きの 20 のすぐ使える投稿アイデアに変換。",
+  "cover": "assets/cover-social_post_ideas.png",
+  "banner": "assets/banner-social_post_ideas.png"
+}
+```
+
+`SKILL.md` body（公開コンテンツページ——`metadata.json.listing.*` で上書き可能）：
 
 ```markdown
 # Social Marketing：投稿アイデアパック

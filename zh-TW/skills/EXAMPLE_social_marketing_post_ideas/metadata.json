@@ -1,0 +1,31 @@
+{
+  "skill_id": "EXAMPLE_social_marketing_post_ideas",
+  "title": "Social Marketing：貼文靈感包",
+  "one_liner": "輸入品牌資訊，立刻拿到 20 個符合品牌調性的貼文靈感與開頭 hook",
+  "version": "1.0",
+  "base_price": 180,
+  "languages": [
+    "zh-TW",
+    "en"
+  ],
+  "category": [
+    "marketing",
+    "writing"
+  ],
+  "script_mode": "workflow_only",
+  "listing_description": "把一份簡短的品牌 brief 變成 20 個可直接用的社群貼文靈感，每個都附開頭 hook 與發展角度。專為需要頻繁產出內容、卻常常沒靈感的個人創業者與小型行銷團隊而做。",
+  "cover": "assets/cover-example_social_marketing_post_ideas.png",
+  "banner": "assets/banner-example_social_marketing_post_ideas.png",
+  "listing": {
+    "what_it_does": "幫助行銷人員快速產出符合品牌調性的社群貼文想法，附帶吸引人的 hook 與多種切入角度。適合個人創業者與小型行銷團隊——需要頻繁產出內容但常常沒靈感。輸入品牌資訊與目標，幾分鐘內就能拿到 20 個可直接用的貼文方向，也可以選擇加購完整草稿。",
+    "what_you_get": [
+      "20 個貼文想法（每一個包含：開頭 hook + 發展角度）",
+      "（選填）3 篇可直接發佈的完整貼文草稿"
+    ],
+    "limitations": [
+      "尚未在 grok 或 kimi 上測試",
+      "草稿品質取決於使用者提供的品牌範例是否夠詳細",
+      "無法保證所有想法都符合特定平台目前的演算法偏好"
+    ]
+  }
+}

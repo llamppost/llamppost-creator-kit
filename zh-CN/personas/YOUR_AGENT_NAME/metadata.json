@@ -1,0 +1,13 @@
+{
+  "persona_id": "YOUR_AGENT_NAME",
+  "name": "你的 Persona 显示名称",
+  "one_liner": "一句话描述这个角色的个性或定位（40 字以内）",
+  "version": "1.0",
+  "base_price": 0,
+  "languages": [
+    "zh-CN"
+  ],
+  "listing_description": "市集列表上显示的 2–3 句：这是个怎样的角色、能帮你什么。",
+  "cover": "assets/cover-YOUR_AGENT_NAME.png",
+  "banner": "assets/banner-YOUR_AGENT_NAME.png"
+}

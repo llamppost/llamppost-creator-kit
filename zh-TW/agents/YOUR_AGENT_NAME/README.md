@@ -4,6 +4,8 @@
 
 這份資料夾是 Agent 上架的空白模板。**孵化器產出的格式跟這份結構 1:1 對齊**——孵化器跑完丟出來的就是這個樣子，只是 `avatar/` 預設是空的，你需要補上自己的 `avatar.png` 才能以 Agent 上架。
 
+> **注意——Agent 不使用 listing `metadata.json` 慣例。** 跟單品 Skill / Persona 不同，Agent 的上架欄位（title、one_liner、category、name、languages、version、listing_description 等）留在 `persona.md` 與 `SKILL.md` 的 **frontmatter**。Agent bundle 裡**唯一**的 `metadata.json` 是 `avatar/metadata.json`，用的是 **avatar schema**。不要在 Agent 根目錄加 listing `metadata.json` 或 `assets/` 的 cover/banner。
+
 ---
 
 ## Agent vs 單品

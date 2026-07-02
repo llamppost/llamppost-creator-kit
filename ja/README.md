@@ -74,12 +74,12 @@ Claude、ChatGPT、その他の AI アシスタントにテンプレートを書
 
 ---
 
-## マーケットでの機能（Kit ファイルではなく Portal で操作）
+## マーケットでの機能
+
+- **cover + banner はバンドルで出荷**：単品の Skill / Persona は `cover-<id>.png`（正方形 1:1、カードのサムネイル）と `banner-<id>.png`（横長 16:10、商品ページのヒーロー）を商品の `assets/` に入れ、`metadata.json` の `cover` / `banner` で宣言します。PNG、各 2 MB 以内。cover なし＝カードは自動生成の頭文字プレースホルダー。（公開後も Studio で上書き可能。）
+- **公開コンテンツページ**：SKILL.md の本文セクションが、購入者が商品ページで読むコンテンツページとしてレンダリングされます——`metadata.json` の `listing.*` ブロックでその文言を上書きできます。しっかり書いてください。
 
 これらは Creator Portal で公開するときに操作します。Kit ファイルの変更は不要です：
-
-- **商品サムネイル**：任意のサムネイル（PNG、16:10 推奨）をアップロードでき、マーケットのカードと商品ページに表示されます。アップロードしない場合は、自動生成された頭文字のプレースホルダーが表示されます。
-- **公開コンテンツページ**：SKILL.md の本文セクションが、購入者が商品ページで読むコンテンツページとしてレンダリングされます。しっかり書いてください。
 - **いつでも編集＋スキルパック**：公開済み商品のコンテンツページ、サムネイル、名前、説明はいつでも編集でき、公開済みの skill を複数まとめて**スキルパック**にもできます——すべて Studio →「我的上架（マイ出品）」で操作します。
 
 詳細は[上架ガイド](docs/listing-ready-v1.md)を参照してください。
@@ -99,23 +99,31 @@ creator-kit/
 │   └── avatar-creation-spec.md  # Avatar 仕様とポリシー
 ├── personas/                                # 単品 Persona
 │   ├── YOUR_AGENT_NAME/                    # 空白テンプレート——コピーしてリネームし、自分の Persona を作る
-│   │   └── persona.md
+│   │   ├── persona.md                      # 実行キャラクター本体（frontmatter：persona_id + profession）
+│   │   ├── metadata.json                    # リスティングフィールド（persona_id / name / one_liner / languages / version / base_price / listing_description / cover / banner）
+│   │   └── assets/                          # cover-<id>.png（1:1）+ banner-<id>.png（16:10）——言語ニュートラル、1 バージョンのみ
 │   └── EXAMPLE_pi_lang/                    # 参照用サンプル Persona（このフォルダ名はコピーしないでください）
-│       └── persona.md
+│       ├── persona.md
+│       ├── metadata.json
+│       └── assets/
 ├── skills/                                  # 単品 Skill
 │   ├── YOUR_SKILL_NAME/                    # 空白テンプレート——コピーしてリネームし、自分の Skill を作る
-│   │   ├── SKILL.md
+│   │   ├── SKILL.md                        # 実行 skill 本体（frontmatter：skill_id）
+│   │   ├── metadata.json                    # リスティングフィールド（skill_id / title / one_liner / category / base_price / … / listing.* / cover / banner）
+│   │   ├── assets/                          # cover-<id>.png（1:1）+ banner-<id>.png（16:10）——言語ニュートラル、1 バージョンのみ
 │   │   └── examples/
 │   └── EXAMPLE_social_marketing_post_ideas/  # 参照用サンプル Skill（このフォルダ名はコピーしないでください）
-│       └── SKILL.md
+│       ├── SKILL.md
+│       ├── metadata.json
+│       └── assets/
 ├── agents/                                  # Agent（Persona + Skill + Avatar 三位一体）
 │   └── YOUR_AGENT_NAME/                    # Agent テンプレート——双方向バインディング事前記入済み
 │       ├── README.md                       # Agent の使い方
-│       ├── persona.md                      # Persona（バインディングは同フォルダの SKILL.md を指す）
-│       ├── SKILL.md                        # Skill（バインディングは同フォルダの persona.md を指す）
+│       ├── persona.md                      # Persona——リスティングフィールドは frontmatter に残す（ここに listing metadata.json はなし）
+│       ├── SKILL.md                        # Skill——リスティングフィールドは frontmatter に残す（ここに listing metadata.json はなし）
 │       └── avatar/                         # Avatar（必須）
 │           ├── README.md
-│           └── metadata.json               # placeholder 記入済み——あなたの avatar.png を配置してください
+│           └── metadata.json               # AVATAR schema（avatar_id / traits / rights）——listing manifest ではない
 ├── policy/
 │   └── policy.ja.md             # プラットフォームポリシー
 └── assets/

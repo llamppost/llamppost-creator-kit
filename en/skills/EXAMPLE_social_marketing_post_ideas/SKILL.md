@@ -1,19 +1,10 @@
 ---
+# Listing display fields (title / one_liner / category / languages / version / script_mode /
+# listing_description / base_price / cover / banner / listing.*) live in metadata.json —
+# see this folder's metadata.json for the filled-in reference. Only runtime identity
+# (skill_id) stays in frontmatter — kept here so import/validation tools that read
+# frontmatter keep working; the platform reads metadata.json first (both accepted).
 skill_id: EXAMPLE_social_marketing_post_ideas
-title: Social Marketing: Post Ideas Pack
-version: "1.0"
-category:
-  - marketing
-  - writing
-one_liner: Input brand info, instantly get 20 on-brand post ideas with opening hooks
-
-languages:
-  - en
-  - zh-TW
-
-base_price: 180        # NT$. 0 = free; ≥100 = paid (your choice)
-
-script_mode: workflow_only
 ---
 
 <!--

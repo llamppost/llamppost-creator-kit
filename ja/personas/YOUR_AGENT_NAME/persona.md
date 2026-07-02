@@ -1,48 +1,29 @@
 ---
-persona_id: YOUR_AGENT_NAME       # あなたの persona ID に変更（英小文字 + アンダースコア必須、例：night_wolf_strategist）
-name: あなたの Persona 表示名         # ユーザーが見る名前（どの言語でも使用可）
+# ── 実行アイデンティティ（frontmatter に残す）─────
+# リスティング表示フィールド——name、one_liner、languages、version、listing_description、
+# base_price、cover/banner——はすべて metadata.json（同フォルダ）に。persona_id も metadata.json
+# にありますが、frontmatter を読む取り込み／検証ツールのためここにも残します（プラットフォームは
+# metadata.json を優先、frontmatter を fallback——両方受け付け）。profession はここに残す——
+# プラットフォームが frontmatter から読んで persona を分類します。この persona.md は実行キャラクター本体です。
+persona_id: YOUR_AGENT_NAME       # 英小文字 + アンダースコア（例：night_wolf_strategist）。フォルダ名および metadata.json の persona_id と完全一致必須。
 profession: ops                   # 1 つだけ選択（docs/persona-template.md の profession リスト参照）
-one_liner: このキャラクターの個性や役割を一文で（40 文字以内）
-version: "1.0"
-
-languages:                        # この persona が実際に使う言語（BCP-47、必須）
-  - ja
-  # - en
-
-# ── 価格設定 ──────────────────────────────────────
-# base_price 単位：NT$
-# 0     = 無料上架（Hatchling お試し上架）
-# ≥100  = 有料上架（自由価格、上限なし）
-base_price: 0
-
-# ── 以下のフィールドは Portal が今後自動テストして記入 ────────────
-# 今は未記入でも、デフォルト値でも構いません。記入したらプラットフォームは
-# あなたの宣言を初期参考にしますが、すべての fidelity / test ラベルは
-# 最終的に Portal の自動テスト結果が優先されます。
-# deprecated（手動記入）→ Portal cross-model QA が自動で上書き
-# tested_runtimes:
-#   - claude
-# tested_models:
-#   - claude-opus-4-6
-# test_level: smoke               # smoke | qa | prod_ready
-# model_fidelity:
-#   claude-opus-4-6: canon        # canon | compatible | lite | untested
 ---
 
 <!--
   手順：
   1. personas/YOUR_AGENT_NAME/ フォルダ全体をコピー
   2. フォルダをあなたの persona_id にリネーム——**英小文字 + アンダースコア必須**（例：personas/night_wolf_strategist/）
-  3. 下の YAML の persona_id をフォルダ名と完全に一致するよう変更
-  4. 上の他の YAML フィールドを記入、# で始まる行はすべて削除
-  5. 下の各セクションを記入
+  3. 上の persona_id をフォルダ名と完全に一致するよう変更
+  4. metadata.json に「リスティングフィールド」を記入——name / one_liner / languages /
+     version / listing_description / base_price。さらに cover-<persona_id>.png（1:1）と banner-<persona_id>.png（16:10）を assets/ に配置。
+  5. 下の各セクションを記入——行動、例文、ソウル素材、対話。これは実行キャラクター本体です（核心信念 は公開表示されます）。
   6. この説明セクションを削除して、Creator Portal 経由で送信
 
   重要：
-  - persona_id とフォルダ名は**必ず英語**（小文字 + 数字 + アンダースコア）
+  - persona_id とフォルダ名は**必ず英語**（小文字 + 数字 + アンダースコア）で、両者は完全一致
   - YOUR_AGENT_NAME は予約プレフィックス、このプレフィックスを含む上架は Portal が拒否
   - 表示名（name）、one_liner、すべての本文、対話、例文はどの言語でも使用可
-  - 完全なフィールド説明は docs/persona-template.md を参照
+  - リスティングフィールドは metadata.json にあります——完全な説明は docs/persona-template.md を参照
   - 完全な例は personas/EXAMPLE_pi_lang/persona.md を参照
 -->
 

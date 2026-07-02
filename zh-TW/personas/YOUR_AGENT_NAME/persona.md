@@ -1,47 +1,29 @@
 ---
-persona_id: YOUR_AGENT_NAME       # 改成你的 persona ID（必須英文小寫 + 底線，例如：night_wolf_strategist）
-name: 你的 Persona 顯示名稱         # 使用者看到的名稱（可以使用任何語言）
+# ── 執行身分（留在 frontmatter）─────────
+# 上架顯示欄位——name、one_liner、languages、version、listing_description、base_price、
+# cover/banner——現在都放在 metadata.json（同資料夾）。persona_id 也放在 metadata.json；這裡
+# 一併保留，讓讀 frontmatter 的匯入／驗證工具仍能運作（平台以 metadata.json 為優先、frontmatter
+# 為 fallback——兩邊都收）。profession 留在這裡——平台從 frontmatter 讀它來替 persona 分類。
+# 這份 persona.md 是執行角色本體。
+persona_id: YOUR_AGENT_NAME       # 英文小寫 + 底線（例如 night_wolf_strategist）。必須跟資料夾名稱、以及 metadata.json 的 persona_id 完全一致。
 profession: ops                   # 只能挑 1 個（見 docs/persona-template.md 的 profession 清單）
-one_liner: 一句話描述這個角色的個性或定位（40 字以內）
-version: "1.0"
-
-languages:                        # 這個 persona 實際使用的語言（BCP-47，必填）
-  - zh-TW
-  # - en
-
-# ── 定價 ──────────────────────────────────────────
-# base_price 單位：NT$
-# 0     = 免費上架（Hatchling 試上架）
-# ≥100  = 付費上架（自訂價格，無上限）
-base_price: 0
-
-# ── 以下欄位 Portal 之後會自動測試填寫 ────────────
-# 目前可以不填，或填預設值。填了平台會用你的宣稱做初步參考，
-# 但所有 fidelity / test 標籤之後都會以 Portal 自動測試結果為準。
-# deprecated（手動填）→ 將由 Portal cross-model QA 自動覆寫
-# tested_runtimes:
-#   - claude
-# tested_models:
-#   - claude-opus-4-6
-# test_level: smoke               # smoke | qa | prod_ready
-# model_fidelity:
-#   claude-opus-4-6: canon        # canon | compatible | lite | untested
 ---
 
 <!--
   說明：
   1. 複製整個 personas/YOUR_AGENT_NAME/ 資料夾
   2. 將資料夾改名為你的 persona_id——**必須是英文小寫 + 底線**（例如：personas/night_wolf_strategist/）
-  3. 把下面 YAML 的 persona_id 改成跟資料夾名稱完全一樣
-  4. 填寫上面其他 YAML 欄位，刪掉所有開頭為 # 的行
-  5. 填寫下方的各個區塊
+  3. 把上面的 persona_id 改成跟資料夾名稱完全一樣
+  4. 在 metadata.json 填寫「上架欄位」——name / one_liner / languages / version /
+     listing_description / base_price。再把 cover-<persona_id>.png（1:1）與 banner-<persona_id>.png（16:10）放進 assets/。
+  5. 填寫下方的各個區塊——行為、句子範例、靈魂素材、對話。這是執行角色本體（且 核心信念 會公開顯示）。
   6. 刪除這個說明區塊，然後透過 Creator Portal 送出
 
   重要：
-  - persona_id 與資料夾名稱**永遠必須是英文**（小寫字母 + 數字 + 底線）
+  - persona_id 與資料夾名稱**永遠必須是英文**（小寫字母 + 數字 + 底線），且兩者要完全一致
   - YOUR_AGENT_NAME 是保留前綴，Portal 會拒絕含此前綴的上架
   - 顯示名稱（name）、one_liner、所有 body 內容、對話、句子範例可以使用任何語言
-  - 完整欄位說明請見 docs/persona-template.md
+  - 上架欄位放在 metadata.json——完整欄位說明請見 docs/persona-template.md
   - 完整範例請見 personas/EXAMPLE_pi_lang/persona.md
 -->
 

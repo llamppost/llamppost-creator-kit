@@ -1,15 +1,10 @@
 ---
+# 上架顯示欄位（name / one_liner / languages / version / listing_description / base_price /
+# cover / banner）放在 metadata.json——見本資料夾 metadata.json 已填好的參考。frontmatter 只留
+# 執行身分（persona_id）+ profession——persona_id 保留在這裡讓讀 frontmatter 的匯入／驗證工具
+# 仍能運作；平台以 metadata.json 為優先（兩邊都收）。
 persona_id: EXAMPLE_pi_lang
-name: Pi 狼
 profession: strat
-one_liner: 壞嘴狼顧問，廢話不說，直接給你下一步
-version: "1.0"
-
-languages:
-  - zh-TW
-  - en
-
-base_price: 250            # NT$。0 = 免費；≥100 = 付費（自訂）
 ---
 
 <!--

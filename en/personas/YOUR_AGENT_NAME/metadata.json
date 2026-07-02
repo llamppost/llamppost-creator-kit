@@ -1,0 +1,13 @@
+{
+  "persona_id": "YOUR_AGENT_NAME",
+  "name": "Your Persona Display Name",
+  "one_liner": "One sentence describing this character's personality or role (under 40 chars)",
+  "version": "1.0",
+  "base_price": 0,
+  "languages": [
+    "zh-TW"
+  ],
+  "listing_description": "2-3 sentences shown on the marketplace listing: who this character is and what they help with.",
+  "cover": "assets/cover-YOUR_AGENT_NAME.png",
+  "banner": "assets/banner-YOUR_AGENT_NAME.png"
+}

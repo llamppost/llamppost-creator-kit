@@ -1,0 +1,5 @@
+# Listing images drop here (language-neutral — one version, no per-language copies):
+#   cover-example_social_marketing_post_ideas.png    square 1:1     (card thumbnail)
+#   banner-example_social_marketing_post_ideas.png   wide 16:10     (detail-page hero)
+# PNG, under 2 MB each. Declared in metadata.json via "cover" / "banner".
+# (This EXAMPLE ships no sample image; a real listing would place the PNGs here.)

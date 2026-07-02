@@ -97,27 +97,35 @@
 
 資料夾裡有一份 `SKILL.md`——你只需要填這一個檔案。改名後記得同時把 `SKILL.md` 裡的 `skill_id` 改成跟資料夾名稱一致。
 
-### 步驟 2：填寫 YAML 開頭
+### 步驟 2：填寫 `SKILL.md` frontmatter（執行身分——`skill_id`）
 
 ```yaml
 ---
-skill_id: weekly_report_writer      ← 改成你的 skill ID（小寫 + 底線）
-title: 週報自動生成器                ← 改成你的 skill 名稱
-version: "1.0"
-category:
-  - writing                         ← 主要分類（見分類清單）
-  - ops                             ← 次要分類（選填）
-one_liner: 輸入你的週工作清單，自動拿到結構化的週報草稿
-
-languages:
-  - zh-TW
-  - en
-
-base_price: 0                       ← NT$。0 = 免費；≥100 = 付費（自訂）
-
-script_mode: workflow_only          ← 保持原樣（除非你有附腳本）
+skill_id: weekly_report_writer      ← 改成你的 skill ID（小寫 + 底線；必須等於資料夾名稱）
 ---
 ```
+
+### 步驟 2b：填寫 `metadata.json`（上架欄位）+ 放進 `assets/`
+
+`SKILL.md` 旁邊有一份 `metadata.json` 承載市集上架欄位，還有 `assets/` 放圖片：
+
+```json
+{
+  "skill_id": "weekly_report_writer",
+  "title": "週報自動生成器",
+  "one_liner": "輸入你的週工作清單，自動拿到結構化的週報草稿",
+  "version": "1.0",
+  "base_price": 0,
+  "languages": ["zh-TW", "en"],
+  "category": ["writing", "ops"],
+  "script_mode": "workflow_only",
+  "listing_description": "市集上架顯示的 2–3 句描述。",
+  "cover": "assets/cover-weekly_report_writer.png",
+  "banner": "assets/banner-weekly_report_writer.png"
+}
+```
+
+把 `cover-<skill_id>.png`（方形 **1:1**，卡片縮圖）與 `banner-<skill_id>.png`（寬 **16:10**，商品頁主視覺）放進 `assets/`——PNG，每張 2 MB 以內。圖片語言中性（只放一版，不用每語一份）。完整欄位說明見 [skill-template.md](skill-template.md)。
 
 > **分類清單：** writing、research、coding、data、strategy、ops、sales、marketing、design、learning
 
@@ -142,7 +150,7 @@ YAML 下面有五個區塊，每一個都附有註解說明（`<!-- 灰色字 --
 - [ ] base_price 是 0 或 ≥100
 ```
 
-透過 Creator Portal 送出。送出時可以上傳選填的**商品縮圖**（PNG，建議 16:10）——會顯示在市集卡片與商品頁。不上傳的話，卡片會改用自動產生的字母 placeholder。
+透過 Creator Portal 送出。你的 `cover` / `banner` 隨 bundle 出貨，透過 `metadata.json` + `assets/`（cover 1:1 卡片縮圖、banner 16:10 商品頁主視覺）。沒有 cover＝自動產生的字母 placeholder。上架後仍可在 Studio 覆蓋。
 
 ---
 
@@ -157,23 +165,34 @@ YAML 下面有五個區塊，每一個都附有註解說明（`<!-- 灰色字 --
 
 完整欄位說明請見 [persona-template.md](persona-template.md)；完整填寫範例請見 `personas/EXAMPLE_pi_lang/persona.md`。
 
-### 步驟 2：填寫 YAML 開頭
+### 步驟 2：填寫 `persona.md` frontmatter + `metadata.json`
+
+`persona.md` frontmatter 留執行身分（`persona_id` + `profession`）：
 
 ```yaml
 ---
-persona_id: kai_weekly_coach
-name: Kai
+persona_id: kai_weekly_coach       ← 必須等於資料夾名稱
 profession: ops                    ← 只能挑 1 個（見 profession 清單）
-one_liner: 把你腦袋裡的混亂變成可執行的週計畫
-version: "1.0"
-
-languages:
-  - zh-TW
-  - en
-
-base_price: 0                      ← NT$。0 = 免費；≥100 = 付費
 ---
 ```
+
+上架欄位放在 `persona.md` 旁邊的 `metadata.json`，圖片放 `assets/`：
+
+```json
+{
+  "persona_id": "kai_weekly_coach",
+  "name": "Kai",
+  "one_liner": "把你腦袋裡的混亂變成可執行的週計畫",
+  "version": "1.0",
+  "base_price": 0,
+  "languages": ["zh-TW", "en"],
+  "listing_description": "市集上架顯示的 2–3 句描述。",
+  "cover": "assets/cover-kai_weekly_coach.png",
+  "banner": "assets/banner-kai_weekly_coach.png"
+}
+```
+
+把 `cover-<persona_id>.png`（1:1）與 `banner-<persona_id>.png`（16:10）放進 `assets/`（PNG，2 MB 以內，語言中性）。
 
 > **Profession 清單：** life、pa、ops、people、sales、mktg、tech、strat、fitness_coach、life_coach、learning_coach、religion_mentor、intimacy_consultant、teacher_tutor、companion_partner、companion_ex
 
@@ -224,6 +243,8 @@ base_price: 0                      ← NT$。0 = 免費；≥100 = 付費
 ---
 
 ## 發佈 Agent（Persona + Skill + Avatar）
+
+> **Agent 的上架欄位留在 frontmatter——沒有 listing `metadata.json`。** Phase-3 的 `metadata.json` + `assets/` 慣例只適用於單品 Skill / Persona。在 Agent bundle 裡，`persona.md` 與 `SKILL.md` 的上架欄位（title、name、one_liner、category 等）留在 frontmatter，**唯一**的 `metadata.json` 是 `avatar/metadata.json`（avatar schema）。
 
 ### 步驟 1：複製 Agent 模板資料夾
 

@@ -63,6 +63,8 @@
 
 放在與 `avatar.png` 同一個資料夾內，檔名固定為 `metadata.json`。
 
+> **這是 avatar schema——不是 listing manifest。** Avatar 的 `metadata.json`（`avatar_id`、`collection`、`traits`、`rights` 等）跟單品 Skill / Persona 用的 listing `metadata.json`（`title` / `name`、`cover`、`banner`、`listing.*`）無關，別互相貼錯。Avatar 也沒有另外的 cover/banner——方形 1:1 的 `avatar.png` 本身就是圖片。
+
 ### 完整範例
 
 ```json

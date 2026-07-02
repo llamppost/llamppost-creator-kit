@@ -1,0 +1,31 @@
+{
+  "skill_id": "EXAMPLE_social_marketing_post_ideas",
+  "title": "Social Marketing: Post Ideas Pack",
+  "one_liner": "Input brand info, instantly get 20 on-brand post ideas with opening hooks",
+  "version": "1.0",
+  "base_price": 180,
+  "languages": [
+    "en",
+    "zh-TW"
+  ],
+  "category": [
+    "marketing",
+    "writing"
+  ],
+  "script_mode": "workflow_only",
+  "listing_description": "Turn a short brand brief into 20 ready-to-use social post ideas, each with an opening hook and a development angle. Built for solo founders and small marketing teams who need frequent content but keep running dry on ideas.",
+  "cover": "assets/cover-example_social_marketing_post_ideas.png",
+  "banner": "assets/banner-example_social_marketing_post_ideas.png",
+  "listing": {
+    "what_it_does": "Helps marketers quickly generate on-brand social post ideas with eye-catching hooks and multiple creative angles. Perfect for solo entrepreneurs and small marketing teams who need frequent content but run low on inspiration. Input your brand info and goals, and get 20 ready-to-use post directions within minutes, with optional full drafts.",
+    "what_you_get": [
+      "20 post ideas (each with: opening hook + development angle)",
+      "(Optional) 3 ready-to-publish full post drafts"
+    ],
+    "limitations": [
+      "Not yet tested on grok or kimi",
+      "Draft quality depends on how detailed the User's brand examples are",
+      "No guarantee all ideas align with a specific platform's current algorithm preferences"
+    ]
+  }
+}

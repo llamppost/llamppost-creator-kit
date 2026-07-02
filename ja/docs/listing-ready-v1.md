@@ -97,27 +97,35 @@
 
 フォルダの中に `SKILL.md` が 1 つあります——このファイルだけ記入すれば OK。リネーム後、`SKILL.md` 内の `skill_id` もフォルダ名と完全に一致するよう変更してください。
 
-### ステップ 2：YAML ヘッダーを記入
+### ステップ 2：`SKILL.md` frontmatter を記入（実行アイデンティティ——`skill_id`）
 
 ```yaml
 ---
-skill_id: weekly_report_writer      ← あなたの skill ID に変更（英小文字 + アンダースコア）
-title: 週報自動ジェネレーター         ← あなたの skill 名に変更
-version: "1.0"
-category:
-  - writing                         ← メインカテゴリ（カテゴリリスト参照）
-  - ops                             ← サブカテゴリ（任意）
-one_liner: あなたの週次タスクリストを入力すると、構造化された週報ドラフトが自動で手に入る
-
-languages:
-  - zh-TW
-  - en
-
-base_price: 0                       ← NT$。0 = 無料；≥100 = 有料（自由設定）
-
-script_mode: workflow_only          ← そのまま（スクリプト付属でない限り）
+skill_id: weekly_report_writer      ← あなたの skill ID に変更（英小文字 + アンダースコア；フォルダ名と一致必須）
 ---
 ```
+
+### ステップ 2b：`metadata.json`（リスティングフィールド）を記入 +  `assets/` に配置
+
+`SKILL.md` の隣にマーケットのリスティングフィールドを保持する `metadata.json` と、画像用の `assets/` があります：
+
+```json
+{
+  "skill_id": "weekly_report_writer",
+  "title": "週報自動ジェネレーター",
+  "one_liner": "あなたの週次タスクリストを入力すると、構造化された週報ドラフトが自動で手に入る",
+  "version": "1.0",
+  "base_price": 0,
+  "languages": ["ja", "en"],
+  "category": ["writing", "ops"],
+  "script_mode": "workflow_only",
+  "listing_description": "マーケットのリスティングに表示される 2–3 文の説明。",
+  "cover": "assets/cover-weekly_report_writer.png",
+  "banner": "assets/banner-weekly_report_writer.png"
+}
+```
+
+`cover-<skill_id>.png`（正方形 **1:1**、カードのサムネイル）と `banner-<skill_id>.png`（横長 **16:10**、詳細ページのヒーロー）を `assets/` に配置——PNG、各 2 MB 以内。画像は言語ニュートラル（1 バージョンのみ、言語ごとに用意しない）。完全なフィールド説明は [skill-template.md](skill-template.md)。
 
 > **カテゴリリスト：** writing、research、coding、data、strategy、ops、sales、marketing、design、learning
 
@@ -142,7 +150,7 @@ YAML の下に 5 つのセクションがあり、それぞれにコメントに
 - [ ] base_price が 0 または ≥100
 ```
 
-Creator Portal 経由で送信してください。送信時に任意の**商品サムネイル**（PNG、16:10 推奨）をアップロードできます——マーケットのカードと商品ページに表示されます。アップロードしない場合は、カードに自動生成された頭文字のプレースホルダーが表示されます。
+Creator Portal 経由で送信してください。`cover` / `banner` は `metadata.json` + `assets/` を通じてバンドルで出荷されます（cover は 1:1 のカードサムネイル、banner は 16:10 の詳細ヒーロー）。cover なし＝自動生成の頭文字プレースホルダー。公開後も Studio で上書き可能です。
 
 ---
 
@@ -157,23 +165,34 @@ Creator Portal 経由で送信してください。送信時に任意の**商品
 
 完全なフィールド説明は [persona-template.md](persona-template.md) を、完全な記入例は `personas/EXAMPLE_pi_lang/persona.md` を参照してください。
 
-### ステップ 2：YAML ヘッダーを記入
+### ステップ 2：`persona.md` frontmatter + `metadata.json` を記入
+
+`persona.md` frontmatter には実行アイデンティティ（`persona_id` + `profession`）を残します：
 
 ```yaml
 ---
-persona_id: kai_weekly_coach
-name: Kai
+persona_id: kai_weekly_coach       ← フォルダ名と一致必須
 profession: ops                    ← 1 つだけ選択（profession リスト参照）
-one_liner: 頭の中の混沌を、実行可能な週次プランに変える
-version: "1.0"
-
-languages:
-  - zh-TW
-  - en
-
-base_price: 0                      ← NT$。0 = 無料；≥100 = 有料
 ---
 ```
+
+リスティングフィールドは `persona.md` の隣の `metadata.json`、画像は `assets/` に：
+
+```json
+{
+  "persona_id": "kai_weekly_coach",
+  "name": "Kai",
+  "one_liner": "頭の中の混沌を、実行可能な週次プランに変える",
+  "version": "1.0",
+  "base_price": 0,
+  "languages": ["ja", "en"],
+  "listing_description": "マーケットのリスティングに表示される 2–3 文の説明。",
+  "cover": "assets/cover-kai_weekly_coach.png",
+  "banner": "assets/banner-kai_weekly_coach.png"
+}
+```
+
+`cover-<persona_id>.png`（1:1）と `banner-<persona_id>.png`（16:10）を `assets/` に配置（PNG、2 MB 以内、言語ニュートラル）。
 
 > **Profession リスト：** life、pa、ops、people、sales、mktg、tech、strat、fitness_coach、life_coach、learning_coach、religion_mentor、intimacy_consultant、teacher_tutor、companion_partner、companion_ex
 
@@ -224,6 +243,8 @@ base_price: 0                      ← NT$。0 = 無料；≥100 = 有料
 ---
 
 ## Agent（Persona + Skill + Avatar）を公開する
+
+> **Agent はリスティングフィールドを frontmatter に残す——リスティング `metadata.json` はありません。** Phase-3 の `metadata.json` + `assets/` 規約は単品の Skill / Persona にのみ適用されます。Agent バンドルでは、`persona.md` と `SKILL.md` のリスティングフィールド（title、name、one_liner、category など）は frontmatter に残り、**唯一**の `metadata.json` は `avatar/metadata.json`（avatar schema）です。
 
 ### ステップ 1：Agent テンプレートフォルダをコピー
 

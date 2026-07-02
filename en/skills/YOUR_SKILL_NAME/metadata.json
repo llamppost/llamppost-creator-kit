@@ -1,0 +1,28 @@
+{
+  "skill_id": "YOUR_SKILL_NAME",
+  "title": "Your Skill Display Name",
+  "one_liner": "One sentence describing what problem this skill solves for the user (under 60 chars)",
+  "version": "1.0",
+  "base_price": 0,
+  "languages": [
+    "zh-TW"
+  ],
+  "category": [
+    "writing"
+  ],
+  "script_mode": "workflow_only",
+  "listing_description": "2-3 sentences shown on the marketplace listing: what the buyer gets and when to reach for this skill.",
+  "cover": "assets/cover-YOUR_SKILL_NAME.png",
+  "banner": "assets/banner-YOUR_SKILL_NAME.png",
+  "listing": {
+    "what_it_does": "One paragraph: what this skill does, who it's for, and the problem it solves. Overrides the SKILL.md 'What this skill does' section on the public content page when set.",
+    "what_you_get": [
+      "Concrete deliverable 1 (use numbers/formats)",
+      "Concrete deliverable 2"
+    ],
+    "limitations": [
+      "Honest limitation 1",
+      "Honest limitation 2"
+    ]
+  }
+}

@@ -1,32 +1,13 @@
 ---
-persona_id: YOUR_AGENT_NAME       # Change to your persona ID (must be lowercase English + underscores, e.g., night_wolf_strategist)
-name: Your Persona Display Name   # The name users see (can be in any language)
+# ── Runtime identity (stays in frontmatter) ─────────
+# Listing display fields — name, one_liner, languages, version, listing_description,
+# base_price, cover/banner — now live in metadata.json (sibling file). persona_id lives in
+# metadata.json too; it is kept here as well so import/validation tools that read frontmatter
+# keep working (the platform reads metadata.json first, frontmatter as fallback — both
+# accepted). profession stays here — the platform reads it from frontmatter to categorize the
+# persona. This persona.md is the runtime character body.
+persona_id: YOUR_AGENT_NAME       # lowercase English + underscores (e.g. night_wolf_strategist). MUST equal the folder name AND the persona_id in metadata.json.
 profession: ops                   # Pick exactly 1 (see profession list in docs/persona-template.md)
-one_liner: One sentence describing this character's personality or role (under 40 chars)
-version: "1.0"
-
-languages:                        # The languages this persona actually operates in (BCP-47, required)
-  - zh-TW
-  # - en
-
-# ── Pricing ───────────────────────────────────────
-# base_price unit: NT$
-# 0     = free listing (Hatchling trial)
-# ≥100  = paid listing (set your own price, no cap)
-base_price: 0
-
-# ── The fields below will be auto-filled by Portal testing later ─
-# You can leave them out for now, or fill in defaults. If filled, the platform uses
-# your claim as an initial reference, but all fidelity / test labels will ultimately
-# be set by Portal's automatic test results.
-# deprecated (manual fill) → will be overwritten by Portal cross-model QA
-# tested_runtimes:
-#   - claude
-# tested_models:
-#   - claude-opus-4-6
-# test_level: smoke               # smoke | qa | prod_ready
-# model_fidelity:
-#   claude-opus-4-6: canon        # canon | compatible | lite | untested
 ---
 
 <!--
@@ -34,16 +15,19 @@ base_price: 0
   1. Copy the entire personas/YOUR_AGENT_NAME/ folder
   2. Rename the folder to your persona_id — **must be lowercase English + underscores**
      (e.g., personas/night_wolf_strategist/)
-  3. Change the persona_id in the YAML below to match the folder name exactly
-  4. Fill in the other YAML fields and remove all lines starting with #
-  5. Fill in the sections below
+  3. Change the persona_id above to match the folder name exactly
+  4. Fill in the LISTING fields in metadata.json — name / one_liner / languages /
+     version / listing_description / base_price. Drop cover-<persona_id>.png (1:1) and
+     banner-<persona_id>.png (16:10) into assets/.
+  5. Fill in the sections below — behavior, sentence examples, soul, dialogues.
+     These are the runtime character body (and 核心信念 renders publicly).
   6. Delete this instruction block, then submit through Creator Portal
 
   Important:
-  - persona_id and folder name **must always be English** (lowercase letters + digits + underscores)
+  - persona_id and folder name **must always be English** (lowercase letters + digits + underscores) and must match exactly
   - YOUR_AGENT_NAME is a reserved prefix; Portal will reject listings using it
   - The display name (name), one_liner, all body content, dialogues, and sentence examples can be in any language
-  - For full field reference, see docs/persona-template.md
+  - Listing fields live in metadata.json — full field reference in docs/persona-template.md
   - For a complete example, see personas/EXAMPLE_pi_lang/persona.md
 -->
 
